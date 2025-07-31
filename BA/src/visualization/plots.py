@@ -121,9 +121,9 @@ def plot_average_metric_by_time_and_event(
         x="time_period",
         y="mean",
         hue="event_name",
-        errorbar=None,
+        errorbar="sd",
         palette="viridis",
-    )
+    )  # errorbar="sd" re-added
     plt.title(title)
     plt.ylabel(y_label)
     plt.xticks(rotation=15)
@@ -211,9 +211,9 @@ def plot_metric_by_event_and_type(
         x="post_type",
         y="mean",
         hue="event_name",
-        errorbar=None,
+        errorbar="sd",
         palette="viridis",
-    )
+    )  # errorbar="sd" re-added
     plt.title(title)
     plt.ylabel(f"Mean {metric.replace('_', ' ').title()}")
     plt.xticks(rotation=20)
@@ -386,10 +386,23 @@ def plot_distribution_comparison(
     fig = plt.figure(figsize=(10, 6))
     if plot_type == "violin":
         sns.violinplot(
-            data=data, x="event_name", y=feature, inner="quartile", palette="viridis"
-        )
+            data=data,
+            x="event_name",
+            y=feature,
+            inner="quartile",
+            palette="viridis",
+            hue="event_name",
+            legend=False,
+        )  # Corrected
     elif plot_type == "box":
-        sns.boxplot(data=data, x="event_name", y=feature, palette="viridis")
+        sns.boxplot(
+            data=data,
+            x="event_name",
+            y=feature,
+            palette="viridis",
+            hue="event_name",
+            legend=False,
+        )  # Corrected
     else:
         logger.error(
             f"Invalid plot_type '{plot_type}'. Must be 'box' or 'violin'. Skipping plot."
@@ -1013,6 +1026,7 @@ def generate_all_eda_plots(df: pd.DataFrame) -> None:
 
     # --- Additional Plots (if data available) ---
     logger.info("\n--- Generating Additional Specific Plots ---")
+    # Check for 'created_utc' and 'event_name' for time-based plots
     if "created_utc" in df.columns and "event_name" in df.columns:
         plot_engagement_per_day(
             df, "created_utc", "comment_score", "avg_comment_score_by_day_of_week.png"
@@ -1024,5 +1038,40 @@ def generate_all_eda_plots(df: pd.DataFrame) -> None:
         logger.warning(
             "Missing 'created_utc' or 'event_name' for engagement per day plots. Skipping."
         )
+
+    # Example of plot_eventwise_heatmap (requires appropriate data)
+    # if "some_category_col" in df.columns and "some_value_col" in df.columns:
+    #     plot_eventwise_heatmap(
+    #         df, "some_category_col", "some_value_col",
+    #         "Average Value by Category and Event", "eventwise_heatmap_example.png"
+    #     )
+
+    # Example of plot_boxplot_with_stats (requires appropriate data)
+    # if "category_x" in df.columns and "value_y" in df.columns and "hue_z" in df.columns:
+    #     plot_boxplot_with_stats(
+    #         df, "category_x", "value_y", "hue_z",
+    #         "Boxplot of Value by Category and Hue", "boxplot_example.png"
+    #     )
+
+    # Example of plot_event_keyword_distribution (requires keyword data)
+    # if "extracted_keyword" in df.columns:
+    #     plot_event_keyword_distribution(
+    #         df, "extracted_keyword", "Keyword Distribution Across Events",
+    #         "keyword_distribution_heatmap.png"
+    #     )
+
+    # Example of plot_dual_distribution (requires two numerical features)
+    # if "feature_A" in df.columns and "feature_B" in df.columns:
+    #     plot_dual_distribution(
+    #         df, "feature_A", "feature_B",
+    #         "Distribution Comparison of Feature A and Feature B", "dual_distribution_example.png"
+    #     )
+
+    # Example of plot_keyword_score_heatmap (requires keyword and score data)
+    # if "extracted_keyword" in df.columns and "comment_score" in df.columns:
+    #     plot_keyword_score_heatmap(
+    #         df, "extracted_keyword", "comment_score",
+    #         "Average Comment Score by Keyword and Event", "keyword_score_heatmap.png"
+    #     )
 
     logger.info("\n--- All EDA Plots Generated ---")

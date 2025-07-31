@@ -21244,3 +21244,600 @@ contains_hero_keyword                 1.000000
 2025-07-31 16:16:01,999 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\pearson_correlation_matrix.png
 2025-07-31 16:16:02,000 - INFO - 
 --- All EDA Plots Generated ---
+2025-08-01 00:17:08,935 - INFO - NLTK data 'stopwords' already downloaded.
+2025-08-01 00:17:08,936 - INFO - NLTK data 'punkt' already downloaded.
+2025-08-01 00:17:11,650 - INFO - NLTK data 'wordnet' not found. Attempting to download now...
+2025-08-01 00:17:11,885 - INFO - NLTK data 'wordnet' downloaded successfully.
+2025-08-01 00:17:11,915 - INFO - NLTK data 'vader_lexicon' not found. Attempting to download now...
+2025-08-01 00:17:11,916 - INFO - NLTK data 'vader_lexicon' downloaded successfully.
+2025-08-01 00:17:11,937 - INFO - Starting data preparation and feature engineering pipeline...
+2025-08-01 00:17:11,937 - INFO - --- Starting Data Preparation Pipeline ---
+2025-08-01 00:17:11,941 - INFO - Database file 'c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\data\processed\reddit_dota2_analysis.db' does not exist.
+2025-08-01 00:17:11,941 - INFO - 
+No processed data found in 'reddit_dota2_analysis.db'. Proceeding with data collection and processing.
+2025-08-01 00:17:12,111 - INFO - PRAW Reddit instance successfully initialized.
+2025-08-01 00:17:12,112 - INFO - Reddit instance initialized for subreddit: DotA2.
+2025-08-01 00:17:12,112 - INFO - 
+--- DATENSAMMLUNG ---
+2025-08-01 00:17:12,113 - INFO - 
+Collecting data for TI8 (Query: 'OG TI8')...
+2025-08-01 00:17:12,113 - INFO - 
+Searching for posts with query: 'OG TI8' from 2018-08-10 to 2018-08-27...
+2025-08-01 00:17:12,113 - INFO - Fetching posts via search for query: 'OG TI8'...
+2025-08-01 00:17:16,758 - INFO -   - Found 226 posts via search for 'OG TI8'.
+2025-08-01 00:17:16,758 - INFO - Fetching top posts from subreddit: 'DotA2'...
+2025-08-01 00:17:31,164 - INFO -   - Found 994 posts via top (time_filter='year').
+2025-08-01 00:17:31,166 - INFO - Found 53 unique submissions for 'OG TI8' within the date range.
+2025-08-01 00:17:31,167 - INFO - Processing comments from the top 15 highest-scoring submissions (max 15)...
+2025-08-01 00:17:31,167 - INFO -   Processing comments for post 1/15 (ID: 9ackao, Score: 20838, Title: 'Congratulations to the winners of The Internationa...')...
+2025-08-01 00:17:37,080 - INFO -     Found 771 comments (including replies) for this post.
+2025-08-01 00:17:37,091 - INFO -   Processing comments for post 2/15 (ID: 9as9i2, Score: 3316, Title: 'Post-TI8 Shuffle Thread...')...
+2025-08-01 00:17:43,296 - INFO -     Found 791 comments (including replies) for this post.
+2025-08-01 00:17:43,305 - INFO -   Processing comments for post 3/15 (ID: 9af8zx, Score: 2326, Title: 'Chinese Fans Reaction to the TI8 Grand Finals...')...
+2025-08-01 00:17:47,309 - INFO -     Found 606 comments (including replies) for this post.
+2025-08-01 00:17:47,318 - INFO -   Processing comments for post 4/15 (ID: 9a9q34, Score: 1750, Title: 'The International 8 - Grand Final...')...
+2025-08-01 00:17:53,890 - INFO -     Found 781 comments (including replies) for this post.
+2025-08-01 00:17:53,898 - INFO -   Processing comments for post 5/15 (ID: 9ad8an, Score: 1712, Title: 'Appreciation for TI8 2nd Place!...')...
+2025-08-01 00:17:56,585 - INFO -     Found 379 comments (including replies) for this post.
+2025-08-01 00:17:56,593 - INFO -   Processing comments for post 6/15 (ID: 98r57a, Score: 1135, Title: 'TI8GoOG!...')...
+2025-08-01 00:17:57,350 - INFO -     Found 103 comments (including replies) for this post.
+2025-08-01 00:17:57,358 - INFO -   Processing comments for post 7/15 (ID: 9903ix, Score: 916, Title: 'The International 8 Main Event Day 1 Summary...')...
+2025-08-01 00:17:59,768 - INFO -     Found 332 comments (including replies) for this post.
+2025-08-01 00:17:59,777 - INFO -   Processing comments for post 8/15 (ID: 9amzvb, Score: 872, Title: 'The International 2018 Stats and Trends...')...
+2025-08-01 00:18:02,268 - INFO -     Found 346 comments (including replies) for this post.
+2025-08-01 00:18:02,276 - INFO -   Processing comments for post 9/15 (ID: 9718j8, Score: 802, Title: 'Fantasy - TI8 each teams amount of games per day (...')...
+2025-08-01 00:18:03,240 - INFO -     Found 148 comments (including replies) for this post.
+2025-08-01 00:18:03,249 - INFO -   Processing comments for post 10/15 (ID: 9ag3r9, Score: 677, Title: 'Appreiciation thread for OG coach Ppasarel!...')...
+2025-08-01 00:18:03,791 - INFO -     Found 84 comments (including replies) for this post.
+2025-08-01 00:18:03,797 - INFO -   Processing comments for post 11/15 (ID: 98s1o6, Score: 426, Title: 'Not so Brief Breakdown of the TI8 Meta...')...
+2025-08-01 00:18:04,979 - INFO -     Found 188 comments (including replies) for this post.
+2025-08-01 00:18:04,987 - INFO -   Processing comments for post 12/15 (ID: 9a0vk9, Score: 377, Title: 'The International 8 - Upper Bracket Final - PSG.LG...')...
+2025-08-01 00:18:09,981 - INFO -     Found 776 comments (including replies) for this post.
+2025-08-01 00:18:09,990 - INFO -   Processing comments for post 13/15 (ID: 99ju67, Score: 369, Title: 'The International 8 - Upper Bracket Semifinal 2 - ...')...
+2025-08-01 00:18:16,219 - INFO -     Found 777 comments (including replies) for this post.
+2025-08-01 00:18:16,227 - INFO -   Processing comments for post 14/15 (ID: 98298a, Score: 355, Title: 'The International 8 Drafting Meta Analysis - Day 2...')...
+2025-08-01 00:18:17,547 - INFO -     Found 123 comments (including replies) for this post.
+2025-08-01 00:18:17,554 - INFO -   Processing comments for post 15/15 (ID: 9ah7j7, Score: 225, Title: 'Probabilities to win on TI8, made by AI, before th...')...
+2025-08-01 00:18:17,940 - INFO -     Found 36 comments (including replies) for this post.
+2025-08-01 00:18:17,946 - INFO - Successfully collected 736 comments for query: 'OG TI8'.
+2025-08-01 00:18:17,997 - INFO - Raw collected comments saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\data\raw\raw_reddit_comments_OG_TI8_20180810_20180827.json
+2025-08-01 00:18:18,013 - INFO - Successfully collected 736 comments for TI8.
+2025-08-01 00:18:18,014 - INFO - --- Cleaning and Preprocessing for TI8 ---
+2025-08-01 00:18:18,015 - INFO - --- Initial Cleaning for TI8 Comments ---
+2025-08-01 00:18:18,016 - INFO - Initial number of rows: 736
+2025-08-01 00:18:18,024 - INFO - Rows after removing duplicate comments: 736 (Removed: 0)
+2025-08-01 00:18:18,026 - INFO - Rows after removing empty/whitespace-only comments: 736 (Removed: 0)
+2025-08-01 00:18:18,027 - INFO - Final number of rows for TI8 Comments after initial cleaning: 736
+2025-08-01 00:18:19,987 - INFO - 
+--- Filtering Deleted/Empty Comments for TI8 Comments ---
+2025-08-01 00:18:19,988 - INFO - Initial number of rows: 736
+2025-08-01 00:18:19,992 - INFO - Rows after removing comments from '[deleted]' authors: 638 (Removed: 98)
+2025-08-01 00:18:19,994 - INFO - Rows after removing empty processed comments: 630 (Removed: 8)
+2025-08-01 00:18:19,995 - INFO - Final number of rows for TI8 Comments after filtering deleted/empty: 630
+2025-08-01 00:18:19,995 - INFO - Performing sentiment analysis and calculating text length...
+2025-08-01 00:18:20,116 - INFO - Categorizing time periods and calculating days from event start...
+2025-08-01 00:18:20,134 - INFO - --- Feature Engineering ---
+2025-08-01 00:18:20,136 - INFO - Calculated 'post_title_length' and 'post_title_word_count'.
+2025-08-01 00:18:20,139 - INFO - Successfully loaded JSON config from: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\config\teams.json
+2025-08-01 00:18:20,158 - INFO - Successfully loaded JSON config from: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\config\keywords.json
+2025-08-01 00:18:20,449 - INFO - Categorizing post types based on keywords...
+2025-08-01 00:18:20,450 - INFO - Successfully loaded JSON config from: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\config\keywords.json
+2025-08-01 00:18:20,496 - INFO - Post type categorization complete.
+2025-08-01 00:18:20,499 - INFO - Post type distribution:
+post_type
+Player Transfer      515
+Other                 82
+Tournament Result     33
+Name: count, dtype: int64
+2025-08-01 00:18:20,500 - WARNING - No posts categorized as 'Ranking Update'. Consider reviewing keywords or data.
+2025-08-01 00:18:20,518 - INFO - Added 'event_name' column with value: TI8.
+2025-08-01 00:18:20,521 - INFO - Extracted 'comment_hour' and 'comment_day_of_week' features.
+2025-08-01 00:18:20,522 - INFO - 
+Collecting data for TI11 (Query: 'Tundra TI11')...
+2025-08-01 00:18:20,522 - INFO - 
+Searching for posts with query: 'Tundra TI11' from 2022-10-15 to 2022-10-31...
+2025-08-01 00:18:20,522 - INFO - Fetching posts via search for query: 'Tundra TI11'...
+2025-08-01 00:18:22,745 - INFO -   - Found 120 posts via search for 'Tundra TI11'.
+2025-08-01 00:18:22,745 - INFO - Fetching top posts from subreddit: 'DotA2'...
+2025-08-01 00:18:36,551 - INFO -   - Found 994 posts via top (time_filter='year').
+2025-08-01 00:18:36,552 - INFO - Found 55 unique submissions for 'Tundra TI11' within the date range.
+2025-08-01 00:18:36,553 - INFO - Processing comments from the top 15 highest-scoring submissions (max 15)...
+2025-08-01 00:18:37,855 - INFO -     Found 77 comments (including replies) for this post.
+2025-08-01 00:18:37,864 - INFO -   Processing comments for post 2/15 (ID: ygiqre, Score: 999, Title: 'OG chose violence...')...
+2025-08-01 00:18:39,005 - INFO -     Found 84 comments (including replies) for this post.
+2025-08-01 00:18:39,014 - INFO -   Processing comments for post 3/15 (ID: ycdsr6, Score: 990, Title: 'If Tundra wins TI11, will Aui_2000 be the 1st to w...')...
+2025-08-01 00:18:40,363 - INFO -     Found 168 comments (including replies) for this post.
+2025-08-01 00:18:40,370 - INFO -   Processing comments for post 4/15 (ID: yh9ib2, Score: 595, Title: 'The International 11 - Grand Final...')...
+2025-08-01 00:18:45,748 - INFO -     Found 784 comments (including replies) for this post.
+2025-08-01 00:18:45,758 - INFO -   Processing comments for post 5/15 (ID: y7jznx, Score: 566, Title: 'Number of Unique Heroes Played in TI11 Group Stage...')...
+2025-08-01 00:18:46,759 - INFO -     Found 90 comments (including replies) for this post.
+2025-08-01 00:18:46,766 - INFO -   Processing comments for post 6/15 (ID: ycns6h, Score: 528, Title: 'Who are you guys rooting for?...')...
+2025-08-01 00:18:51,334 - INFO -     Found 507 comments (including replies) for this post.
+2025-08-01 00:18:51,344 - INFO -   Processing comments for post 7/15 (ID: y7sd5r, Score: 465, Title: 'TI11 Playoffs and Finals Schedule Color Coded...')...
+2025-08-01 00:18:53,208 - INFO -     Found 65 comments (including replies) for this post.
+2025-08-01 00:18:53,217 - INFO -   Processing comments for post 8/15 (ID: yicqui, Score: 306, Title: 'I think I may have an idea where it is...')...
+2025-08-01 00:18:53,538 - INFO -     Found 8 comments (including replies) for this post.
+2025-08-01 00:18:53,540 - INFO -   Processing comments for post 9/15 (ID: yhdy0o, Score: 289, Title: 'TI11 Winner total score...')...
+2025-08-01 00:18:54,031 - INFO -     Found 18 comments (including replies) for this post.
+2025-08-01 00:18:54,036 - INFO -   Processing comments for post 10/15 (ID: yhhklb, Score: 269, Title: 'Opinion: TI11 was the second worst TI (after ti4)...')...
+2025-08-01 00:18:55,480 - INFO -     Found 154 comments (including replies) for this post.
+2025-08-01 00:18:55,488 - INFO -   Processing comments for post 11/15 (ID: y5bc7w, Score: 231, Title: 'Is PGL not allowed to mention The International 20...')...
+2025-08-01 00:18:55,822 - INFO -     Found 23 comments (including replies) for this post.
+2025-08-01 00:18:55,827 - INFO -   Processing comments for post 12/15 (ID: ygdopg, Score: 169, Title: 'The International 11 - Upper Bracket Final - Team ...')...
+2025-08-01 00:19:00,366 - INFO -     Found 771 comments (including replies) for this post.
+2025-08-01 00:19:00,375 - INFO -   Processing comments for post 13/15 (ID: yh2mgc, Score: 165, Title: 'The International 11 - Main Event Day 6 Match Disc...')...
+2025-08-01 00:19:03,637 - INFO -     Found 514 comments (including replies) for this post.
+2025-08-01 00:19:03,646 - INFO -   Processing comments for post 14/15 (ID: yg7uo2, Score: 153, Title: 'The International 11 - Main Event Day 5 Match Disc...')...
+2025-08-01 00:19:08,863 - INFO -     Found 769 comments (including replies) for this post.
+2025-08-01 00:19:08,871 - INFO -   Processing comments for post 15/15 (ID: y4qh93, Score: 149, Title: 'The International 11 - Post Day 1 Discussion...')...
+2025-08-01 00:19:10,602 - INFO -     Found 283 comments (including replies) for this post.
+2025-08-01 00:19:10,610 - INFO - Successfully collected 649 comments for query: 'Tundra TI11'.
+2025-08-01 00:19:10,640 - INFO - Raw collected comments saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\data\raw\raw_reddit_comments_Tundra_TI11_20221015_20221031.json
+2025-08-01 00:19:10,648 - INFO - Successfully collected 649 comments for TI11.
+2025-08-01 00:19:10,649 - INFO - --- Cleaning and Preprocessing for TI11 ---
+2025-08-01 00:19:10,649 - INFO - --- Initial Cleaning for TI11 Comments ---
+2025-08-01 00:19:10,650 - INFO - Initial number of rows: 649
+2025-08-01 00:19:10,651 - INFO - Rows after removing duplicate comments: 649 (Removed: 0)
+2025-08-01 00:19:10,652 - INFO - Rows after removing empty/whitespace-only comments: 649 (Removed: 0)
+2025-08-01 00:19:10,653 - INFO - Final number of rows for TI11 Comments after initial cleaning: 649
+2025-08-01 00:19:10,724 - INFO - 
+--- Filtering Deleted/Empty Comments for TI11 Comments ---
+2025-08-01 00:19:10,725 - INFO - Initial number of rows: 649
+2025-08-01 00:19:10,726 - INFO - Rows after removing comments from '[deleted]' authors: 601 (Removed: 48)
+2025-08-01 00:19:10,728 - INFO - Rows after removing empty processed comments: 600 (Removed: 1)
+2025-08-01 00:19:10,729 - INFO - Final number of rows for TI11 Comments after filtering deleted/empty: 600
+2025-08-01 00:19:10,730 - INFO - Performing sentiment analysis and calculating text length...
+2025-08-01 00:19:10,833 - INFO - Categorizing time periods and calculating days from event start...
+2025-08-01 00:19:10,845 - INFO - --- Feature Engineering ---
+2025-08-01 00:19:10,848 - INFO - Calculated 'post_title_length' and 'post_title_word_count'.
+2025-08-01 00:19:10,849 - INFO - Successfully loaded JSON config from: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\config\teams.json
+2025-08-01 00:19:10,850 - INFO - Successfully loaded JSON config from: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\config\keywords.json
+2025-08-01 00:19:11,114 - INFO - Categorizing post types based on keywords...
+2025-08-01 00:19:11,115 - INFO - Successfully loaded JSON config from: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\config\keywords.json
+2025-08-01 00:19:11,138 - INFO - Post type categorization complete.
+2025-08-01 00:19:11,140 - INFO - Post type distribution:
+post_type
+Player Transfer      417
+Tournament Result    110
+Other                 73
+Name: count, dtype: int64
+2025-08-01 00:19:11,140 - WARNING - No posts categorized as 'Ranking Update'. Consider reviewing keywords or data.
+2025-08-01 00:19:11,155 - INFO - Added 'event_name' column with value: TI11.
+2025-08-01 00:19:11,158 - INFO - Extracted 'comment_hour' and 'comment_day_of_week' features.
+2025-08-01 00:19:11,159 - INFO - 
+Collecting data for OG_RM24 (Query: 'OG')...
+2025-08-01 00:19:11,159 - INFO - 
+Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
+2025-08-01 00:19:11,160 - INFO - Fetching posts via search for query: 'OG'...
+2025-08-01 00:19:15,201 - INFO -   - Found 237 posts via search for 'OG'.
+2025-08-01 00:19:15,202 - INFO - Fetching top posts from subreddit: 'DotA2'...
+2025-08-01 00:19:29,513 - INFO -   - Found 994 posts via top (time_filter='year').
+2025-08-01 00:19:29,515 - INFO - Found 76 unique submissions for 'OG' within the date range.
+2025-08-01 00:19:29,515 - INFO - Processing comments from the top 15 highest-scoring submissions (max 15)...
+2025-08-01 00:19:29,516 - INFO -   Processing comments for post 1/15 (ID: 1dyx8li, Score: 3389, Title: 'Guys remember this?...')...
+2025-08-01 00:19:31,593 - INFO -     Found 357 comments (including replies) for this post.
+2025-08-01 00:19:31,600 - INFO -   Processing comments for post 2/15 (ID: 1e9rsvn, Score: 3297, Title: 'Sam Mowry, the voice of the shopkeeper as well as ...')...
+2025-08-01 00:19:32,699 - INFO -     Found 158 comments (including replies) for this post.
+2025-08-01 00:19:32,707 - INFO -   Processing comments for post 3/15 (ID: 1dz5st4, Score: 2947, Title: 'Dota 2 turns 11 years old today and continues to b...')...
+2025-08-01 00:19:34,486 - INFO -     Found 275 comments (including replies) for this post.
+2025-08-01 00:19:34,495 - INFO -   Processing comments for post 4/15 (ID: 1e8rg6s, Score: 2714, Title: 'Your face while watching your supports picking Mor...')...
+2025-08-01 00:19:36,402 - INFO -     Found 272 comments (including replies) for this post.
+2025-08-01 00:19:36,410 - INFO -   Processing comments for post 5/15 (ID: 1e1wdff, Score: 2692, Title: 'Played Oracle against Riki with shard and got all ...')...
+2025-08-01 00:19:38,369 - INFO -     Found 252 comments (including replies) for this post.
+2025-08-01 00:19:38,376 - INFO -   Processing comments for post 6/15 (ID: 1e4hnm6, Score: 2622, Title: 'pov youre friend just started playing dota...')...
+2025-08-01 00:19:40,497 - INFO -     Found 237 comments (including replies) for this post.
+2025-08-01 00:19:40,506 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2102, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
+2025-08-01 00:19:41,809 - INFO -     Found 201 comments (including replies) for this post.
+2025-08-01 00:19:41,817 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2014, Title: 'I have a feeling he won’t listen ...')...
+2025-08-01 00:19:42,547 - INFO -     Found 95 comments (including replies) for this post.
+2025-08-01 00:19:42,555 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1995, Title: 'The rest of Magnus needs to be reversed...')...
+2025-08-01 00:19:43,810 - INFO -     Found 157 comments (including replies) for this post.
+2025-08-01 00:19:43,819 - INFO -   Processing comments for post 10/15 (ID: 1dzh1r9, Score: 1886, Title: 'I surely did not expect something like this, but i...')...
+2025-08-01 00:19:44,811 - INFO -     Found 176 comments (including replies) for this post.
+2025-08-01 00:19:44,818 - INFO -   Processing comments for post 11/15 (ID: 1e0t3oe, Score: 1874, Title: 'Marci's performance in this event Be like...')...
+2025-08-01 00:19:45,943 - INFO -     Found 129 comments (including replies) for this post.
+2025-08-01 00:19:45,951 - INFO -   Processing comments for post 12/15 (ID: 1dwdw93, Score: 1873, Title: 'Looking through old minimaps...')...
+2025-08-01 00:19:47,227 - INFO -     Found 190 comments (including replies) for this post.
+2025-08-01 00:19:47,235 - INFO -   Processing comments for post 13/15 (ID: 1ecksm9, Score: 1772, Title: 'When we all cry about balance, check the statistic...')...
+2025-08-01 00:19:50,602 - INFO -     Found 485 comments (including replies) for this post.
+2025-08-01 00:19:50,611 - INFO -   Processing comments for post 14/15 (ID: 1e2tzkm, Score: 1737, Title: 'I think....Valve used Slacks as a model for the CM...')...
+2025-08-01 00:19:51,110 - INFO -     Found 52 comments (including replies) for this post.
+2025-08-01 00:19:51,119 - INFO -   Processing comments for post 15/15 (ID: 1dzp7q6, Score: 1725, Title: 'Biggest Disappointment of Act III...')...
+2025-08-01 00:19:51,898 - INFO -     Found 115 comments (including replies) for this post.
+2025-08-01 00:19:51,906 - INFO - Successfully collected 750 comments for query: 'OG'.
+2025-08-01 00:19:51,929 - INFO - Raw collected comments saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\data\raw\raw_reddit_comments_OG_20240704_20240728.json
+2025-08-01 00:19:51,940 - INFO - Successfully collected 750 comments for OG_RM24.
+2025-08-01 00:19:51,940 - INFO - --- Cleaning and Preprocessing for OG_RM24 ---
+2025-08-01 00:19:51,941 - INFO - --- Initial Cleaning for OG_RM24 Comments ---
+2025-08-01 00:19:51,942 - INFO - Initial number of rows: 750
+2025-08-01 00:19:51,943 - INFO - Rows after removing duplicate comments: 750 (Removed: 0)
+2025-08-01 00:19:51,945 - INFO - Rows after removing empty/whitespace-only comments: 750 (Removed: 0)
+2025-08-01 00:19:51,945 - INFO - Final number of rows for OG_RM24 Comments after initial cleaning: 750
+2025-08-01 00:19:52,028 - INFO - 
+--- Filtering Deleted/Empty Comments for OG_RM24 Comments ---
+2025-08-01 00:19:52,029 - INFO - Initial number of rows: 750
+2025-08-01 00:19:52,030 - INFO - Rows after removing comments from '[deleted]' authors: 711 (Removed: 39)
+2025-08-01 00:19:52,032 - INFO - Rows after removing empty processed comments: 707 (Removed: 4)
+2025-08-01 00:19:52,033 - INFO - Final number of rows for OG_RM24 Comments after filtering deleted/empty: 707
+2025-08-01 00:19:52,033 - INFO - Performing sentiment analysis and calculating text length...
+2025-08-01 00:19:52,151 - INFO - Categorizing time periods and calculating days from event start...
+2025-08-01 00:19:52,165 - INFO - --- Feature Engineering ---
+2025-08-01 00:19:52,168 - INFO - Calculated 'post_title_length' and 'post_title_word_count'.
+2025-08-01 00:19:52,169 - INFO - Successfully loaded JSON config from: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\config\teams.json
+2025-08-01 00:19:52,170 - INFO - Successfully loaded JSON config from: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\config\keywords.json
+2025-08-01 00:19:52,479 - INFO - Categorizing post types based on keywords...
+2025-08-01 00:19:52,480 - INFO - Successfully loaded JSON config from: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\config\keywords.json
+2025-08-01 00:19:52,514 - INFO - Post type categorization complete.
+2025-08-01 00:19:52,516 - INFO - Post type distribution:
+post_type
+Other                467
+Player Transfer      144
+Ranking Update        49
+Tournament Result     47
+Name: count, dtype: int64
+2025-08-01 00:19:52,532 - INFO - Added 'event_name' column with value: OG_RM24.
+2025-08-01 00:19:52,535 - INFO - Extracted 'comment_hour' and 'comment_day_of_week' features.
+2025-08-01 00:19:52,536 - INFO - 
+Collecting data for Topson_RM24 (Query: 'Topson')...
+2025-08-01 00:19:52,536 - INFO - 
+Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
+2025-08-01 00:19:52,537 - INFO - Fetching posts via search for query: 'Topson'...
+2025-08-01 00:19:55,929 - INFO -   - Found 238 posts via search for 'Topson'.
+2025-08-01 00:19:55,930 - INFO - Fetching top posts from subreddit: 'DotA2'...
+2025-08-01 00:20:09,593 - INFO -   - Found 994 posts via top (time_filter='year').
+2025-08-01 00:20:09,595 - INFO - Found 79 unique submissions for 'Topson' within the date range.
+2025-08-01 00:20:09,595 - INFO - Processing comments from the top 15 highest-scoring submissions (max 15)...
+2025-08-01 00:20:09,596 - INFO -   Processing comments for post 1/15 (ID: 1dyx8li, Score: 3387, Title: 'Guys remember this?...')...
+2025-08-01 00:20:11,596 - INFO -     Found 357 comments (including replies) for this post.
+2025-08-01 00:20:11,606 - INFO -   Processing comments for post 2/15 (ID: 1e9rsvn, Score: 3305, Title: 'Sam Mowry, the voice of the shopkeeper as well as ...')...
+2025-08-01 00:20:12,649 - INFO -     Found 158 comments (including replies) for this post.
+2025-08-01 00:20:12,656 - INFO -   Processing comments for post 3/15 (ID: 1dz5st4, Score: 2943, Title: 'Dota 2 turns 11 years old today and continues to b...')...
+2025-08-01 00:20:14,676 - INFO -     Found 275 comments (including replies) for this post.
+2025-08-01 00:20:14,683 - INFO -   Processing comments for post 4/15 (ID: 1e8rg6s, Score: 2715, Title: 'Your face while watching your supports picking Mor...')...
+2025-08-01 00:20:16,296 - INFO -     Found 272 comments (including replies) for this post.
+2025-08-01 00:20:16,303 - INFO -   Processing comments for post 5/15 (ID: 1e1wdff, Score: 2695, Title: 'Played Oracle against Riki with shard and got all ...')...
+2025-08-01 00:20:18,512 - INFO -     Found 252 comments (including replies) for this post.
+2025-08-01 00:20:18,519 - INFO -   Processing comments for post 6/15 (ID: 1e4hnm6, Score: 2615, Title: 'pov youre friend just started playing dota...')...
+2025-08-01 00:20:21,269 - INFO -     Found 237 comments (including replies) for this post.
+2025-08-01 00:20:21,278 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2106, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
+2025-08-01 00:20:22,579 - INFO -     Found 201 comments (including replies) for this post.
+2025-08-01 00:20:22,588 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2015, Title: 'I have a feeling he won’t listen ...')...
+2025-08-01 00:20:23,290 - INFO -     Found 95 comments (including replies) for this post.
+2025-08-01 00:20:23,300 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1996, Title: 'The rest of Magnus needs to be reversed...')...
+2025-08-01 00:20:24,275 - INFO -     Found 157 comments (including replies) for this post.
+2025-08-01 00:20:24,283 - INFO -   Processing comments for post 10/15 (ID: 1dzh1r9, Score: 1888, Title: 'I surely did not expect something like this, but i...')...
+2025-08-01 00:20:25,581 - INFO -     Found 176 comments (including replies) for this post.
+2025-08-01 00:20:25,590 - INFO -   Processing comments for post 11/15 (ID: 1e0t3oe, Score: 1878, Title: 'Marci's performance in this event Be like...')...
+2025-08-01 00:20:26,691 - INFO -     Found 129 comments (including replies) for this post.
+2025-08-01 00:20:26,699 - INFO -   Processing comments for post 12/15 (ID: 1dwdw93, Score: 1870, Title: 'Looking through old minimaps...')...
+2025-08-01 00:20:28,059 - INFO -     Found 190 comments (including replies) for this post.
+2025-08-01 00:20:28,066 - INFO -   Processing comments for post 13/15 (ID: 1ecksm9, Score: 1781, Title: 'When we all cry about balance, check the statistic...')...
+2025-08-01 00:20:28,614 - WARNING - Retrying due to 500 status: GET https://oauth.reddit.com/comments/1ecksm9/
+2025-08-01 00:20:32,609 - INFO -     Found 485 comments (including replies) for this post.
+2025-08-01 00:20:32,618 - INFO -   Processing comments for post 14/15 (ID: 1e2tzkm, Score: 1734, Title: 'I think....Valve used Slacks as a model for the CM...')...
+2025-08-01 00:20:33,075 - INFO -     Found 52 comments (including replies) for this post.
+2025-08-01 00:20:33,082 - INFO -   Processing comments for post 15/15 (ID: 1dzp7q6, Score: 1719, Title: 'Biggest Disappointment of Act III...')...
+2025-08-01 00:20:33,901 - INFO -     Found 115 comments (including replies) for this post.
+2025-08-01 00:20:33,910 - INFO - Successfully collected 750 comments for query: 'Topson'.
+2025-08-01 00:20:33,932 - INFO - Raw collected comments saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\data\raw\raw_reddit_comments_Topson_20240704_20240728.json
+2025-08-01 00:20:33,941 - INFO - Successfully collected 750 comments for Topson_RM24.
+2025-08-01 00:20:33,942 - INFO - --- Cleaning and Preprocessing for Topson_RM24 ---
+2025-08-01 00:20:33,943 - INFO - --- Initial Cleaning for Topson_RM24 Comments ---
+2025-08-01 00:20:33,943 - INFO - Initial number of rows: 750
+2025-08-01 00:20:33,945 - INFO - Rows after removing duplicate comments: 750 (Removed: 0)
+2025-08-01 00:20:33,946 - INFO - Rows after removing empty/whitespace-only comments: 750 (Removed: 0)
+2025-08-01 00:20:33,946 - INFO - Final number of rows for Topson_RM24 Comments after initial cleaning: 750
+2025-08-01 00:20:34,028 - INFO - 
+--- Filtering Deleted/Empty Comments for Topson_RM24 Comments ---
+2025-08-01 00:20:34,029 - INFO - Initial number of rows: 750
+2025-08-01 00:20:34,031 - INFO - Rows after removing comments from '[deleted]' authors: 712 (Removed: 38)
+2025-08-01 00:20:34,033 - INFO - Rows after removing empty processed comments: 708 (Removed: 4)
+2025-08-01 00:20:34,033 - INFO - Final number of rows for Topson_RM24 Comments after filtering deleted/empty: 708
+2025-08-01 00:20:34,034 - INFO - Performing sentiment analysis and calculating text length...
+2025-08-01 00:20:34,139 - INFO - Categorizing time periods and calculating days from event start...
+2025-08-01 00:20:34,152 - INFO - --- Feature Engineering ---
+2025-08-01 00:20:34,155 - INFO - Calculated 'post_title_length' and 'post_title_word_count'.
+2025-08-01 00:20:34,156 - INFO - Successfully loaded JSON config from: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\config\teams.json
+2025-08-01 00:20:34,157 - INFO - Successfully loaded JSON config from: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\config\keywords.json
+2025-08-01 00:20:34,466 - INFO - Categorizing post types based on keywords...
+2025-08-01 00:20:34,468 - INFO - Successfully loaded JSON config from: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\config\keywords.json
+2025-08-01 00:20:34,502 - INFO - Post type categorization complete.
+2025-08-01 00:20:34,503 - INFO - Post type distribution:
+post_type
+Other                468
+Player Transfer      144
+Ranking Update        49
+Tournament Result     47
+Name: count, dtype: int64
+2025-08-01 00:20:34,519 - INFO - Added 'event_name' column with value: Topson_RM24.
+2025-08-01 00:20:34,522 - INFO - Extracted 'comment_hour' and 'comment_day_of_week' features.
+2025-08-01 00:20:34,522 - INFO - 
+--- Saving processed data to SQLite database ---
+2025-08-01 00:20:34,529 - INFO - Attempting to save data to SQLite database: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\data\processed\reddit_dota2_analysis.db
+2025-08-01 00:20:34,626 - INFO - Successfully saved 'comments_data' table with 2645 rows to 'c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\data\processed\reddit_dota2_analysis.db'.
+2025-08-01 00:20:34,627 - INFO - 
+--- Data storage in SQLite complete ---
+2025-08-01 00:20:34,628 - INFO - --- Data Preparation Pipeline Completed ---
+2025-08-01 00:20:34,630 - INFO - Data preparation and feature engineering pipeline complete.
+2025-08-01 00:20:34,631 - INFO - Combined DataFrame successfully created with shape: (2645, 41)
+2025-08-01 00:20:34,631 - INFO - Combined Cleaned DataFrame Info:
+2025-08-01 00:20:34,688 - INFO - 
+--- Loading data from SQLite database ---
+2025-08-01 00:20:34,689 - INFO - Comments DataFrame loaded with shape: (2645, 41)
+2025-08-01 00:20:34,689 - INFO - 
+Comments DataFrame Info:
+2025-08-01 00:20:34,736 - INFO - 
+--- Performing Statistical Tests ---
+2025-08-01 00:20:34,737 - INFO - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'TI8' and 'TI11' ---
+2025-08-01 00:20:34,742 - INFO -   t-statistic: 1.607
+2025-08-01 00:20:34,743 - INFO -   p-value: 0.108
+2025-08-01 00:20:34,744 - INFO -   Interpretation: There is no statistically significant difference (p=0.108) in 'compound_sentiment' between 'TI8' (Mean: 0.24) and 'TI11' (Mean: 0.19).
+2025-08-01 00:20:34,744 - INFO - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'TI8' and 'OG_RM24' ---
+2025-08-01 00:20:34,748 - INFO -   t-statistic: 2.997
+2025-08-01 00:20:34,749 - INFO -   p-value: 0.003
+2025-08-01 00:20:34,749 - INFO -   Interpretation: There is a statistically significant difference (p=0.003) in 'compound_sentiment' between 'TI8' (Mean: 0.24) and 'OG_RM24' (Mean: 0.16).
+2025-08-01 00:20:34,750 - INFO - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'TI11' and 'OG_RM24' ---
+2025-08-01 00:20:34,753 - INFO -   t-statistic: 1.269
+2025-08-01 00:20:34,754 - INFO -   p-value: 0.205
+2025-08-01 00:20:34,754 - INFO -   Interpretation: There is no statistically significant difference (p=0.205) in 'compound_sentiment' between 'TI11' (Mean: 0.19) and 'OG_RM24' (Mean: 0.16).
+2025-08-01 00:20:34,754 - INFO - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'OG_RM24' and 'Topson_RM24' ---
+2025-08-01 00:20:34,758 - INFO -   t-statistic: -0.045
+2025-08-01 00:20:34,758 - INFO -   p-value: 0.964
+2025-08-01 00:20:34,759 - INFO -   Interpretation: There is no statistically significant difference (p=0.964) in 'compound_sentiment' between 'OG_RM24' (Mean: 0.16) and 'Topson_RM24' (Mean: 0.16).
+2025-08-01 00:20:34,760 - INFO - 
+--- Performing One-Way ANOVA test for 'comment_score' across groups in 'time_period' ---
+2025-08-01 00:20:34,767 - INFO -   F-statistic: 0.656
+2025-08-01 00:20:34,768 - INFO -   p-value: 0.519
+2025-08-01 00:20:34,769 - INFO -   Interpretation: There is no statistically significant difference (p=0.519) in 'comment_score' across groups in 'time_period'.
+2025-08-01 00:20:34,769 - INFO - 
+--- Performing One-Way ANOVA test for 'compound_sentiment' across groups in 'time_period' ---
+2025-08-01 00:20:34,773 - INFO -   F-statistic: 0.984
+2025-08-01 00:20:34,774 - INFO -   p-value: 0.374
+2025-08-01 00:20:34,774 - INFO -   Interpretation: There is no statistically significant difference (p=0.374) in 'compound_sentiment' across groups in 'time_period'.
+2025-08-01 00:20:34,775 - INFO - 
+--- Performing One-Way ANOVA test for 'comment_score' across groups in 'post_type' ---
+2025-08-01 00:20:34,781 - INFO -   F-statistic: 5.913
+2025-08-01 00:20:34,781 - INFO -   p-value: 0.001
+2025-08-01 00:20:34,782 - INFO -   Interpretation: There is a statistically significant difference (p=0.001) in 'comment_score' across at least two groups in 'post_type'.
+2025-08-01 00:20:34,782 - INFO - 
+--- Performing One-Way ANOVA test for 'compound_sentiment' across groups in 'post_type' ---
+2025-08-01 00:20:34,787 - INFO -   F-statistic: 3.471
+2025-08-01 00:20:34,788 - INFO -   p-value: 0.015
+2025-08-01 00:20:34,788 - INFO -   Interpretation: There is a statistically significant difference (p=0.015) in 'compound_sentiment' across at least two groups in 'post_type'.
+2025-08-01 00:20:34,788 - INFO - 
+--- Performing Chi-squared test of independence between 'time_period' and 'contains_question' ---
+2025-08-01 00:20:34,800 - INFO -   Chi-squared statistic: 1.413
+2025-08-01 00:20:34,801 - INFO -   p-value: 0.493
+2025-08-01 00:20:34,801 - INFO -   Degrees of freedom: 2
+2025-08-01 00:20:34,801 - INFO -   Interpretation: There is no statistically significant association (p=0.493) between 'time_period' and 'contains_question'. This suggests that the two variables are independent.
+2025-08-01 00:20:34,802 - INFO - 
+--- Performing Chi-squared test of independence between 'event_name' and 'contains_team_name' ---
+2025-08-01 00:20:34,806 - INFO -   Chi-squared statistic: 317.613
+2025-08-01 00:20:34,806 - INFO -   p-value: 0.000
+2025-08-01 00:20:34,807 - INFO -   Degrees of freedom: 3
+2025-08-01 00:20:34,807 - INFO -   Interpretation: There is a statistically significant association (p=0.000) between 'event_name' and 'contains_team_name'. This suggests that the two variables are not independent.
+2025-08-01 00:20:34,808 - INFO - 
+--- Statistical Tests Complete ---
+2025-08-01 00:20:34,808 - INFO - 
+--- Generating Exploratory Data Analysis Plots ---
+2025-08-01 00:20:34,809 - INFO - 
+--- Generating Feature Distribution Plots ---
+2025-08-01 00:20:34,813 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\dist_sentiment_compound_sentiment_summary.txt
+2025-08-01 00:20:34,843 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\dist_sentiment_compound_sentiment_kde_curve.txt
+2025-08-01 00:20:35,382 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\dist_sentiment_compound_sentiment_histogram_extended.png
+2025-08-01 00:20:35,386 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\dist_comment_score_comment_score_summary.txt
+2025-08-01 00:20:35,401 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\dist_comment_score_comment_score_kde_curve.txt
+2025-08-01 00:20:35,920 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\dist_comment_score_comment_score_histogram_extended.png
+2025-08-01 00:20:35,925 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\dist_word_count_word_count_summary.txt
+2025-08-01 00:20:35,943 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\dist_word_count_word_count_kde_curve.txt
+2025-08-01 00:20:36,398 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\dist_word_count_word_count_histogram_extended.png
+2025-08-01 00:20:36,399 - INFO - 
+--- Generating Distribution Comparison Plots (Violin/Box) ---
+2025-08-01 00:20:36,411 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\dist_comp_sentiment_compound_sentiment_violin_stats.txt
+2025-08-01 00:20:36,715 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\dist_comp_sentiment_compound_sentiment_violin_extended.png
+2025-08-01 00:20:36,724 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\dist_comp_comment_score_comment_score_violin_stats.txt
+2025-08-01 00:20:36,982 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\dist_comp_comment_score_comment_score_violin_extended.png
+2025-08-01 00:20:36,990 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\dist_comp_word_count_word_count_violin_stats.txt
+2025-08-01 00:20:37,270 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\dist_comp_word_count_word_count_violin_extended.png
+2025-08-01 00:20:37,271 - INFO - 
+--- Generating Time Period Analysis Plots ---
+2025-08-01 00:20:37,344 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\comment_distribution_time_periods_table.txt
+2025-08-01 00:20:37,606 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\comment_distribution_time_periods.png
+2025-08-01 00:20:37,620 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\avg_sentiment_by_time_period_and_event.txt
+2025-08-01 00:20:37,917 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\avg_sentiment_by_time_period_and_event_extended.png
+2025-08-01 00:20:37,928 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\avg_comment_score_by_time_period_and_event.txt
+2025-08-01 00:20:38,219 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\avg_comment_score_by_time_period_and_event_extended.png
+2025-08-01 00:20:38,220 - INFO - 
+--- Generating Engagement by Post Type Plots ---
+2025-08-01 00:20:38,232 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\comment_score_by_post_type_and_event.txt
+2025-08-01 00:20:38,603 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\avg_comment_score_by_post_type.png
+2025-08-01 00:20:38,616 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\compound_sentiment_by_post_type_and_event.txt
+2025-08-01 00:20:39,009 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\avg_sentiment_by_post_type.png
+2025-08-01 00:20:39,021 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\word_count_by_post_type_and_event.txt
+2025-08-01 00:20:39,380 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\avg_word_count_by_post_type.png
+2025-08-01 00:20:39,391 - INFO - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\word_count_by_post_type_and_event.txt
+2025-08-01 00:20:40,131 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\filtered_avg_word_count_by_post_type_and_event.png
+2025-08-01 00:20:40,132 - INFO - 
+--- Generating Pearson Correlation Matrix ---
+2025-08-01 00:20:40,134 - INFO - 
+--- Calculating Pearson Correlations ---
+2025-08-01 00:20:40,138 - INFO - Correlation Matrix:
+                         contains_hero_keyword  post_num_comments  \
+contains_hero_keyword                 1.000000          -0.055131   
+post_num_comments                    -0.055131           1.000000   
+contains_team_name                    0.008944           0.128939   
+contains_player_keyword              -0.022128           0.258045   
+neu_sentiment                         0.031875          -0.034678   
+pos_sentiment                        -0.049296           0.034078   
+contains_event_keyword               -0.008167           0.115461   
+comment_hour                         -0.043252           0.056098   
+comment_score                        -0.009118           0.136887   
+neg_sentiment                         0.024617           0.010680   
+compound_sentiment                    0.012536           0.029517   
+comment_score_per_day                 0.013602           0.079878   
+post_score                            0.026419           0.137586   
+contains_question                     0.002639           0.003808   
+word_count                            0.234195           0.004552   
+is_self                              -0.089189           0.407352   
+upvote_ratio                          0.104066           0.097249   
+author_karma                               NaN                NaN   
+days_from_event_start                -0.037802           0.310256   
+post_title_length                     0.022876          -0.161863   
+char_count                            0.254307           0.013102   
+post_title_word_count                 0.048779          -0.177675   
+
+                         contains_team_name  contains_player_keyword  \
+contains_hero_keyword              0.008944                -0.022128   
+post_num_comments                  0.128939                 0.258045   
+contains_team_name                 1.000000                 0.693577   
+contains_player_keyword            0.693577                 1.000000   
+neu_sentiment                     -0.069898                -0.043589   
+pos_sentiment                      0.062063                 0.040780   
+contains_event_keyword             0.289305                 0.269957   
+comment_hour                       0.028587                 0.037756   
+comment_score                      0.010223                 0.067815   
+neg_sentiment                      0.026510                 0.011876   
+compound_sentiment                 0.106576                 0.107087   
+comment_score_per_day              0.017174                 0.074067   
+post_score                        -0.086304                -0.001922   
+contains_question                  0.026152                 0.015158   
+word_count                         0.237092                 0.250817   
+is_self                            0.295576                 0.341988   
+upvote_ratio                      -0.051721                -0.035446   
+author_karma                            NaN                      NaN   
+days_from_event_start              0.147788                 0.247302   
+post_title_length                 -0.083092                -0.055946   
+char_count                         0.213383                 0.230598   
+post_title_word_count             -0.089378                -0.070602   
+
+                         neu_sentiment  pos_sentiment  contains_event_keyword  \
+contains_hero_keyword         0.031875      -0.049296               -0.008167   
+post_num_comments            -0.034678       0.034078                0.115461   
+contains_team_name           -0.069898       0.062063                0.289305   
+contains_player_keyword      -0.043589       0.040780                0.269957   
+neu_sentiment                 1.000000      -0.727336               -0.099159   
+pos_sentiment                -0.727336       1.000000                0.110607   
+contains_event_keyword       -0.099159       0.110607                1.000000   
+comment_hour                  0.022281      -0.000592                0.040810   
+comment_score                 0.012872      -0.030855               -0.012563   
+neg_sentiment                -0.475858      -0.228364                0.009559   
+compound_sentiment           -0.192355       0.676250                0.194301   
+comment_score_per_day        -0.025736       0.002946               -0.003910   
+post_score                   -0.024643       0.003296               -0.052117   
+contains_question             0.036005      -0.028158                0.027405   
+word_count                   -0.072481       0.056124                0.370728   
+is_self                      -0.071963       0.045511                0.243562   
+upvote_ratio                  0.025422       0.012427               -0.092820   
+author_karma                       NaN            NaN                     NaN   
+days_from_event_start        -0.102056       0.082706                0.170864   
+post_title_length            -0.046548       0.045617                0.043491   
+char_count                   -0.057488       0.040136                0.341070   
+post_title_word_count        -0.046095       0.042723                0.030440   
+
+                         comment_hour  comment_score  neg_sentiment  ...  \
+contains_hero_keyword       -0.043252      -0.009118       0.024617  ...   
+post_num_comments            0.056098       0.136887       0.010680  ...   
+contains_team_name           0.028587       0.010223       0.026510  ...   
+contains_player_keyword      0.037756       0.067815       0.011876  ...   
+neu_sentiment                0.022281       0.012872      -0.475858  ...   
+pos_sentiment               -0.000592      -0.030855      -0.228364  ...   
+contains_event_keyword       0.040810      -0.012563       0.009559  ...   
+comment_hour                 1.000000      -0.056816      -0.024599  ...   
+comment_score               -0.056816       1.000000       0.020382  ...   
+neg_sentiment               -0.024599       0.020382       1.000000  ...   
+compound_sentiment           0.010893      -0.009673      -0.594882  ...   
+comment_score_per_day       -0.047393       0.689668       0.033943  ...   
+post_score                  -0.131202       0.550697       0.030953  ...   
+contains_question            0.018339      -0.013263      -0.010986  ...   
+word_count                  -0.019619       0.001708       0.040217  ...   
+is_self                      0.109125       0.045043       0.056219  ...   
+upvote_ratio                -0.084569      -0.096578      -0.045184  ...   
+author_karma                      NaN            NaN            NaN  ...   
+days_from_event_start        0.047248       0.078351       0.039971  ...   
+post_title_length            0.002918      -0.003552       0.013217  ...   
+char_count                  -0.007252      -0.006338       0.039919  ...   
+post_title_word_count       -0.019332      -0.034442       0.016813  ...   
+
+                         post_score  contains_question  word_count   is_self  \
+contains_hero_keyword      0.026419           0.002639    0.234195 -0.089189   
+post_num_comments          0.137586           0.003808    0.004552  0.407352   
+contains_team_name        -0.086304           0.026152    0.237092  0.295576   
+contains_player_keyword   -0.001922           0.015158    0.250817  0.341988   
+neu_sentiment             -0.024643           0.036005   -0.072481 -0.071963   
+pos_sentiment              0.003296          -0.028158    0.056124  0.045511   
+contains_event_keyword    -0.052117           0.027405    0.370728  0.243562   
+comment_hour              -0.131202           0.018339   -0.019619  0.109125   
+comment_score              0.550697          -0.013263    0.001708  0.045043   
+neg_sentiment              0.030953          -0.010986    0.040217  0.056219   
+compound_sentiment         0.005516           0.016533    0.255433  0.051564   
+comment_score_per_day      0.518411           0.001655   -0.003735  0.078998   
+post_score                 1.000000          -0.021926    0.034568 -0.051078   
+contains_question         -0.021926           1.000000    0.036225  0.025931   
+word_count                 0.034568           0.036225    1.000000  0.095320   
+is_self                   -0.051078           0.025931    0.095320  1.000000   
+upvote_ratio              -0.118085          -0.010661   -0.041692 -0.186383   
+author_karma                    NaN                NaN         NaN       NaN   
+days_from_event_start      0.116786           0.013519    0.116657  0.196381   
+post_title_length          0.018222           0.019011    0.056991 -0.251490   
+char_count                 0.034311           0.052712    0.959752  0.084742   
+post_title_word_count     -0.032118           0.018187    0.054379 -0.232650   
+
+                         upvote_ratio  author_karma  days_from_event_start  \
+contains_hero_keyword        0.104066           NaN              -0.037802   
+post_num_comments            0.097249           NaN               0.310256   
+contains_team_name          -0.051721           NaN               0.147788   
+contains_player_keyword     -0.035446           NaN               0.247302   
+neu_sentiment                0.025422           NaN              -0.102056   
+pos_sentiment                0.012427           NaN               0.082706   
+contains_event_keyword      -0.092820           NaN               0.170864   
+comment_hour                -0.084569           NaN               0.047248   
+comment_score               -0.096578           NaN               0.078351   
+neg_sentiment               -0.045184           NaN               0.039971   
+compound_sentiment           0.008477           NaN               0.096175   
+comment_score_per_day       -0.116567           NaN               0.082553   
+post_score                  -0.118085           NaN               0.116786   
+contains_question           -0.010661           NaN               0.013519   
+word_count                  -0.041692           NaN               0.116657   
+is_self                     -0.186383           NaN               0.196381   
+upvote_ratio                 1.000000           NaN              -0.209708   
+author_karma                      NaN           NaN                    NaN   
+days_from_event_start       -0.209708           NaN               1.000000   
+post_title_length            0.100647           NaN               0.157216   
+char_count                  -0.036298           NaN               0.120498   
+post_title_word_count        0.143154           NaN               0.111724   
+
+                         post_title_length  char_count  post_title_word_count  
+contains_hero_keyword             0.022876    0.254307               0.048779  
+post_num_comments                -0.161863    0.013102              -0.177675  
+contains_team_name               -0.083092    0.213383              -0.089378  
+contains_player_keyword          -0.055946    0.230598              -0.070602  
+neu_sentiment                    -0.046548   -0.057488              -0.046095  
+pos_sentiment                     0.045617    0.040136               0.042723  
+contains_event_keyword            0.043491    0.341070               0.030440  
+comment_hour                      0.002918   -0.007252              -0.019332  
+comment_score                    -0.003552   -0.006338              -0.034442  
+neg_sentiment                     0.013217    0.039919               0.016813  
+compound_sentiment                0.033233    0.240708               0.030921  
+comment_score_per_day             0.018536   -0.007360              -0.010423  
+post_score                        0.018222    0.034311              -0.032118  
+contains_question                 0.019011    0.052712               0.018187  
+word_count                        0.056991    0.959752               0.054379  
+is_self                          -0.251490    0.084742              -0.232650  
+upvote_ratio                      0.100647   -0.036298               0.143154  
+author_karma                           NaN         NaN                    NaN  
+days_from_event_start             0.157216    0.120498               0.111724  
+post_title_length                 1.000000    0.052553               0.974612  
+char_count                        0.052553    1.000000               0.052224  
+post_title_word_count             0.974612    0.052224               1.000000  
+
+[22 rows x 22 columns]
+2025-08-01 00:20:41,154 - INFO - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\pearson_correlation_matrix.png
+2025-08-01 00:20:41,154 - INFO - 
+--- Generating Additional Specific Plots ---
+2025-08-01 00:20:41,155 - WARNING - Missing 'created_utc' or 'event_name' for engagement per day plots. Skipping.
+2025-08-01 00:20:41,156 - INFO - 
+--- All EDA Plots Generated ---
