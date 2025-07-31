@@ -1,0 +1,9 @@
+Comment Distribution Across Time Periods by Event (Counts and Percentages)
+==========================================================================
+
+time_period  After Event  During Event  Outside Window  After Event (%)  During Event (%)  Outside Window (%)
+event_name                                                                                                   
+OG_RM24                0           708               0         0.000000        100.000000            0.000000
+TI11                  11           585               0         1.845638         98.154362            0.000000
+TI8                   10           612               7         1.589825         97.297297            1.112878
+Topson_RM24            0           709               0         0.000000        100.000000            0.000000

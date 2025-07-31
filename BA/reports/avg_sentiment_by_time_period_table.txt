@@ -1,0 +1,9 @@
+Average Compound Sentiment by Time Period and Event (Mean and Std)
+==================================================================
+
+                   mean                                       std                                
+event_name      OG_RM24      TI11       TI8 Topson_RM24   OG_RM24      TI11       TI8 Topson_RM24
+time_period                                                                                      
+After Event         NaN -0.010355  0.076710         NaN       NaN  0.489048  0.457001         NaN
+During Event    0.15272  0.198126  0.239294    0.153942  0.440936  0.482827  0.507542    0.441087
+Outside Window      NaN       NaN  0.391229         NaN       NaN       NaN  0.291275         NaN

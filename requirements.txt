@@ -1,0 +1,12 @@
+pandas
+praw
+python-dotenv
+tenacity
+scipy
+nltk
+joblib
+matplotlib
+seaborn
+shap
+xgboost
+scikit-learn

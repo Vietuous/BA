@@ -1,0 +1,9 @@
+Average Comment Score by Time Period and Event (Mean and Std)
+=============================================================
+
+                     mean                                            std                                   
+event_name        OG_RM24       TI11         TI8 Topson_RM24     OG_RM24       TI11         TI8 Topson_RM24
+time_period                                                                                                
+After Event           NaN   3.363636   51.100000         NaN         NaN   2.838053   14.371654         NaN
+During Event    77.553672  36.782906  110.073529   77.403385  181.008822  72.462241  298.563713  180.615147
+Outside Window        NaN        NaN   72.714286         NaN         NaN        NaN   55.192736         NaN

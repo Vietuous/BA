@@ -1,0 +1,22 @@
+--- Machine Learning Model Results Summary ---
+
+Date and Time: 2025-07-31 15:33:12
+
+1. Linear Regression Model:
+   R² (Test Set): 0.2614
+   Mean CV R²: -4.8929
+
+2. XGBoost Regressor Model (Tuned):
+   R² (Test Set): 0.9997
+   Mean CV R²: 0.5443
+   Best Hyperparameters:
+     regressor__colsample_bytree: 0.6125716742746937
+     regressor__gamma: 0.3182052056318902
+     regressor__learning_rate: 0.07287119621526533
+     regressor__max_depth: 6
+     regressor__n_estimators: 833
+     regressor__reg_alpha: 0.1393314544058757
+     regressor__reg_lambda: 2.2088347585556347
+     regressor__subsample: 0.8159364365206693
+
+--- End of Summary ---
