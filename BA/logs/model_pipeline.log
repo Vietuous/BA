@@ -593,39 +593,39 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-28 23:23:57,224 - INFO - 
 Linear Regression Model Performance (Test Set):
 2025-07-28 23:23:57,224 - INFO -   Mean Squared Error (MSE): 80313.52
-2025-07-28 23:23:57,224 - INFO -   R-squared (R²): -3.26
+2025-07-28 23:23:57,224 - INFO -   R-squared (Rï¿½): -3.26
 2025-07-28 23:23:57,224 - INFO - 
 --- Performing Cross-Validation for Linear Regression ---
-2025-07-28 23:23:59,906 - INFO -   Cross-Validation R² scores: [ -1.8132827  -92.85336991   0.2953093    0.50275591   0.39287182]
-2025-07-28 23:23:59,906 - INFO -   Mean CV R²: -18.70 (+/- 37.09)
+2025-07-28 23:23:59,906 - INFO -   Cross-Validation Rï¿½ scores: [ -1.8132827  -92.85336991   0.2953093    0.50275591   0.39287182]
+2025-07-28 23:23:59,906 - INFO -   Mean CV Rï¿½: -18.70 (+/- 37.09)
 2025-07-28 23:23:59,906 - INFO - 
 --- Training XGBoost Regressor Model (Initial) ---
 2025-07-28 23:24:00,529 - INFO - 
 XGBoost Regressor Model Performance (Test Set - Initial):
 2025-07-28 23:24:00,529 - INFO -   Mean Squared Error (MSE): 7726.20
-2025-07-28 23:24:00,529 - INFO -   R-squared (R²): 0.59
+2025-07-28 23:24:00,529 - INFO -   R-squared (Rï¿½): 0.59
 2025-07-28 23:24:00,529 - INFO - 
 --- Performing Cross-Validation for XGBoost (Initial) ---
-2025-07-28 23:24:03,972 - INFO -   Cross-Validation R² scores: [0.28225166 0.28871381 0.59136713 0.80039847 0.81718016]
-2025-07-28 23:24:03,973 - INFO -   Mean CV R²: 0.56 (+/- 0.23)
+2025-07-28 23:24:03,972 - INFO -   Cross-Validation Rï¿½ scores: [0.28225166 0.28871381 0.59136713 0.80039847 0.81718016]
+2025-07-28 23:24:03,973 - INFO -   Mean CV Rï¿½: 0.56 (+/- 0.23)
 2025-07-28 23:24:03,973 - INFO - 
 --- Starting Hyperparameter Tuning for XGBoost (RandomizedSearchCV) ---
 2025-07-28 23:25:22,013 - INFO - 
 --- Hyperparameter Tuning Complete ---
-2025-07-28 23:25:22,013 - INFO - Best R² score found during tuning: 0.71
+2025-07-28 23:25:22,013 - INFO - Best Rï¿½ score found during tuning: 0.71
 2025-07-28 23:25:22,013 - INFO - Best parameters found: {'regressor__colsample_bytree': np.float64(0.69489963499872), 'regressor__gamma': np.float64(0.16269984907963386), 'regressor__learning_rate': np.float64(0.15929828102360485), 'regressor__max_depth': 9, 'regressor__n_estimators': 294, 'regressor__reg_alpha': np.float64(0.6576128923003434), 'regressor__reg_lambda': np.float64(2.1366172066709432), 'regressor__subsample': np.float64(0.637469907131237)}
 2025-07-28 23:25:22,033 - INFO - 
 Final Tuned XGBoost Regressor Model Performance (Test Set):
 2025-07-28 23:25:22,033 - INFO -   Mean Squared Error (MSE): 17.41
-2025-07-28 23:25:22,033 - INFO -   R-squared (R²): 1.00
+2025-07-28 23:25:22,033 - INFO -   R-squared (Rï¿½): 1.00
 2025-07-28 23:25:22,033 - INFO - 
 --- Performing Cross-Validation for Tuned XGBoost ---
-2025-07-28 23:25:26,684 - INFO -   Cross-Validation R² scores: [0.42358893 0.30049771 0.8396039  0.80482799 0.83737648]
-2025-07-28 23:25:26,684 - INFO -   Mean CV R²: 0.64 (+/- 0.23)
+2025-07-28 23:25:26,684 - INFO -   Cross-Validation Rï¿½ scores: [0.42358893 0.30049771 0.8396039  0.80482799 0.83737648]
+2025-07-28 23:25:26,684 - INFO -   Mean CV Rï¿½: 0.64 (+/- 0.23)
 2025-07-28 23:25:26,685 - INFO - 
 --- Final Model Comparison ---
-2025-07-28 23:25:26,685 - INFO - Linear Regression R² (Test Set): -3.26, Mean CV R²: -18.70
-2025-07-28 23:25:26,685 - INFO - XGBoost Regressor R² (Test Set - Tuned): 1.00, Mean CV R²: 0.64
+2025-07-28 23:25:26,685 - INFO - Linear Regression Rï¿½ (Test Set): -3.26, Mean CV Rï¿½: -18.70
+2025-07-28 23:25:26,685 - INFO - XGBoost Regressor Rï¿½ (Test Set - Tuned): 1.00, Mean CV Rï¿½: 0.64
 2025-07-28 23:25:26,685 - INFO - 
 --- Starting Model Interpretability with SHAP ---
 2025-07-28 23:25:26,960 - INFO -   Generating SHAP Summary Plot...
@@ -652,39 +652,39 @@ Final Tuned XGBoost Regressor Model Performance (Test Set):
 2025-07-28 23:27:37,540 - INFO - 
 Linear Regression Model Performance (Test Set):
 2025-07-28 23:27:37,540 - INFO -   Mean Squared Error (MSE): 80313.52
-2025-07-28 23:27:37,541 - INFO -   R-squared (R²): -3.26
+2025-07-28 23:27:37,541 - INFO -   R-squared (Rï¿½): -3.26
 2025-07-28 23:27:37,541 - INFO - 
 --- Performing Cross-Validation for Linear Regression ---
-2025-07-28 23:27:40,105 - INFO -   Cross-Validation R² scores: [ -1.8132827  -92.85336991   0.2953093    0.50275591   0.39287182]
-2025-07-28 23:27:40,105 - INFO -   Mean CV R²: -18.70 (+/- 37.09)
+2025-07-28 23:27:40,105 - INFO -   Cross-Validation Rï¿½ scores: [ -1.8132827  -92.85336991   0.2953093    0.50275591   0.39287182]
+2025-07-28 23:27:40,105 - INFO -   Mean CV Rï¿½: -18.70 (+/- 37.09)
 2025-07-28 23:27:40,106 - INFO - 
 --- Training XGBoost Regressor Model (Initial) ---
 2025-07-28 23:27:40,727 - INFO - 
 XGBoost Regressor Model Performance (Test Set - Initial):
 2025-07-28 23:27:40,727 - INFO -   Mean Squared Error (MSE): 7726.20
-2025-07-28 23:27:40,727 - INFO -   R-squared (R²): 0.59
+2025-07-28 23:27:40,727 - INFO -   R-squared (Rï¿½): 0.59
 2025-07-28 23:27:40,728 - INFO - 
 --- Performing Cross-Validation for XGBoost (Initial) ---
-2025-07-28 23:27:44,094 - INFO -   Cross-Validation R² scores: [0.28225166 0.28871381 0.59136713 0.80039847 0.81718016]
-2025-07-28 23:27:44,094 - INFO -   Mean CV R²: 0.56 (+/- 0.23)
+2025-07-28 23:27:44,094 - INFO -   Cross-Validation Rï¿½ scores: [0.28225166 0.28871381 0.59136713 0.80039847 0.81718016]
+2025-07-28 23:27:44,094 - INFO -   Mean CV Rï¿½: 0.56 (+/- 0.23)
 2025-07-28 23:27:44,094 - INFO - 
 --- Starting Hyperparameter Tuning for XGBoost (RandomizedSearchCV) ---
 2025-07-28 23:29:01,361 - INFO - 
 --- Hyperparameter Tuning Complete ---
-2025-07-28 23:29:01,362 - INFO - Best R² score found during tuning: 0.71
+2025-07-28 23:29:01,362 - INFO - Best Rï¿½ score found during tuning: 0.71
 2025-07-28 23:29:01,362 - INFO - Best parameters found: {'regressor__colsample_bytree': np.float64(0.69489963499872), 'regressor__gamma': np.float64(0.16269984907963386), 'regressor__learning_rate': np.float64(0.15929828102360485), 'regressor__max_depth': 9, 'regressor__n_estimators': 294, 'regressor__reg_alpha': np.float64(0.6576128923003434), 'regressor__reg_lambda': np.float64(2.1366172066709432), 'regressor__subsample': np.float64(0.637469907131237)}
 2025-07-28 23:29:01,381 - INFO - 
 Final Tuned XGBoost Regressor Model Performance (Test Set):
 2025-07-28 23:29:01,381 - INFO -   Mean Squared Error (MSE): 17.41
-2025-07-28 23:29:01,381 - INFO -   R-squared (R²): 1.00
+2025-07-28 23:29:01,381 - INFO -   R-squared (Rï¿½): 1.00
 2025-07-28 23:29:01,382 - INFO - 
 --- Performing Cross-Validation for Tuned XGBoost ---
-2025-07-28 23:29:06,047 - INFO -   Cross-Validation R² scores: [0.42358893 0.30049771 0.8396039  0.80482799 0.83737648]
-2025-07-28 23:29:06,047 - INFO -   Mean CV R²: 0.64 (+/- 0.23)
+2025-07-28 23:29:06,047 - INFO -   Cross-Validation Rï¿½ scores: [0.42358893 0.30049771 0.8396039  0.80482799 0.83737648]
+2025-07-28 23:29:06,047 - INFO -   Mean CV Rï¿½: 0.64 (+/- 0.23)
 2025-07-28 23:29:06,047 - INFO - 
 --- Final Model Comparison ---
-2025-07-28 23:29:06,048 - INFO - Linear Regression R² (Test Set): -3.26, Mean CV R²: -18.70
-2025-07-28 23:29:06,048 - INFO - XGBoost Regressor R² (Test Set - Tuned): 1.00, Mean CV R²: 0.64
+2025-07-28 23:29:06,048 - INFO - Linear Regression Rï¿½ (Test Set): -3.26, Mean CV Rï¿½: -18.70
+2025-07-28 23:29:06,048 - INFO - XGBoost Regressor Rï¿½ (Test Set - Tuned): 1.00, Mean CV Rï¿½: 0.64
 2025-07-28 23:29:06,048 - INFO - 
 --- Starting Model Interpretability with SHAP ---
 2025-07-28 23:29:06,326 - INFO -   Generating SHAP Summary Plot...
@@ -972,39 +972,39 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-29 00:04:07,658 - INFO - 
 Linear Regression Model Performance (Test Set):
 2025-07-29 00:04:07,658 - INFO -   Mean Squared Error (MSE): 55895.31
-2025-07-29 00:04:07,658 - INFO -   R-squared (R²): -1.24
+2025-07-29 00:04:07,658 - INFO -   R-squared (Rï¿½): -1.24
 2025-07-29 00:04:07,659 - INFO - 
 --- Performing Cross-Validation for Linear Regression ---
-2025-07-29 00:04:10,250 - INFO -   Cross-Validation R² scores: [  -2.52608849 -212.04611123    0.27119459    0.76490553    0.76968436]
-2025-07-29 00:04:10,251 - INFO -   Mean CV R²: -42.55 (+/- 84.76)
+2025-07-29 00:04:10,250 - INFO -   Cross-Validation Rï¿½ scores: [  -2.52608849 -212.04611123    0.27119459    0.76490553    0.76968436]
+2025-07-29 00:04:10,251 - INFO -   Mean CV Rï¿½: -42.55 (+/- 84.76)
 2025-07-29 00:04:10,251 - INFO - 
 --- Training XGBoost Regressor Model (Initial) ---
 2025-07-29 00:04:10,840 - INFO - 
 XGBoost Regressor Model Performance (Test Set - Initial):
 2025-07-29 00:04:10,840 - INFO -   Mean Squared Error (MSE): 2480.67
-2025-07-29 00:04:10,840 - INFO -   R-squared (R²): 0.90
+2025-07-29 00:04:10,840 - INFO -   R-squared (Rï¿½): 0.90
 2025-07-29 00:04:10,841 - INFO - 
 --- Performing Cross-Validation for XGBoost (Initial) ---
-2025-07-29 00:04:14,136 - INFO -   Cross-Validation R² scores: [0.44592321 0.27639604 0.82932353 0.9766891  0.97909069]
-2025-07-29 00:04:14,136 - INFO -   Mean CV R²: 0.70 (+/- 0.29)
+2025-07-29 00:04:14,136 - INFO -   Cross-Validation Rï¿½ scores: [0.44592321 0.27639604 0.82932353 0.9766891  0.97909069]
+2025-07-29 00:04:14,136 - INFO -   Mean CV Rï¿½: 0.70 (+/- 0.29)
 2025-07-29 00:04:14,136 - INFO - 
 --- Starting Hyperparameter Tuning for XGBoost (RandomizedSearchCV) ---
 2025-07-29 00:05:32,052 - INFO - 
 --- Hyperparameter Tuning Complete ---
-2025-07-29 00:05:32,052 - INFO - Best R² score found during tuning: 0.70
+2025-07-29 00:05:32,052 - INFO - Best Rï¿½ score found during tuning: 0.70
 2025-07-29 00:05:32,052 - INFO - Best parameters found: {'regressor__colsample_bytree': np.float64(0.9193380499938204), 'regressor__gamma': np.float64(0.07535877198271473), 'regressor__learning_rate': np.float64(0.11163975534814373), 'regressor__max_depth': 7, 'regressor__n_estimators': 870, 'regressor__reg_alpha': np.float64(0.5908929431882418), 'regressor__reg_lambda': np.float64(2.355128723684565), 'regressor__subsample': np.float64(0.6066351315711425)}
 2025-07-29 00:05:32,077 - INFO - 
 Final Tuned XGBoost Regressor Model Performance (Test Set):
 2025-07-29 00:05:32,077 - INFO -   Mean Squared Error (MSE): 3.48
-2025-07-29 00:05:32,077 - INFO -   R-squared (R²): 1.00
+2025-07-29 00:05:32,077 - INFO -   R-squared (Rï¿½): 1.00
 2025-07-29 00:05:32,077 - INFO - 
 --- Performing Cross-Validation for Tuned XGBoost ---
-2025-07-29 00:05:43,020 - INFO -   Cross-Validation R² scores: [0.47220576 0.09180176 0.89717835 0.9977017  0.99453211]
-2025-07-29 00:05:43,020 - INFO -   Mean CV R²: 0.69 (+/- 0.36)
+2025-07-29 00:05:43,020 - INFO -   Cross-Validation Rï¿½ scores: [0.47220576 0.09180176 0.89717835 0.9977017  0.99453211]
+2025-07-29 00:05:43,020 - INFO -   Mean CV Rï¿½: 0.69 (+/- 0.36)
 2025-07-29 00:05:43,021 - INFO - 
 --- Final Model Comparison ---
-2025-07-29 00:05:43,021 - INFO - Linear Regression R² (Test Set): -1.24, Mean CV R²: -42.55
-2025-07-29 00:05:43,021 - INFO - XGBoost Regressor R² (Test Set - Tuned): 1.00, Mean CV R²: 0.69
+2025-07-29 00:05:43,021 - INFO - Linear Regression Rï¿½ (Test Set): -1.24, Mean CV Rï¿½: -42.55
+2025-07-29 00:05:43,021 - INFO - XGBoost Regressor Rï¿½ (Test Set - Tuned): 1.00, Mean CV Rï¿½: 0.69
 2025-07-29 00:05:43,021 - INFO - 
 --- Starting Model Interpretability with SHAP ---
 2025-07-29 00:05:43,541 - INFO -   Generating SHAP Summary Plot...
@@ -2204,7 +2204,7 @@ Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
 2025-07-29 14:42:00,214 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 14:42:00,221 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2104, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 14:42:01,847 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 14:42:01,853 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 14:42:01,853 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 14:42:02,862 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 14:42:02,869 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1999, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 14:42:03,956 - INFO -     Found 157 comments (including replies) for this post.
@@ -2274,7 +2274,7 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-29 14:42:42,348 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 14:42:42,354 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2103, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 14:42:43,955 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 14:42:43,962 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 14:42:43,962 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 14:42:44,740 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 14:42:44,747 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1994, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 14:42:45,716 - INFO -     Found 157 comments (including replies) for this post.
@@ -3918,7 +3918,7 @@ Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
 2025-07-29 17:22:16,658 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 17:22:16,664 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2102, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 17:22:18,220 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 17:22:18,226 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 17:22:18,226 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 17:22:18,825 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 17:22:18,832 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1998, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 17:22:19,723 - INFO -     Found 157 comments (including replies) for this post.
@@ -3988,7 +3988,7 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-29 17:22:59,054 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 17:22:59,061 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2108, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 17:23:00,283 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 17:23:00,290 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2011, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 17:23:00,290 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2011, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 17:23:00,881 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 17:23:00,888 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1999, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 17:23:01,925 - INFO -     Found 157 comments (including replies) for this post.
@@ -6284,7 +6284,7 @@ Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
 2025-07-29 17:42:32,321 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 17:42:32,328 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2103, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 17:42:33,601 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 17:42:33,607 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2011, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 17:42:33,607 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2011, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 17:42:35,323 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 17:42:35,329 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 2001, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 17:42:37,135 - INFO -     Found 157 comments (including replies) for this post.
@@ -6357,7 +6357,7 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-29 17:43:17,713 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 17:43:17,719 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2102, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 17:43:19,316 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 17:43:19,323 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 17:43:19,323 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 17:43:20,091 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 17:43:20,097 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1995, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 17:43:21,010 - INFO -     Found 157 comments (including replies) for this post.
@@ -7576,7 +7576,7 @@ Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
 2025-07-29 18:00:28,409 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 18:00:28,416 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2104, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 18:00:29,917 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 18:00:29,923 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2014, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 18:00:29,923 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2014, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 18:00:30,703 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 18:00:30,710 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1994, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 18:00:31,911 - INFO -     Found 157 comments (including replies) for this post.
@@ -7649,7 +7649,7 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-29 18:01:16,078 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 18:01:16,085 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2101, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 18:01:17,328 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 18:01:17,335 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2009, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 18:01:17,335 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2009, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 18:01:18,108 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 18:01:18,115 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 2001, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 18:01:19,421 - INFO -     Found 157 comments (including replies) for this post.
@@ -8874,7 +8874,7 @@ Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
 2025-07-29 18:08:12,463 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 18:08:12,470 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2103, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 18:08:14,096 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 18:08:14,104 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2010, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 18:08:14,104 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2010, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 18:08:15,045 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 18:08:15,052 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1998, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 18:08:16,004 - INFO -     Found 157 comments (including replies) for this post.
@@ -8947,7 +8947,7 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-29 18:08:54,083 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 18:08:54,090 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2101, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 18:08:55,305 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 18:08:55,313 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2016, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 18:08:55,313 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2016, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 18:08:56,016 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 18:08:56,023 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1998, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 18:08:56,903 - INFO -     Found 157 comments (including replies) for this post.
@@ -11871,7 +11871,7 @@ Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
 2025-07-29 18:28:34,779 - DEBUG - https://oauth.reddit.com:443 "GET /comments/1dzgwso/?limit=2048&sort=confidence&raw_json=1 HTTP/1.1" 200 43001
 2025-07-29 18:28:34,882 - DEBUG - Response: 200 (43001 bytes) (rst-87:rem-827.0:used-173 ratelimit) at 1753806514.8828533
 2025-07-29 18:28:34,896 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 18:28:34,904 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2011, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 18:28:34,904 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2011, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 18:28:34,905 - DEBUG - Attempting to fetch comments for submission ID: 1e10whq
 2025-07-29 18:28:34,906 - DEBUG - Fetching: GET https://oauth.reddit.com/comments/1e10whq/ at 1753806514.9060707
 2025-07-29 18:28:34,906 - DEBUG - Data: None
@@ -12879,7 +12879,7 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-29 18:29:18,783 - DEBUG - https://oauth.reddit.com:443 "GET /comments/1dzgwso/?limit=2048&sort=confidence&raw_json=1 HTTP/1.1" 200 42968
 2025-07-29 18:29:18,887 - DEBUG - Response: 200 (42968 bytes) (rst-43:rem-790.0:used-210 ratelimit) at 1753806558.8873062
 2025-07-29 18:29:18,900 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 18:29:18,907 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2005, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 18:29:18,907 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2005, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 18:29:18,907 - DEBUG - Attempting to fetch comments for submission ID: 1e10whq
 2025-07-29 18:29:18,908 - DEBUG - Fetching: GET https://oauth.reddit.com/comments/1e10whq/ at 1753806558.9081123
 2025-07-29 18:29:18,908 - DEBUG - Data: None
@@ -15512,7 +15512,7 @@ Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
 2025-07-29 18:37:09,976 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 18:37:09,983 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2103, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 18:37:11,837 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 18:37:11,844 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2013, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 18:37:11,844 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2013, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 18:37:12,621 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 18:37:12,627 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1994, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 18:37:13,636 - INFO -     Found 157 comments (including replies) for this post.
@@ -15585,7 +15585,7 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-29 18:37:50,674 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 18:37:50,681 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2102, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 18:37:52,354 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 18:37:52,360 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2007, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 18:37:52,360 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2007, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 18:37:53,048 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 18:37:53,055 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1995, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 18:37:53,963 - INFO -     Found 157 comments (including replies) for this post.
@@ -16950,7 +16950,7 @@ Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
 2025-07-29 19:28:21,334 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 19:28:21,341 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2105, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 19:28:22,851 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 19:28:22,858 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2008, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 19:28:22,858 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2008, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 19:28:23,723 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 19:28:23,730 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1999, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 19:28:24,959 - INFO -     Found 157 comments (including replies) for this post.
@@ -17023,7 +17023,7 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-29 19:29:04,597 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 19:29:04,604 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2107, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 19:29:05,899 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 19:29:05,905 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2010, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 19:29:05,905 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2010, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 19:29:06,614 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 19:29:06,620 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1994, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 19:29:07,839 - INFO -     Found 157 comments (including replies) for this post.
@@ -17617,7 +17617,7 @@ Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
 2025-07-29 20:27:30,069 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 20:27:30,075 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2100, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 20:27:31,590 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 20:27:31,597 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 20:27:31,597 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 20:27:32,189 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 20:27:32,196 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 2001, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 20:27:33,172 - INFO -     Found 157 comments (including replies) for this post.
@@ -17690,7 +17690,7 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-29 20:28:10,862 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-29 20:28:10,870 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2099, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-29 20:28:12,066 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-29 20:28:12,073 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2009, Title: 'I have a feeling he won’t listen ...')...
+2025-07-29 20:28:12,073 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2009, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-29 20:28:12,649 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-29 20:28:12,656 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 2002, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-29 20:28:13,587 - INFO -     Found 157 comments (including replies) for this post.
@@ -18206,7 +18206,7 @@ Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
 2025-07-30 20:06:54,872 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-30 20:06:54,880 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2101, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-30 20:06:56,114 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-30 20:06:56,122 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2010, Title: 'I have a feeling he won’t listen ...')...
+2025-07-30 20:06:56,122 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2010, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-30 20:06:56,827 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-30 20:06:56,834 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1996, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-30 20:06:57,843 - INFO -     Found 157 comments (including replies) for this post.
@@ -18279,7 +18279,7 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-30 20:07:35,081 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-30 20:07:35,089 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2098, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-30 20:07:36,326 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-30 20:07:36,334 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2010, Title: 'I have a feeling he won’t listen ...')...
+2025-07-30 20:07:36,334 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2010, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-30 20:07:37,063 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-30 20:07:37,073 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1996, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-30 20:07:38,015 - INFO -     Found 157 comments (including replies) for this post.
@@ -18720,39 +18720,39 @@ contains_event_keyword                0.032326                1.000000
 2025-07-31 13:44:05,519 - INFO - 
 Linear Regression Model Performance (Test Set):
 2025-07-31 13:44:05,519 - INFO -   Mean Squared Error (MSE): 22663.77
-2025-07-31 13:44:05,519 - INFO -   R-squared (R²): 0.27
+2025-07-31 13:44:05,519 - INFO -   R-squared (Rï¿½): 0.27
 2025-07-31 13:44:05,519 - INFO - 
 --- Performing Cross-Validation for Linear Regression ---
-2025-07-31 13:44:07,794 - INFO -   Cross-Validation R² scores: [ -0.69024938 -16.99147551   0.74587411   0.82326921   0.7853791 ]
-2025-07-31 13:44:07,795 - INFO -   Mean CV R²: -3.07 (+/- 6.99)
+2025-07-31 13:44:07,794 - INFO -   Cross-Validation Rï¿½ scores: [ -0.69024938 -16.99147551   0.74587411   0.82326921   0.7853791 ]
+2025-07-31 13:44:07,795 - INFO -   Mean CV Rï¿½: -3.07 (+/- 6.99)
 2025-07-31 13:44:07,795 - INFO - 
 --- Training XGBoost Regressor Model (Initial) ---
 2025-07-31 13:44:08,188 - INFO - 
 XGBoost Regressor Model Performance (Test Set - Initial):
 2025-07-31 13:44:08,188 - INFO -   Mean Squared Error (MSE): 11232.13
-2025-07-31 13:44:08,188 - INFO -   R-squared (R²): 0.64
+2025-07-31 13:44:08,188 - INFO -   R-squared (Rï¿½): 0.64
 2025-07-31 13:44:08,188 - INFO - 
 --- Performing Cross-Validation for XGBoost (Initial) ---
-2025-07-31 13:44:11,014 - INFO -   Cross-Validation R² scores: [0.43866199 0.32031107 0.65296054 0.98017192 0.97106004]
-2025-07-31 13:44:11,014 - INFO -   Mean CV R²: 0.67 (+/- 0.27)
+2025-07-31 13:44:11,014 - INFO -   Cross-Validation Rï¿½ scores: [0.43866199 0.32031107 0.65296054 0.98017192 0.97106004]
+2025-07-31 13:44:11,014 - INFO -   Mean CV Rï¿½: 0.67 (+/- 0.27)
 2025-07-31 13:44:11,014 - INFO - 
 --- Starting Hyperparameter Tuning for XGBoost (RandomizedSearchCV) ---
 2025-07-31 13:45:37,372 - INFO - 
 --- Hyperparameter Tuning Complete ---
-2025-07-31 13:45:37,372 - INFO - Best R² score found during tuning: 0.66
+2025-07-31 13:45:37,372 - INFO - Best Rï¿½ score found during tuning: 0.66
 2025-07-31 13:45:37,373 - INFO - Best parameters found: {'regressor__colsample_bytree': np.float64(0.9193380499938204), 'regressor__gamma': np.float64(0.07535877198271473), 'regressor__learning_rate': np.float64(0.11163975534814373), 'regressor__max_depth': 7, 'regressor__n_estimators': 870, 'regressor__reg_alpha': np.float64(0.5908929431882418), 'regressor__reg_lambda': np.float64(2.355128723684565), 'regressor__subsample': np.float64(0.6066351315711425)}
 2025-07-31 13:45:37,397 - INFO - 
 Final Tuned XGBoost Regressor Model Performance (Test Set):
 2025-07-31 13:45:37,397 - INFO -   Mean Squared Error (MSE): 0.08
-2025-07-31 13:45:37,397 - INFO -   R-squared (R²): 1.00
+2025-07-31 13:45:37,397 - INFO -   R-squared (Rï¿½): 1.00
 2025-07-31 13:45:37,397 - INFO - 
 --- Performing Cross-Validation for Tuned XGBoost ---
-2025-07-31 13:45:50,147 - INFO -   Cross-Validation R² scores: [0.47245336 0.23490214 0.86995506 0.99781489 0.98810983]
-2025-07-31 13:45:50,148 - INFO -   Mean CV R²: 0.71 (+/- 0.31)
+2025-07-31 13:45:50,147 - INFO -   Cross-Validation Rï¿½ scores: [0.47245336 0.23490214 0.86995506 0.99781489 0.98810983]
+2025-07-31 13:45:50,148 - INFO -   Mean CV Rï¿½: 0.71 (+/- 0.31)
 2025-07-31 13:45:50,148 - INFO - 
 --- Final Model Comparison ---
-2025-07-31 13:45:50,149 - INFO - Linear Regression R² (Test Set): 0.27, Mean CV R²: -3.07
-2025-07-31 13:45:50,149 - INFO - XGBoost Regressor R² (Test Set - Tuned): 1.00, Mean CV R²: 0.71
+2025-07-31 13:45:50,149 - INFO - Linear Regression Rï¿½ (Test Set): 0.27, Mean CV Rï¿½: -3.07
+2025-07-31 13:45:50,149 - INFO - XGBoost Regressor Rï¿½ (Test Set - Tuned): 1.00, Mean CV Rï¿½: 0.71
 2025-07-31 13:45:50,149 - INFO - 
 --- Interpreting XGBoost Model with SHAP ---
 2025-07-31 13:45:50,149 - INFO - 
@@ -18955,7 +18955,7 @@ Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
 2025-07-31 14:23:18,292 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-31 14:23:18,298 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2099, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-31 14:23:19,589 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-31 14:23:19,596 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he won’t listen ...')...
+2025-07-31 14:23:19,596 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-31 14:23:20,331 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-31 14:23:20,337 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1995, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-31 14:23:21,315 - INFO -     Found 157 comments (including replies) for this post.
@@ -19028,7 +19028,7 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-31 14:23:57,966 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-31 14:23:57,973 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2102, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-31 14:23:59,337 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-31 14:23:59,344 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2011, Title: 'I have a feeling he won’t listen ...')...
+2025-07-31 14:23:59,344 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2011, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-31 14:24:00,079 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-31 14:24:00,086 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1998, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-31 14:24:01,086 - INFO -     Found 157 comments (including replies) for this post.
@@ -19526,7 +19526,7 @@ Searching for posts with query: 'OG' from 2024-07-04 to 2024-07-28...
 2025-07-31 14:44:21,778 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-31 14:44:21,785 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2099, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-31 14:44:23,066 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-31 14:44:23,072 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he won’t listen ...')...
+2025-07-31 14:44:23,072 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2012, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-31 14:44:23,827 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-31 14:44:23,834 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1996, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-31 14:44:24,801 - INFO -     Found 157 comments (including replies) for this post.
@@ -19599,7 +19599,7 @@ Searching for posts with query: 'Topson' from 2024-07-04 to 2024-07-28...
 2025-07-31 14:45:02,238 - INFO -     Found 237 comments (including replies) for this post.
 2025-07-31 14:45:02,246 - INFO -   Processing comments for post 7/15 (ID: 1dzgwso, Score: 2104, Title: 'Jugg and Pudge arcana got special "hero base" slot...')...
 2025-07-31 14:45:03,817 - INFO -     Found 201 comments (including replies) for this post.
-2025-07-31 14:45:03,824 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2010, Title: 'I have a feeling he won’t listen ...')...
+2025-07-31 14:45:03,824 - INFO -   Processing comments for post 8/15 (ID: 1e10whq, Score: 2010, Title: 'I have a feeling he wonï¿½t listen ...')...
 2025-07-31 14:45:04,626 - INFO -     Found 95 comments (including replies) for this post.
 2025-07-31 14:45:04,632 - INFO -   Processing comments for post 9/15 (ID: 1dyf3ib, Score: 1997, Title: 'The rest of Magnus needs to be reversed...')...
 2025-07-31 14:45:05,715 - INFO -     Found 157 comments (including replies) for this post.
@@ -20575,39 +20575,39 @@ char_count                 1.000000
 2025-07-31 15:31:36,218 - INFO - 
 Linear Regression Model Performance (Test Set):
 2025-07-31 15:31:36,218 - INFO -   Mean Squared Error (MSE): 19798.99
-2025-07-31 15:31:36,219 - INFO -   R-squared (R²): 0.26
+2025-07-31 15:31:36,219 - INFO -   R-squared (Rï¿½): 0.26
 2025-07-31 15:31:36,220 - INFO - 
 --- Performing Cross-Validation for Linear Regression ---
-2025-07-31 15:31:38,496 - INFO -   Cross-Validation R² scores: [ -0.82183108 -25.99629718   0.74191812   0.82434171   0.78727393]
-2025-07-31 15:31:38,496 - INFO -   Mean CV R²: -4.89 (+/- 10.57)
+2025-07-31 15:31:38,496 - INFO -   Cross-Validation Rï¿½ scores: [ -0.82183108 -25.99629718   0.74191812   0.82434171   0.78727393]
+2025-07-31 15:31:38,496 - INFO -   Mean CV Rï¿½: -4.89 (+/- 10.57)
 2025-07-31 15:31:38,497 - INFO - 
 --- Training XGBoost Regressor Model (Initial) ---
 2025-07-31 15:31:38,893 - INFO - 
 XGBoost Regressor Model Performance (Test Set - Initial):
 2025-07-31 15:31:38,893 - INFO -   Mean Squared Error (MSE): 2745.42
-2025-07-31 15:31:38,894 - INFO -   R-squared (R²): 0.90
+2025-07-31 15:31:38,894 - INFO -   R-squared (Rï¿½): 0.90
 2025-07-31 15:31:38,895 - INFO - 
 --- Performing Cross-Validation for XGBoost (Initial) ---
-2025-07-31 15:31:41,858 - INFO -   Cross-Validation R² scores: [0.40008128 0.31961077 0.7839092  0.97157991 0.96734864]
-2025-07-31 15:31:41,858 - INFO -   Mean CV R²: 0.69 (+/- 0.28)
+2025-07-31 15:31:41,858 - INFO -   Cross-Validation Rï¿½ scores: [0.40008128 0.31961077 0.7839092  0.97157991 0.96734864]
+2025-07-31 15:31:41,858 - INFO -   Mean CV Rï¿½: 0.69 (+/- 0.28)
 2025-07-31 15:31:41,859 - INFO - 
 --- Starting Hyperparameter Tuning for XGBoost (RandomizedSearchCV) ---
 2025-07-31 15:33:07,057 - INFO - 
 --- Hyperparameter Tuning Complete ---
-2025-07-31 15:33:07,057 - INFO - Best R² score found during tuning: 0.69
+2025-07-31 15:33:07,057 - INFO - Best Rï¿½ score found during tuning: 0.69
 2025-07-31 15:33:07,058 - INFO - Best parameters found: {'regressor__colsample_bytree': np.float64(0.6125716742746937), 'regressor__gamma': np.float64(0.3182052056318902), 'regressor__learning_rate': np.float64(0.07287119621526533), 'regressor__max_depth': 6, 'regressor__n_estimators': 833, 'regressor__reg_alpha': np.float64(0.1393314544058757), 'regressor__reg_lambda': np.float64(2.2088347585556347), 'regressor__subsample': np.float64(0.8159364365206693)}
 2025-07-31 15:33:07,079 - INFO - 
 Final Tuned XGBoost Regressor Model Performance (Test Set):
 2025-07-31 15:33:07,079 - INFO -   Mean Squared Error (MSE): 6.75
-2025-07-31 15:33:07,080 - INFO -   R-squared (R²): 1.00
+2025-07-31 15:33:07,080 - INFO -   R-squared (Rï¿½): 1.00
 2025-07-31 15:33:07,080 - INFO - 
 --- Performing Cross-Validation for Tuned XGBoost ---
-2025-07-31 15:33:12,281 - INFO -   Cross-Validation R² scores: [ 0.42132038 -0.52558732  0.8413344   0.99634409  0.98796612]
-2025-07-31 15:33:12,282 - INFO -   Mean CV R²: 0.54 (+/- 0.57)
+2025-07-31 15:33:12,281 - INFO -   Cross-Validation Rï¿½ scores: [ 0.42132038 -0.52558732  0.8413344   0.99634409  0.98796612]
+2025-07-31 15:33:12,282 - INFO -   Mean CV Rï¿½: 0.54 (+/- 0.57)
 2025-07-31 15:33:12,283 - INFO - 
 --- Final Model Comparison ---
-2025-07-31 15:33:12,283 - INFO - Linear Regression R² (Test Set): 0.26, Mean CV R²: -4.89
-2025-07-31 15:33:12,283 - INFO - XGBoost Regressor R² (Test Set - Tuned): 1.00, Mean CV R²: 0.54
+2025-07-31 15:33:12,283 - INFO - Linear Regression Rï¿½ (Test Set): 0.26, Mean CV Rï¿½: -4.89
+2025-07-31 15:33:12,283 - INFO - XGBoost Regressor Rï¿½ (Test Set - Tuned): 1.00, Mean CV Rï¿½: 0.54
 2025-07-31 15:33:12,284 - INFO - 
 --- Interpreting XGBoost Model with SHAP ---
 2025-07-31 15:33:12,284 - INFO - 

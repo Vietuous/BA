@@ -1,0 +1,5 @@
+comment_score Distribution Summary
+==================================
+
+     Mean  Median        Std  Count  Lower Bound (Mean - Std)  Upper Bound (Mean + Std)
+75.551607    23.0 199.733849   2645               -124.182242                275.285456
