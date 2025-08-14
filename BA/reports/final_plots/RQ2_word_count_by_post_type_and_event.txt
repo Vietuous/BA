@@ -1,0 +1,20 @@
+Word Count by Post Type and Event
+=================================
+
+        post_type  event_name      mean       std  median  count  lower_bound  upper_bound
+  Player Transfer         TI8 35.379110 46.156955    21.0  517.0   -10.777845    81.536066
+  Player Transfer        TI11 28.446860 42.246490    16.0  414.0   -13.799630    70.693350
+  Player Transfer     OG_RM24 25.763889 47.942563    12.0  144.0   -22.178674    73.706452
+  Player Transfer Topson_RM24 25.402778 47.823147    11.5  144.0   -22.420370    73.225925
+            Other         TI8 18.061728 21.285174    11.0   81.0    -3.223446    39.346903
+            Other        TI11 11.287671 11.187145     8.0   73.0     0.100527    22.474816
+            Other     OG_RM24 22.492473 34.250227    13.0  465.0   -11.757754    56.742700
+            Other Topson_RM24 23.090713 37.758523    13.0  463.0   -14.667810    60.849235
+Tournament Result         TI8 16.696970 15.075818    10.0   33.0     1.621151    31.772788
+Tournament Result        TI11 18.754545 27.757530    13.5  110.0    -9.002985    46.512076
+Tournament Result     OG_RM24 16.574468 11.391730    15.0   47.0     5.182738    27.966198
+Tournament Result Topson_RM24 16.489362 11.494559    15.0   47.0     4.994803    27.983921
+   Ranking Update         TI8       NaN       NaN     NaN    NaN          NaN          NaN
+   Ranking Update        TI11       NaN       NaN     NaN    NaN          NaN          NaN
+   Ranking Update     OG_RM24 23.979592 20.502530    16.0   49.0     3.477062    44.482122
+   Ranking Update Topson_RM24 23.979592 20.502530    16.0   49.0     3.477062    44.482122

@@ -1,0 +1,118 @@
+2025-08-14 16:33:56,814 - INFO - ml.pipeline - Running train_model.py...
+2025-08-14 16:33:56,815 - INFO - ml.pipeline - --- Starting Model Pipeline ---
+2025-08-14 16:33:56,815 - INFO - ml.pipeline - 
+--- Loading Data ---
+2025-08-14 16:33:56,852 - INFO - ml.pipeline - 
+--- Preparing Features ---
+2025-08-14 16:33:56,852 - INFO - ml.pipeline - --- Starting Feature Preprocessing ---
+2025-08-14 16:33:56,854 - INFO - ml.pipeline -   Number of non-empty text documents for TF-IDF: 2636
+2025-08-14 16:33:56,854 - INFO - ml.pipeline -   Fitting preprocessor to data...
+2025-08-14 16:33:56,922 - INFO - ml.pipeline -   Total features after preprocessing: 1484
+2025-08-14 16:33:56,922 - INFO - ml.pipeline - --- Feature Preprocessing Complete ---
+2025-08-14 16:33:56,923 - INFO - ml.pipeline - 
+--- Performing Train-Test Split ---
+2025-08-14 16:33:56,925 - INFO - ml.pipeline -   X_train_raw shape: (2108, 40)
+2025-08-14 16:33:56,926 - INFO - ml.pipeline -   X_test_raw shape: (528, 40)
+2025-08-14 16:33:56,926 - INFO - ml.pipeline -   Y_train shape: (2108,)
+2025-08-14 16:33:56,926 - INFO - ml.pipeline -   Y_test shape: (528,)
+2025-08-14 16:33:56,926 - INFO - ml.pipeline - 
+--- Training and Evaluating Models ---
+2025-08-14 16:33:56,926 - INFO - ml.pipeline - 
+--- Training Multiple Linear Regression Model ---
+2025-08-14 16:33:57,181 - INFO - ml.pipeline - 
+Linear Regression Model Performance (Test Set):
+2025-08-14 16:33:57,182 - INFO - ml.pipeline -   Mean Squared Error (MSE): 41097.99
+2025-08-14 16:33:57,182 - INFO - ml.pipeline -   R-squared (R²): -2.22
+2025-08-14 16:33:57,182 - INFO - ml.pipeline - 
+--- Performing Cross-Validation for Linear Regression ---
+2025-08-14 16:33:59,079 - INFO - ml.pipeline -   Cross-Validation R² scores: [ -4.21650767 -57.18456776   0.33424279   0.63845011   0.61728624]
+2025-08-14 16:33:59,079 - INFO - ml.pipeline -   Mean CV R²: -11.96 (+/- 22.69)
+2025-08-14 16:33:59,080 - INFO - ml.pipeline - 
+--- Training XGBoost Regressor Model (Initial) ---
+2025-08-14 16:33:59,450 - INFO - ml.pipeline - 
+XGBoost Regressor Model Performance (Test Set - Initial):
+2025-08-14 16:33:59,451 - INFO - ml.pipeline -   Mean Squared Error (MSE): 1664.40
+2025-08-14 16:33:59,451 - INFO - ml.pipeline -   R-squared (R²): 0.87
+2025-08-14 16:33:59,451 - INFO - ml.pipeline - 
+--- Performing Cross-Validation for XGBoost (Initial) ---
+2025-08-14 16:34:02,077 - INFO - ml.pipeline -   Cross-Validation R² scores: [0.51241724 0.319857   0.92335441 0.97629064 0.98351567]
+2025-08-14 16:34:02,077 - INFO - ml.pipeline -   Mean CV R²: 0.74 (+/- 0.27)
+2025-08-14 16:34:02,077 - INFO - ml.pipeline - 
+--- Starting Hyperparameter Tuning for XGBoost (RandomizedSearchCV) ---
+2025-08-14 16:34:56,918 - INFO - ml.pipeline - 
+--- Hyperparameter Tuning Complete ---
+2025-08-14 16:34:56,918 - INFO - ml.pipeline - Best R² score found during tuning: 0.73
+2025-08-14 16:34:56,918 - INFO - ml.pipeline - Best parameters found: {'regressor__colsample_bytree': 0.9464704583099741, 'regressor__gamma': 0.3005575058716044, 'regressor__learning_rate': 0.1516145155592091, 'regressor__max_depth': 8, 'regressor__n_estimators': 408, 'regressor__reg_alpha': 0.9699098521619943, 'regressor__reg_lambda': 2.6648852816008435, 'regressor__subsample': 0.6849356442713105}
+2025-08-14 16:34:56,938 - INFO - ml.pipeline - 
+Final Tuned XGBoost Regressor Model Performance (Test Set):
+2025-08-14 16:34:56,938 - INFO - ml.pipeline -   Mean Squared Error (MSE): 6.91
+2025-08-14 16:34:56,938 - INFO - ml.pipeline -   R-squared (R²): 1.00
+2025-08-14 16:34:56,938 - INFO - ml.pipeline - 
+--- Performing Cross-Validation for Tuned XGBoost ---
+2025-08-14 16:35:00,955 - INFO - ml.pipeline -   Cross-Validation R² scores: [0.43851449 0.29367261 0.77825189 0.99684509 0.99642959]
+2025-08-14 16:35:00,955 - INFO - ml.pipeline -   Mean CV R²: 0.70 (+/- 0.29)
+2025-08-14 16:35:00,956 - INFO - ml.pipeline - 
+--- Final Model Comparison ---
+2025-08-14 16:35:00,956 - INFO - ml.pipeline - Linear Regression R² (Test Set): -2.22, Mean CV R²: -11.96
+2025-08-14 16:35:00,956 - INFO - ml.pipeline - XGBoost Regressor R² (Test Set - Tuned): 1.00, Mean CV R²: 0.70
+2025-08-14 16:35:00,956 - INFO - ml.pipeline - 
+--- Interpreting XGBoost Model with SHAP ---
+2025-08-14 16:35:00,957 - INFO - ml.pipeline - 
+--- Starting Model Interpretability with SHAP ---
+2025-08-14 16:35:00,957 - INFO - ml.pipeline -   Transforming X_test_raw for SHAP analysis...
+2025-08-14 16:35:00,971 - INFO - ml.pipeline -   Generating standard XGBoost Feature Importance Plot...
+2025-08-14 16:35:01,241 - INFO - ml.pipeline -   XGBoost Feature Importance Plot saved to: C:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\ml_plots\RQ7_xgboost_feature_importance_full.png
+2025-08-14 16:35:01,664 - INFO - ml.pipeline -   Generating SHAP Summary Plot...
+2025-08-14 16:35:01,665 - INFO - ml.pipeline - Attempting to call shap.summary_plot...
+2025-08-14 16:35:01,665 - INFO - ml.pipeline - shap_values shape: (528, 1484)
+2025-08-14 16:35:01,880 - INFO - ml.pipeline - shap.summary_plot call completed successfully.
+2025-08-14 16:35:02,078 - INFO - ml.pipeline -   SHAP Summary Plot saved to: C:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\ml_plots\RQ7_shap_summary_plot_full.png
+2025-08-14 16:35:02,078 - INFO - ml.pipeline -   Generating SHAP Dependence Plots for key features...
+2025-08-14 16:35:02,142 - INFO - ml.pipeline - Attempting to call shap.dependence_plot for feature: text_pipeline__highest...
+2025-08-14 16:35:02,209 - INFO - ml.pipeline - shap.dependence_plot for text_pipeline__highest completed successfully.
+2025-08-14 16:35:02,351 - INFO - ml.pipeline -   SHAP Dependence Plot for text_pipeline__highest saved.
+2025-08-14 16:35:02,411 - INFO - ml.pipeline - Attempting to call shap.dependence_plot for feature: num_pipeline__comment_score_per_day...
+2025-08-14 16:35:02,478 - INFO - ml.pipeline - shap.dependence_plot for num_pipeline__comment_score_per_day completed successfully.
+2025-08-14 16:35:02,554 - INFO - ml.pipeline -   SHAP Dependence Plot for num_pipeline__comment_score_per_day saved.
+2025-08-14 16:35:02,612 - INFO - ml.pipeline - Attempting to call shap.dependence_plot for feature: cat_pipeline__link_flair_text_Match | Esports...
+2025-08-14 16:35:02,682 - INFO - ml.pipeline - shap.dependence_plot for cat_pipeline__link_flair_text_Match | Esports completed successfully.
+2025-08-14 16:35:02,749 - INFO - ml.pipeline -   SHAP Dependence Plot for cat_pipeline__link_flair_text_Match | Esports saved.
+2025-08-14 16:35:02,809 - INFO - ml.pipeline - Attempting to call shap.dependence_plot for feature: text_pipeline__euls...
+2025-08-14 16:35:02,875 - INFO - ml.pipeline - shap.dependence_plot for text_pipeline__euls completed successfully.
+2025-08-14 16:35:02,941 - INFO - ml.pipeline -   SHAP Dependence Plot for text_pipeline__euls saved.
+2025-08-14 16:35:03,000 - INFO - ml.pipeline - Attempting to call shap.dependence_plot for feature: text_pipeline__especially...
+2025-08-14 16:35:03,071 - INFO - ml.pipeline - shap.dependence_plot for text_pipeline__especially completed successfully.
+2025-08-14 16:35:03,141 - INFO - ml.pipeline -   SHAP Dependence Plot for text_pipeline__especially saved.
+2025-08-14 16:35:03,200 - INFO - ml.pipeline - Attempting to call shap.dependence_plot for feature: text_pipeline__power...
+2025-08-14 16:35:03,267 - INFO - ml.pipeline - shap.dependence_plot for text_pipeline__power completed successfully.
+2025-08-14 16:35:03,336 - INFO - ml.pipeline -   SHAP Dependence Plot for text_pipeline__power saved.
+2025-08-14 16:35:03,394 - INFO - ml.pipeline - Attempting to call shap.dependence_plot for feature: text_pipeline__higher...
+2025-08-14 16:35:03,462 - INFO - ml.pipeline - shap.dependence_plot for text_pipeline__higher completed successfully.
+2025-08-14 16:35:03,528 - INFO - ml.pipeline -   SHAP Dependence Plot for text_pipeline__higher saved.
+2025-08-14 16:35:03,585 - INFO - ml.pipeline - Attempting to call shap.dependence_plot for feature: text_pipeline__blood...
+2025-08-14 16:35:03,654 - INFO - ml.pipeline - shap.dependence_plot for text_pipeline__blood completed successfully.
+2025-08-14 16:35:03,722 - INFO - ml.pipeline -   SHAP Dependence Plot for text_pipeline__blood saved.
+2025-08-14 16:35:03,780 - INFO - ml.pipeline - Attempting to call shap.dependence_plot for feature: text_pipeline__lan...
+2025-08-14 16:35:03,847 - INFO - ml.pipeline - shap.dependence_plot for text_pipeline__lan completed successfully.
+2025-08-14 16:35:03,914 - INFO - ml.pipeline -   SHAP Dependence Plot for text_pipeline__lan saved.
+2025-08-14 16:35:03,972 - INFO - ml.pipeline - Attempting to call shap.dependence_plot for feature: text_pipeline__comeback...
+2025-08-14 16:35:04,041 - INFO - ml.pipeline - shap.dependence_plot for text_pipeline__comeback completed successfully.
+2025-08-14 16:35:04,111 - INFO - ml.pipeline -   SHAP Dependence Plot for text_pipeline__comeback saved.
+2025-08-14 16:35:04,112 - INFO - ml.pipeline - 
+--- Model Interpretability Complete ---
+2025-08-14 16:35:04,120 - INFO - ml.pipeline - Copied RQ7_xgboost_feature_importance_full.png to C:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots
+2025-08-14 16:35:04,126 - INFO - ml.pipeline - Copied RQ7_shap_summary_plot_full.png to C:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots
+2025-08-14 16:35:04,126 - INFO - ml.pipeline - 
+--- Saving Model Artifacts ---
+2025-08-14 16:35:04,126 - INFO - ml.pipeline - 
+--- Saving Trained Models and Preprocessing Objects ---
+2025-08-14 16:35:04,168 - INFO - ml.pipeline - Linear Regression model saved to: C:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\models\linear_regression_model_pipeline.joblib
+2025-08-14 16:35:04,224 - INFO - ml.pipeline - XGBoost model saved to: C:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\models\xgboost_model_tuned_pipeline.joblib
+2025-08-14 16:35:04,285 - INFO - ml.pipeline - Preprocessor pipeline saved to: C:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\models\full_preprocessor_pipeline.joblib
+2025-08-14 16:35:04,286 - INFO - ml.pipeline - Models and preprocessing objects saved to: C:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\models
+2025-08-14 16:35:04,286 - INFO - ml.pipeline - 
+--- Saving ML Results Summary ---
+2025-08-14 16:35:04,287 - INFO - ml.pipeline - ML results summary saved to: C:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\ml_plots\ml_results_summary_20250814_163504.txt
+2025-08-14 16:35:04,287 - INFO - ml.pipeline - 
+--- Model Pipeline completed Successfully ---
+2025-08-14 16:35:04,297 - INFO - ml.pipeline - Training pipeline completed.

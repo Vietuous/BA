@@ -16,7 +16,7 @@ if project_root_for_import not in sys.path:
 import config
 
 # Get a logger instance for this module
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("eda.stats")
 
 
 def perform_independent_t_test(

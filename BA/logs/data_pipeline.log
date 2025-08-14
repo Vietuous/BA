@@ -1,0 +1,48 @@
+2025-08-14 16:15:19,730 - INFO - data.pipeline - Starting data preparation and feature engineering pipeline...
+2025-08-14 16:15:19,731 - INFO - data.pipeline - --- Starting Data Preparation Pipeline ---
+2025-08-14 16:15:19,732 - INFO - data.pipeline - 
+No processed data found in 'reddit_dota2_analysis.db'. Proceeding with data collection and processing.
+2025-08-14 16:15:19,734 - INFO - data.pipeline - Reddit instance initialized for subreddit: DotA2.
+2025-08-14 16:15:19,734 - INFO - data.pipeline - 
+--- DATENSAMMLUNG ---
+2025-08-14 16:15:19,735 - INFO - data.pipeline - 
+Collecting data for TI8 (Query: 'OG TI8')...
+2025-08-14 16:16:26,975 - INFO - data.pipeline - Successfully collected 736 comments for TI8.
+2025-08-14 16:16:26,975 - INFO - data.pipeline - --- Cleaning and Preprocessing for TI8 ---
+2025-08-14 16:16:29,148 - INFO - data.pipeline - Performing sentiment analysis and calculating text length...
+2025-08-14 16:16:29,266 - INFO - data.pipeline - Categorizing time periods and calculating days from event start...
+2025-08-14 16:16:29,276 - INFO - data.pipeline - --- Feature Engineering ---
+2025-08-14 16:16:29,507 - INFO - data.pipeline - 
+Collecting data for TI11 (Query: 'Tundra TI11')...
+2025-08-14 16:17:20,595 - INFO - data.pipeline - Successfully collected 649 comments for TI11.
+2025-08-14 16:17:20,596 - INFO - data.pipeline - --- Cleaning and Preprocessing for TI11 ---
+2025-08-14 16:17:20,671 - INFO - data.pipeline - Performing sentiment analysis and calculating text length...
+2025-08-14 16:17:20,767 - INFO - data.pipeline - Categorizing time periods and calculating days from event start...
+2025-08-14 16:17:20,775 - INFO - data.pipeline - --- Feature Engineering ---
+2025-08-14 16:17:20,958 - INFO - data.pipeline - 
+Collecting data for OG_RM24 (Query: 'OG')...
+2025-08-14 16:18:01,677 - INFO - data.pipeline - Successfully collected 750 comments for OG_RM24.
+2025-08-14 16:18:01,678 - INFO - data.pipeline - --- Cleaning and Preprocessing for OG_RM24 ---
+2025-08-14 16:18:01,761 - INFO - data.pipeline - Performing sentiment analysis and calculating text length...
+2025-08-14 16:18:02,134 - INFO - data.pipeline - Categorizing time periods and calculating days from event start...
+2025-08-14 16:18:02,143 - INFO - data.pipeline - --- Feature Engineering ---
+2025-08-14 16:18:02,361 - INFO - data.pipeline - 
+Collecting data for Topson_RM24 (Query: 'Topson')...
+2025-08-14 16:18:41,397 - INFO - data.pipeline - Successfully collected 750 comments for Topson_RM24.
+2025-08-14 16:18:41,398 - INFO - data.pipeline - --- Cleaning and Preprocessing for Topson_RM24 ---
+2025-08-14 16:18:41,480 - INFO - data.pipeline - Performing sentiment analysis and calculating text length...
+2025-08-14 16:18:41,581 - INFO - data.pipeline - Categorizing time periods and calculating days from event start...
+2025-08-14 16:18:41,591 - INFO - data.pipeline - --- Feature Engineering ---
+2025-08-14 16:18:41,808 - INFO - data.pipeline - 
+--- Saving processed data to SQLite database ---
+2025-08-14 16:18:41,909 - INFO - data.pipeline - 
+--- Data storage in SQLite complete ---
+2025-08-14 16:18:41,910 - INFO - data.pipeline - --- Data Preparation Pipeline Completed ---
+2025-08-14 16:18:41,912 - INFO - data.pipeline - Data preparation and feature engineering pipeline complete.
+2025-08-14 16:18:41,912 - INFO - data.pipeline - Combined DataFrame successfully created with shape: (2636, 41)
+2025-08-14 16:18:41,912 - INFO - data.pipeline - Combined Cleaned DataFrame Info:
+2025-08-14 16:18:41,955 - INFO - data.pipeline - 
+--- Loading data from SQLite database ---
+2025-08-14 16:18:41,956 - INFO - data.pipeline - Comments DataFrame loaded with shape: (2636, 41)
+2025-08-14 16:18:41,956 - INFO - data.pipeline - 
+Comments DataFrame Info:

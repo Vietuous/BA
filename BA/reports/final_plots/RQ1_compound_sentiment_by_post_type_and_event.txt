@@ -1,0 +1,20 @@
+Compound Sentiment by Post Type and Event
+=========================================
+
+        post_type  event_name     mean      std  median  count  lower_bound  upper_bound
+  Player Transfer         TI8 0.240323 0.531914 0.31820  517.0    -0.291591     0.772237
+  Player Transfer        TI11 0.216763 0.524655 0.20230  414.0    -0.307892     0.741418
+  Player Transfer     OG_RM24 0.123114 0.478968 0.00000  144.0    -0.355854     0.602082
+  Player Transfer Topson_RM24 0.103483 0.481164 0.00000  144.0    -0.377681     0.584646
+            Other         TI8 0.220712 0.386760 0.12800   81.0    -0.166047     0.607472
+            Other        TI11 0.079795 0.383139 0.00000   73.0    -0.303344     0.462933
+            Other     OG_RM24 0.175521 0.432856 0.03560  465.0    -0.257335     0.608377
+            Other Topson_RM24 0.181391 0.432324 0.05160  463.0    -0.250932     0.613715
+Tournament Result         TI8 0.157600 0.384401 0.00000   33.0    -0.226801     0.542001
+Tournament Result        TI11 0.172723 0.408714 0.04875  110.0    -0.235991     0.581437
+Tournament Result     OG_RM24 0.215934 0.360490 0.25000   47.0    -0.144556     0.576424
+Tournament Result Topson_RM24 0.215934 0.360490 0.25000   47.0    -0.144556     0.576424
+   Ranking Update         TI8      NaN      NaN     NaN    NaN          NaN          NaN
+   Ranking Update        TI11      NaN      NaN     NaN    NaN          NaN          NaN
+   Ranking Update     OG_RM24 0.052347 0.454926 0.00000   49.0    -0.402579     0.507273
+   Ranking Update Topson_RM24 0.052347 0.454926 0.00000   49.0    -0.402579     0.507273

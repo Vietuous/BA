@@ -1,0 +1,646 @@
+2025-08-14 15:35:53,797 - INFO - eda.stats - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'TI8' and 'TI11' ---
+2025-08-14 15:35:53,801 - INFO - eda.stats -   t-statistic: 1.481
+2025-08-14 15:35:53,801 - INFO - eda.stats -   p-value: 0.139
+2025-08-14 15:35:53,802 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.139) in 'compound_sentiment' between 'TI8' (Mean: 0.23) and 'TI11' (Mean: 0.19).
+2025-08-14 15:35:53,802 - INFO - eda.stats - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'TI8' and 'OG_RM24' ---
+2025-08-14 15:35:53,806 - INFO - eda.stats -   t-statistic: 2.818
+2025-08-14 15:35:53,806 - INFO - eda.stats -   p-value: 0.005
+2025-08-14 15:35:53,806 - INFO - eda.stats -   Interpretation: There is a statistically significant difference (p=0.005) in 'compound_sentiment' between 'TI8' (Mean: 0.23) and 'OG_RM24' (Mean: 0.16).
+2025-08-14 15:35:53,807 - INFO - eda.stats - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'TI11' and 'OG_RM24' ---
+2025-08-14 15:35:53,810 - INFO - eda.stats -   t-statistic: 1.235
+2025-08-14 15:35:53,811 - INFO - eda.stats -   p-value: 0.217
+2025-08-14 15:35:53,811 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.217) in 'compound_sentiment' between 'TI11' (Mean: 0.19) and 'OG_RM24' (Mean: 0.16).
+2025-08-14 15:35:53,812 - INFO - eda.stats - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'OG_RM24' and 'Topson_RM24' ---
+2025-08-14 15:35:53,815 - INFO - eda.stats -   t-statistic: 0.216
+2025-08-14 15:35:53,815 - INFO - eda.stats -   p-value: 0.829
+2025-08-14 15:35:53,815 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.829) in 'compound_sentiment' between 'OG_RM24' (Mean: 0.16) and 'Topson_RM24' (Mean: 0.16).
+2025-08-14 15:35:53,816 - INFO - eda.stats - 
+--- Performing One-Way ANOVA test for 'comment_score' across groups in 'time_period' ---
+2025-08-14 15:35:53,819 - INFO - eda.stats -   F-statistic: 0.633
+2025-08-14 15:35:53,819 - INFO - eda.stats -   p-value: 0.531
+2025-08-14 15:35:53,819 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.531) in 'comment_score' across groups in 'time_period'.
+2025-08-14 15:35:53,820 - INFO - eda.stats - 
+--- Performing One-Way ANOVA test for 'compound_sentiment' across groups in 'time_period' ---
+2025-08-14 15:35:53,823 - INFO - eda.stats -   F-statistic: 1.278
+2025-08-14 15:35:53,824 - INFO - eda.stats -   p-value: 0.279
+2025-08-14 15:35:53,824 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.279) in 'compound_sentiment' across groups in 'time_period'.
+2025-08-14 15:35:53,824 - INFO - eda.stats - 
+--- Performing One-Way ANOVA test for 'comment_score' across groups in 'post_type' ---
+2025-08-14 15:35:53,828 - INFO - eda.stats -   F-statistic: 6.045
+2025-08-14 15:35:53,828 - INFO - eda.stats -   p-value: 0.000
+2025-08-14 15:35:53,828 - INFO - eda.stats -   Interpretation: There is a statistically significant difference (p=0.000) in 'comment_score' across at least two groups in 'post_type'.
+2025-08-14 15:35:53,829 - INFO - eda.stats - 
+--- Performing One-Way ANOVA test for 'compound_sentiment' across groups in 'post_type' ---
+2025-08-14 15:35:53,832 - INFO - eda.stats -   F-statistic: 4.058
+2025-08-14 15:35:53,833 - INFO - eda.stats -   p-value: 0.007
+2025-08-14 15:35:53,833 - INFO - eda.stats -   Interpretation: There is a statistically significant difference (p=0.007) in 'compound_sentiment' across at least two groups in 'post_type'.
+2025-08-14 15:35:53,833 - INFO - eda.stats - 
+--- Performing Chi-squared test of independence between 'time_period' and 'contains_question' ---
+2025-08-14 15:35:53,839 - INFO - eda.stats -   Chi-squared statistic: 1.928
+2025-08-14 15:35:53,840 - INFO - eda.stats -   p-value: 0.381
+2025-08-14 15:35:53,840 - INFO - eda.stats -   Degrees of freedom: 2
+2025-08-14 15:35:53,841 - INFO - eda.stats -   Interpretation: There is no statistically significant association (p=0.381) between 'time_period' and 'contains_question'. This suggests that the two variables are independent.
+2025-08-14 15:35:53,841 - INFO - eda.stats - 
+--- Performing Chi-squared test of independence between 'event_name' and 'contains_team_name' ---
+2025-08-14 15:35:53,845 - INFO - eda.stats -   Chi-squared statistic: 314.693
+2025-08-14 15:35:53,846 - INFO - eda.stats -   p-value: 0.000
+2025-08-14 15:35:53,846 - INFO - eda.stats -   Degrees of freedom: 3
+2025-08-14 15:35:53,846 - INFO - eda.stats -   Interpretation: There is a statistically significant association (p=0.000) between 'event_name' and 'contains_team_name'. This suggests that the two variables are not independent.
+2025-08-14 15:38:22,918 - INFO - eda.stats - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'TI8' and 'TI11' ---
+2025-08-14 15:38:22,921 - INFO - eda.stats -   t-statistic: 1.481
+2025-08-14 15:38:22,922 - INFO - eda.stats -   p-value: 0.139
+2025-08-14 15:38:22,922 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.139) in 'compound_sentiment' between 'TI8' (Mean: 0.23) and 'TI11' (Mean: 0.19).
+2025-08-14 15:38:22,923 - INFO - eda.stats - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'TI8' and 'OG_RM24' ---
+2025-08-14 15:38:22,927 - INFO - eda.stats -   t-statistic: 2.818
+2025-08-14 15:38:22,927 - INFO - eda.stats -   p-value: 0.005
+2025-08-14 15:38:22,927 - INFO - eda.stats -   Interpretation: There is a statistically significant difference (p=0.005) in 'compound_sentiment' between 'TI8' (Mean: 0.23) and 'OG_RM24' (Mean: 0.16).
+2025-08-14 15:38:22,928 - INFO - eda.stats - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'TI11' and 'OG_RM24' ---
+2025-08-14 15:38:22,931 - INFO - eda.stats -   t-statistic: 1.235
+2025-08-14 15:38:22,932 - INFO - eda.stats -   p-value: 0.217
+2025-08-14 15:38:22,932 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.217) in 'compound_sentiment' between 'TI11' (Mean: 0.19) and 'OG_RM24' (Mean: 0.16).
+2025-08-14 15:38:22,933 - INFO - eda.stats - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'OG_RM24' and 'Topson_RM24' ---
+2025-08-14 15:38:22,936 - INFO - eda.stats -   t-statistic: 0.216
+2025-08-14 15:38:22,936 - INFO - eda.stats -   p-value: 0.829
+2025-08-14 15:38:22,937 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.829) in 'compound_sentiment' between 'OG_RM24' (Mean: 0.16) and 'Topson_RM24' (Mean: 0.16).
+2025-08-14 15:38:22,937 - INFO - eda.stats - 
+--- Performing One-Way ANOVA test for 'comment_score' across groups in 'time_period' ---
+2025-08-14 15:38:22,940 - INFO - eda.stats -   F-statistic: 0.633
+2025-08-14 15:38:22,941 - INFO - eda.stats -   p-value: 0.531
+2025-08-14 15:38:22,941 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.531) in 'comment_score' across groups in 'time_period'.
+2025-08-14 15:38:22,941 - INFO - eda.stats - 
+--- Performing One-Way ANOVA test for 'compound_sentiment' across groups in 'time_period' ---
+2025-08-14 15:38:22,946 - INFO - eda.stats -   F-statistic: 1.278
+2025-08-14 15:38:22,946 - INFO - eda.stats -   p-value: 0.279
+2025-08-14 15:38:22,946 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.279) in 'compound_sentiment' across groups in 'time_period'.
+2025-08-14 15:38:22,947 - INFO - eda.stats - 
+--- Performing One-Way ANOVA test for 'comment_score' across groups in 'post_type' ---
+2025-08-14 15:38:22,950 - INFO - eda.stats -   F-statistic: 6.045
+2025-08-14 15:38:22,951 - INFO - eda.stats -   p-value: 0.000
+2025-08-14 15:38:22,951 - INFO - eda.stats -   Interpretation: There is a statistically significant difference (p=0.000) in 'comment_score' across at least two groups in 'post_type'.
+2025-08-14 15:38:22,952 - INFO - eda.stats - 
+--- Performing One-Way ANOVA test for 'compound_sentiment' across groups in 'post_type' ---
+2025-08-14 15:38:22,955 - INFO - eda.stats -   F-statistic: 4.058
+2025-08-14 15:38:22,955 - INFO - eda.stats -   p-value: 0.007
+2025-08-14 15:38:22,956 - INFO - eda.stats -   Interpretation: There is a statistically significant difference (p=0.007) in 'compound_sentiment' across at least two groups in 'post_type'.
+2025-08-14 15:38:22,956 - INFO - eda.stats - 
+--- Performing Chi-squared test of independence between 'time_period' and 'contains_question' ---
+2025-08-14 15:38:22,962 - INFO - eda.stats -   Chi-squared statistic: 1.928
+2025-08-14 15:38:22,963 - INFO - eda.stats -   p-value: 0.381
+2025-08-14 15:38:22,963 - INFO - eda.stats -   Degrees of freedom: 2
+2025-08-14 15:38:22,964 - INFO - eda.stats -   Interpretation: There is no statistically significant association (p=0.381) between 'time_period' and 'contains_question'. This suggests that the two variables are independent.
+2025-08-14 15:38:22,964 - INFO - eda.stats - 
+--- Performing Chi-squared test of independence between 'event_name' and 'contains_team_name' ---
+2025-08-14 15:38:22,968 - INFO - eda.stats -   Chi-squared statistic: 314.693
+2025-08-14 15:38:22,969 - INFO - eda.stats -   p-value: 0.000
+2025-08-14 15:38:22,969 - INFO - eda.stats -   Degrees of freedom: 3
+2025-08-14 15:38:22,969 - INFO - eda.stats -   Interpretation: There is a statistically significant association (p=0.000) between 'event_name' and 'contains_team_name'. This suggests that the two variables are not independent.
+2025-08-14 15:38:22,970 - INFO - eda.stats - 
+--- Generating Exploratory Data Analysis Plots ---
+2025-08-14 15:38:22,970 - INFO - eda.stats - 
+--- Generating Feature Distribution Plots ---
+2025-08-14 15:38:22,973 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ5_dist_comment_score_comment_score_summary.txt
+2025-08-14 15:38:22,987 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ5_dist_comment_score_comment_score_kde_curve.txt
+2025-08-14 15:38:23,559 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ5_dist_comment_score_comment_score_histogram_extended.png
+2025-08-14 15:38:23,563 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\dist_sentiment_compound_sentiment_summary.txt
+2025-08-14 15:38:23,586 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\dist_sentiment_compound_sentiment_kde_curve.txt
+2025-08-14 15:38:24,022 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\other_eda_plots\dist_sentiment_compound_sentiment_histogram_extended.png
+2025-08-14 15:38:24,026 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\dist_word_count_word_count_summary.txt
+2025-08-14 15:38:24,042 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\dist_word_count_word_count_kde_curve.txt
+2025-08-14 15:38:24,513 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\other_eda_plots\dist_word_count_word_count_histogram_extended.png
+2025-08-14 15:38:24,514 - INFO - eda.stats - 
+--- Generating Distribution Comparison Plots (Violin/Box) ---
+2025-08-14 15:38:24,521 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ4_dist_comp_word_count_word_count_violin_stats.txt
+2025-08-14 15:38:24,793 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ4_dist_comp_word_count_word_count_violin_extended.png
+2025-08-14 15:38:24,800 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\dist_comp_sentiment_compound_sentiment_violin_stats.txt
+2025-08-14 15:38:25,080 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\other_eda_plots\dist_comp_sentiment_compound_sentiment_violin_extended.png
+2025-08-14 15:38:25,087 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\dist_comp_comment_score_comment_score_violin_stats.txt
+2025-08-14 15:38:25,335 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\other_eda_plots\dist_comp_comment_score_comment_score_violin_extended.png
+2025-08-14 15:38:25,336 - INFO - eda.stats - 
+--- Generating Time Period Analysis Plots ---
+2025-08-14 15:38:25,405 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ3_comment_distribution_time_periods_table.txt
+2025-08-14 15:38:25,664 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ3_comment_distribution_time_periods.png
+2025-08-14 15:38:25,674 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ3_avg_comment_score_by_time_period_and_event.txt
+2025-08-14 15:38:25,952 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ3_avg_comment_score_by_time_period_and_event_extended.png
+2025-08-14 15:38:25,961 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\avg_sentiment_by_time_period_and_event.txt
+2025-08-14 15:38:26,256 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\other_eda_plots\avg_sentiment_by_time_period_and_event_extended.png
+2025-08-14 15:38:26,257 - INFO - eda.stats - 
+--- Generating Engagement by Post Type Plots ---
+2025-08-14 15:38:26,267 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ1_comment_score_by_post_type_and_event.txt
+2025-08-14 15:38:26,627 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ1_avg_comment_score_by_post_type.png
+2025-08-14 15:38:26,637 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ1_compound_sentiment_by_post_type_and_event.txt
+2025-08-14 15:38:26,988 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ1_avg_sentiment_by_post_type.png
+2025-08-14 15:38:26,998 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\word_count_by_post_type_and_event.txt
+2025-08-14 15:38:27,360 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\other_eda_plots\avg_word_count_by_post_type.png
+2025-08-14 15:38:27,371 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ2_word_count_by_post_type_and_event.txt
+2025-08-14 15:38:27,823 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ2_filtered_avg_word_count_by_post_type_and_event.png
+2025-08-14 15:38:27,824 - INFO - eda.stats - 
+--- Generating Pearson Correlation Matrix ---
+2025-08-14 15:38:27,825 - INFO - eda.stats - 
+--- Calculating Pearson Correlations ---
+2025-08-14 15:38:27,829 - INFO - eda.stats - Correlation Matrix:
+                         contains_question  word_count  upvote_ratio  \
+contains_question                 1.000000    0.032381     -0.006678   
+word_count                        0.032381    1.000000     -0.042379   
+upvote_ratio                     -0.006678   -0.042379      1.000000   
+comment_score_per_day             0.002658   -0.004501     -0.118166   
+post_num_comments                 0.011531    0.011531      0.095679   
+contains_team_name                0.026184    0.242110     -0.053099   
+comment_hour                      0.012566   -0.017134     -0.087555   
+post_title_word_count             0.014961    0.050297      0.144061   
+pos_sentiment                    -0.025208    0.057036      0.014126   
+char_count                        0.049575    0.960854     -0.038336   
+compound_sentiment                0.016135    0.260283      0.008914   
+contains_player_keyword           0.015280    0.254756     -0.039884   
+contains_event_keyword            0.026153    0.372681     -0.095618   
+contains_hero_keyword            -0.002931    0.222841      0.099892   
+days_from_event_start             0.011026    0.121716     -0.210543   
+post_score                       -0.014079    0.031193     -0.123702   
+comment_score                    -0.011661   -0.000183     -0.099077   
+author_karma                           NaN         NaN           NaN   
+post_title_length                 0.015968    0.053433      0.101028   
+is_self                           0.030580    0.095855     -0.187347   
+neg_sentiment                    -0.015322    0.041204     -0.044612   
+neu_sentiment                     0.035813   -0.074927      0.022216   
+
+                         comment_score_per_day  post_num_comments  \
+contains_question                     0.002658           0.011531   
+word_count                           -0.004501           0.011531   
+upvote_ratio                         -0.118166           0.095679   
+comment_score_per_day                 1.000000           0.080695   
+post_num_comments                     0.080695           1.000000   
+contains_team_name                    0.016985           0.131679   
+comment_hour                         -0.048310           0.059262   
+post_title_word_count                -0.010336          -0.179042   
+pos_sentiment                         0.003703           0.031537   
+char_count                           -0.008151           0.019952   
+compound_sentiment                   -0.005485           0.035993   
+contains_player_keyword               0.075230           0.253735   
+contains_event_keyword               -0.003731           0.125865   
+contains_hero_keyword                 0.013577          -0.052328   
+days_from_event_start                 0.083523           0.308765   
+post_score                            0.516288           0.140965   
+comment_score                         0.689825           0.138270   
+author_karma                               NaN                NaN   
+post_title_length                     0.018792          -0.162927   
+is_self                               0.079610           0.406720   
+neg_sentiment                         0.034403           0.014292   
+neu_sentiment                        -0.026815          -0.035368   
+
+                         contains_team_name  comment_hour  \
+contains_question                  0.026184      0.012566   
+word_count                         0.242110     -0.017134   
+upvote_ratio                      -0.053099     -0.087555   
+comment_score_per_day              0.016985     -0.048310   
+post_num_comments                  0.131679      0.059262   
+contains_team_name                 1.000000      0.028454   
+comment_hour                       0.028454      1.000000   
+post_title_word_count             -0.096552     -0.026325   
+pos_sentiment                      0.064859     -0.007278   
+char_count                         0.218414     -0.003262   
+compound_sentiment                 0.109452      0.006128   
+contains_player_keyword            0.697889      0.039725   
+contains_event_keyword             0.289000      0.033341   
+contains_hero_keyword              0.017620     -0.041209   
+days_from_event_start              0.150288      0.039688   
+post_score                        -0.085265     -0.134518   
+comment_score                      0.010160     -0.058909   
+author_karma                            NaN           NaN   
+post_title_length                 -0.089353     -0.004241   
+is_self                            0.294738      0.111696   
+neg_sentiment                      0.023830     -0.020262   
+neu_sentiment                     -0.071236      0.023973   
+
+                         post_title_word_count  pos_sentiment  char_count  \
+contains_question                     0.014961      -0.025208    0.049575   
+word_count                            0.050297       0.057036    0.960854   
+upvote_ratio                          0.144061       0.014126   -0.038336   
+comment_score_per_day                -0.010336       0.003703   -0.008151   
+post_num_comments                    -0.179042       0.031537    0.019952   
+contains_team_name                   -0.096552       0.064859    0.218414   
+comment_hour                         -0.026325      -0.007278   -0.003262   
+post_title_word_count                 1.000000       0.052075    0.047500   
+pos_sentiment                         0.052075       1.000000    0.041857   
+char_count                            0.047500       0.041857    1.000000   
+compound_sentiment                    0.031934       0.676132    0.245917   
+contains_player_keyword              -0.079578       0.041219    0.234870   
+contains_event_keyword                0.022005       0.105767    0.342888   
+contains_hero_keyword                 0.036447      -0.054889    0.243130   
+days_from_event_start                 0.109434       0.083690    0.124413   
+post_score                           -0.032335       0.005628    0.030565   
+comment_score                        -0.034390      -0.028803   -0.008283   
+author_karma                               NaN            NaN         NaN   
+post_title_length                     0.974670       0.055227    0.048532   
+is_self                              -0.235510       0.042583    0.085139   
+neg_sentiment                         0.018236      -0.227586    0.040889   
+neu_sentiment                        -0.056396      -0.731642   -0.060651   
+
+                         ...  contains_event_keyword  contains_hero_keyword  \
+contains_question        ...                0.026153              -0.002931   
+word_count               ...                0.372681               0.222841   
+upvote_ratio             ...               -0.095618               0.099892   
+comment_score_per_day    ...               -0.003731               0.013577   
+post_num_comments        ...                0.125865              -0.052328   
+contains_team_name       ...                0.289000               0.017620   
+comment_hour             ...                0.033341              -0.041209   
+post_title_word_count    ...                0.022005               0.036447   
+pos_sentiment            ...                0.105767              -0.054889   
+char_count               ...                0.342888               0.243130   
+compound_sentiment       ...                0.187878               0.000222   
+contains_player_keyword  ...                0.276463              -0.017224   
+contains_event_keyword   ...                1.000000              -0.014659   
+contains_hero_keyword    ...               -0.014659               1.000000   
+days_from_event_start    ...                0.174234              -0.042457   
+post_score               ...               -0.046615               0.021536   
+comment_score            ...               -0.012277              -0.009214   
+author_karma             ...                     NaN                    NaN   
+post_title_length        ...                0.035640               0.010754   
+is_self                  ...                0.247162              -0.082555   
+neg_sentiment            ...                0.017232               0.031170   
+neu_sentiment            ...               -0.101254               0.031765   
+
+                         days_from_event_start  post_score  comment_score  \
+contains_question                     0.011026   -0.014079      -0.011661   
+word_count                            0.121716    0.031193      -0.000183   
+upvote_ratio                         -0.210543   -0.123702      -0.099077   
+comment_score_per_day                 0.083523    0.516288       0.689825   
+post_num_comments                     0.308765    0.140965       0.138270   
+contains_team_name                    0.150288   -0.085265       0.010160   
+comment_hour                          0.039688   -0.134518      -0.058909   
+post_title_word_count                 0.109434   -0.032335      -0.034390   
+pos_sentiment                         0.083690    0.005628      -0.028803   
+char_count                            0.124413    0.030565      -0.008283   
+compound_sentiment                    0.096998    0.008188      -0.008428   
+contains_player_keyword               0.248221   -0.000157       0.070480   
+contains_event_keyword                0.174234   -0.046615      -0.012277   
+contains_hero_keyword                -0.042457    0.021536      -0.009214   
+days_from_event_start                 1.000000    0.118754       0.079619   
+post_score                            0.118754    1.000000       0.549550   
+comment_score                         0.079619    0.549550       1.000000   
+author_karma                               NaN         NaN            NaN   
+post_title_length                     0.154685    0.018422      -0.003321   
+is_self                               0.199385   -0.045670       0.046299   
+neg_sentiment                         0.048813    0.031936       0.021306   
+neu_sentiment                        -0.108679   -0.026936       0.010035   
+
+                         author_karma  post_title_length   is_self  \
+contains_question                 NaN           0.015968  0.030580   
+word_count                        NaN           0.053433  0.095855   
+upvote_ratio                      NaN           0.101028 -0.187347   
+comment_score_per_day             NaN           0.018792  0.079610   
+post_num_comments                 NaN          -0.162927  0.406720   
+contains_team_name                NaN          -0.089353  0.294738   
+comment_hour                      NaN          -0.004241  0.111696   
+post_title_word_count             NaN           0.974670 -0.235510   
+pos_sentiment                     NaN           0.055227  0.042583   
+char_count                        NaN           0.048532  0.085139   
+compound_sentiment                NaN           0.034297  0.053149   
+contains_player_keyword           NaN          -0.064331  0.338567   
+contains_event_keyword            NaN           0.035640  0.247162   
+contains_hero_keyword             NaN           0.010754 -0.082555   
+days_from_event_start             NaN           0.154685  0.199385   
+post_score                        NaN           0.018422 -0.045670   
+comment_score                     NaN          -0.003321  0.046299   
+author_karma                      NaN                NaN       NaN   
+post_title_length                 NaN           1.000000 -0.253293   
+is_self                           NaN          -0.253293  1.000000   
+neg_sentiment                     NaN           0.016177  0.053604   
+neu_sentiment                     NaN          -0.057996 -0.068716   
+
+                         neg_sentiment  neu_sentiment  
+contains_question            -0.015322       0.035813  
+word_count                    0.041204      -0.074927  
+upvote_ratio                 -0.044612       0.022216  
+comment_score_per_day         0.034403      -0.026815  
+post_num_comments             0.014292      -0.035368  
+contains_team_name            0.023830      -0.071236  
+comment_hour                 -0.020262       0.023973  
+post_title_word_count         0.018236      -0.056396  
+pos_sentiment                -0.227586      -0.731642  
+char_count                    0.040889      -0.060651  
+compound_sentiment           -0.592529      -0.196805  
+contains_player_keyword       0.011211      -0.044419  
+contains_event_keyword        0.017232      -0.101254  
+contains_hero_keyword         0.031170       0.031765  
+days_from_event_start         0.048813      -0.108679  
+post_score                    0.031936      -0.026936  
+comment_score                 0.021306       0.010035  
+author_karma                       NaN            NaN  
+post_title_length             0.016177      -0.057996  
+is_self                       0.053604      -0.068716  
+neg_sentiment                 1.000000      -0.475229  
+neu_sentiment                -0.475229       1.000000  
+
+[22 rows x 22 columns]
+2025-08-14 15:38:27,845 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\pearson_correlation\RQ5_pearson_correlation_matrix_data.txt
+2025-08-14 15:38:28,844 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\pearson_correlation\RQ5_pearson_correlation_matrix.png
+2025-08-14 15:38:28,845 - INFO - eda.stats - 
+--- Generating Additional Specific Plots ---
+2025-08-14 15:38:28,845 - INFO - eda.stats - 
+--- All EDA Plots generated. ---
+2025-08-14 16:18:41,997 - INFO - eda.stats - 
+--- Performing Statistical Tests ---
+2025-08-14 16:18:41,997 - INFO - eda.stats - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'TI8' and 'TI11' ---
+2025-08-14 16:18:42,002 - INFO - eda.stats -   t-statistic: 1.458
+2025-08-14 16:18:42,003 - INFO - eda.stats -   p-value: 0.145
+2025-08-14 16:18:42,003 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.145) in 'compound_sentiment' between 'TI8' (Mean: 0.23) and 'TI11' (Mean: 0.19).
+2025-08-14 16:18:42,003 - INFO - eda.stats - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'TI8' and 'OG_RM24' ---
+2025-08-14 16:18:42,007 - INFO - eda.stats -   t-statistic: 2.847
+2025-08-14 16:18:42,007 - INFO - eda.stats -   p-value: 0.004
+2025-08-14 16:18:42,008 - INFO - eda.stats -   Interpretation: There is a statistically significant difference (p=0.004) in 'compound_sentiment' between 'TI8' (Mean: 0.23) and 'OG_RM24' (Mean: 0.16).
+2025-08-14 16:18:42,008 - INFO - eda.stats - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'TI11' and 'OG_RM24' ---
+2025-08-14 16:18:42,012 - INFO - eda.stats -   t-statistic: 1.264
+2025-08-14 16:18:42,012 - INFO - eda.stats -   p-value: 0.206
+2025-08-14 16:18:42,013 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.206) in 'compound_sentiment' between 'TI11' (Mean: 0.19) and 'OG_RM24' (Mean: 0.16).
+2025-08-14 16:18:42,013 - INFO - eda.stats - 
+--- Performing Independent Samples t-test for 'compound_sentiment' between 'OG_RM24' and 'Topson_RM24' ---
+2025-08-14 16:18:42,019 - INFO - eda.stats -   t-statistic: 0.009
+2025-08-14 16:18:42,020 - INFO - eda.stats -   p-value: 0.993
+2025-08-14 16:18:42,020 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.993) in 'compound_sentiment' between 'OG_RM24' (Mean: 0.16) and 'Topson_RM24' (Mean: 0.16).
+2025-08-14 16:18:42,021 - INFO - eda.stats - 
+--- Performing One-Way ANOVA test for 'comment_score' across groups in 'time_period' ---
+2025-08-14 16:18:42,027 - INFO - eda.stats -   F-statistic: 0.672
+2025-08-14 16:18:42,028 - INFO - eda.stats -   p-value: 0.511
+2025-08-14 16:18:42,028 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.511) in 'comment_score' across groups in 'time_period'.
+2025-08-14 16:18:42,029 - INFO - eda.stats - 
+--- Performing One-Way ANOVA test for 'compound_sentiment' across groups in 'time_period' ---
+2025-08-14 16:18:42,036 - INFO - eda.stats -   F-statistic: 1.353
+2025-08-14 16:18:42,036 - INFO - eda.stats -   p-value: 0.259
+2025-08-14 16:18:42,037 - INFO - eda.stats -   Interpretation: There is no statistically significant difference (p=0.259) in 'compound_sentiment' across groups in 'time_period'.
+2025-08-14 16:18:42,037 - INFO - eda.stats - 
+--- Performing One-Way ANOVA test for 'comment_score' across groups in 'post_type' ---
+2025-08-14 16:18:42,043 - INFO - eda.stats -   F-statistic: 5.918
+2025-08-14 16:18:42,044 - INFO - eda.stats -   p-value: 0.001
+2025-08-14 16:18:42,045 - INFO - eda.stats -   Interpretation: There is a statistically significant difference (p=0.001) in 'comment_score' across at least two groups in 'post_type'.
+2025-08-14 16:18:42,045 - INFO - eda.stats - 
+--- Performing One-Way ANOVA test for 'compound_sentiment' across groups in 'post_type' ---
+2025-08-14 16:18:42,052 - INFO - eda.stats -   F-statistic: 3.325
+2025-08-14 16:18:42,053 - INFO - eda.stats -   p-value: 0.019
+2025-08-14 16:18:42,054 - INFO - eda.stats -   Interpretation: There is a statistically significant difference (p=0.019) in 'compound_sentiment' across at least two groups in 'post_type'.
+2025-08-14 16:18:42,054 - INFO - eda.stats - 
+--- Performing Chi-squared test of independence between 'time_period' and 'contains_question' ---
+2025-08-14 16:18:42,060 - INFO - eda.stats -   Chi-squared statistic: 1.454
+2025-08-14 16:18:42,061 - INFO - eda.stats -   p-value: 0.483
+2025-08-14 16:18:42,061 - INFO - eda.stats -   Degrees of freedom: 2
+2025-08-14 16:18:42,062 - INFO - eda.stats -   Interpretation: There is no statistically significant association (p=0.483) between 'time_period' and 'contains_question'. This suggests that the two variables are independent.
+2025-08-14 16:18:42,062 - INFO - eda.stats - 
+--- Performing Chi-squared test of independence between 'event_name' and 'contains_team_name' ---
+2025-08-14 16:18:42,071 - INFO - eda.stats -   Chi-squared statistic: 311.769
+2025-08-14 16:18:42,072 - INFO - eda.stats -   p-value: 0.000
+2025-08-14 16:18:42,073 - INFO - eda.stats -   Degrees of freedom: 3
+2025-08-14 16:18:42,073 - INFO - eda.stats -   Interpretation: There is a statistically significant association (p=0.000) between 'event_name' and 'contains_team_name'. This suggests that the two variables are not independent.
+2025-08-14 16:18:42,073 - INFO - eda.stats - 
+--- Statistical Tests Complete ---
+2025-08-14 16:18:42,074 - INFO - eda.stats - 
+--- Generating Exploratory Data Analysis Plots ---
+2025-08-14 16:18:42,074 - INFO - eda.stats - 
+--- Generating Feature Distribution Plots ---
+2025-08-14 16:18:42,077 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ5_dist_comment_score_comment_score_summary.txt
+2025-08-14 16:18:42,091 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ5_dist_comment_score_comment_score_kde_curve.txt
+2025-08-14 16:18:42,603 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ5_dist_comment_score_comment_score_histogram_extended.png
+2025-08-14 16:18:42,607 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\dist_sentiment_compound_sentiment_summary.txt
+2025-08-14 16:18:42,630 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\dist_sentiment_compound_sentiment_kde_curve.txt
+2025-08-14 16:18:43,064 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\other_eda_plots\dist_sentiment_compound_sentiment_histogram_extended.png
+2025-08-14 16:18:43,067 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\dist_word_count_word_count_summary.txt
+2025-08-14 16:18:43,084 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\dist_word_count_word_count_kde_curve.txt
+2025-08-14 16:18:43,554 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\other_eda_plots\dist_word_count_word_count_histogram_extended.png
+2025-08-14 16:18:43,555 - INFO - eda.stats - 
+--- Generating Distribution Comparison Plots (Violin/Box) ---
+2025-08-14 16:18:43,562 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ4_dist_comp_word_count_word_count_violin_stats.txt
+2025-08-14 16:18:43,833 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ4_dist_comp_word_count_word_count_violin_extended.png
+2025-08-14 16:18:43,840 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\dist_comp_sentiment_compound_sentiment_violin_stats.txt
+2025-08-14 16:18:44,118 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\other_eda_plots\dist_comp_sentiment_compound_sentiment_violin_extended.png
+2025-08-14 16:18:44,125 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\dist_comp_comment_score_comment_score_violin_stats.txt
+2025-08-14 16:18:44,376 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\other_eda_plots\dist_comp_comment_score_comment_score_violin_extended.png
+2025-08-14 16:18:44,377 - INFO - eda.stats - 
+--- Generating Time Period Analysis Plots ---
+2025-08-14 16:18:44,443 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ3_comment_distribution_time_periods_table.txt
+2025-08-14 16:18:44,700 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ3_comment_distribution_time_periods.png
+2025-08-14 16:18:44,710 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ3_avg_comment_score_by_time_period_and_event.txt
+2025-08-14 16:18:44,987 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ3_avg_comment_score_by_time_period_and_event_extended.png
+2025-08-14 16:18:44,997 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\avg_sentiment_by_time_period_and_event.txt
+2025-08-14 16:18:45,289 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\other_eda_plots\avg_sentiment_by_time_period_and_event_extended.png
+2025-08-14 16:18:45,290 - INFO - eda.stats - 
+--- Generating Engagement by Post Type Plots ---
+2025-08-14 16:18:45,301 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ1_comment_score_by_post_type_and_event.txt
+2025-08-14 16:18:45,661 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ1_avg_comment_score_by_post_type.png
+2025-08-14 16:18:45,670 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ1_compound_sentiment_by_post_type_and_event.txt
+2025-08-14 16:18:46,029 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ1_avg_sentiment_by_post_type.png
+2025-08-14 16:18:46,039 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\other_eda_plots\word_count_by_post_type_and_event.txt
+2025-08-14 16:18:46,401 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\other_eda_plots\avg_word_count_by_post_type.png
+2025-08-14 16:18:46,411 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\final_plots\RQ2_word_count_by_post_type_and_event.txt
+2025-08-14 16:18:46,766 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\final_plots\RQ2_filtered_avg_word_count_by_post_type_and_event.png
+2025-08-14 16:18:46,767 - INFO - eda.stats - 
+--- Generating Pearson Correlation Matrix ---
+2025-08-14 16:18:46,768 - INFO - eda.stats - 
+--- Calculating Pearson Correlations ---
+2025-08-14 16:18:46,771 - INFO - eda.stats - Correlation Matrix:
+                         contains_hero_keyword  comment_score_per_day  \
+contains_hero_keyword                 1.000000               0.013425   
+comment_score_per_day                 0.013425               1.000000   
+char_count                            0.249623              -0.008363   
+post_title_length                     0.013067               0.018754   
+upvote_ratio                          0.100570              -0.116627   
+comment_score                        -0.009456               0.689869   
+author_karma                               NaN                    NaN   
+contains_event_keyword               -0.015350              -0.005100   
+days_from_event_start                -0.041589               0.083042   
+post_title_word_count                 0.039083              -0.010320   
+pos_sentiment                        -0.047912               0.003548   
+post_score                            0.024429               0.518475   
+contains_team_name                    0.012954               0.017387   
+contains_question                     0.000072               0.001606   
+word_count                            0.230113              -0.004902   
+is_self                              -0.082077               0.079011   
+neg_sentiment                         0.026861               0.034441   
+neu_sentiment                         0.030099              -0.026375   
+compound_sentiment                    0.012939              -0.005845   
+post_num_comments                    -0.050758               0.079878   
+contains_player_keyword              -0.019394               0.074161   
+comment_hour                         -0.040743              -0.048109   
+
+                         char_count  post_title_length  upvote_ratio  \
+contains_hero_keyword      0.249623           0.013067      0.100570   
+comment_score_per_day     -0.008363           0.018754     -0.116627   
+char_count                 1.000000           0.043359     -0.044904   
+post_title_length          0.043359           1.000000      0.100618   
+upvote_ratio              -0.044904           0.100618      1.000000   
+comment_score             -0.008935          -0.003247     -0.096636   
+author_karma                    NaN                NaN           NaN   
+contains_event_keyword     0.342949           0.035846     -0.095353   
+days_from_event_start      0.118876           0.154445     -0.210114   
+post_title_word_count      0.043066           0.974666      0.143128   
+pos_sentiment              0.043326           0.053291      0.014307   
+post_score                 0.028350           0.018522     -0.117638   
+contains_team_name         0.222590          -0.083491     -0.052779   
+contains_question          0.053504           0.019439     -0.004046   
+word_count                 0.962204           0.048185     -0.048437   
+is_self                    0.091746          -0.253281     -0.188137   
+neg_sentiment              0.037080           0.016153     -0.043770   
+neu_sentiment             -0.057576          -0.052862      0.022766   
+compound_sentiment         0.245549           0.032492      0.008439   
+post_num_comments          0.014498          -0.162065      0.097037   
+contains_player_keyword    0.236574          -0.060561     -0.037006   
+comment_hour              -0.013371          -0.003633     -0.085481   
+
+                         comment_score  author_karma  contains_event_keyword  \
+contains_hero_keyword        -0.009456           NaN               -0.015350   
+comment_score_per_day         0.689869           NaN               -0.005100   
+char_count                   -0.008935           NaN                0.342949   
+post_title_length            -0.003247           NaN                0.035846   
+upvote_ratio                 -0.096636           NaN               -0.095353   
+comment_score                 1.000000           NaN               -0.016079   
+author_karma                       NaN           NaN                     NaN   
+contains_event_keyword       -0.016079           NaN                1.000000   
+days_from_event_start         0.079050           NaN                0.171516   
+post_title_word_count        -0.034242           NaN                0.022331   
+pos_sentiment                -0.029640           NaN                0.104813   
+post_score                    0.551125           NaN               -0.053855   
+contains_team_name            0.010578           NaN                0.284855   
+contains_question            -0.012768           NaN                0.026592   
+word_count                   -0.001374           NaN                0.370897   
+is_self                       0.045195           NaN                0.244731   
+neg_sentiment                 0.022174           NaN                0.014080   
+neu_sentiment                 0.011281           NaN               -0.096192   
+compound_sentiment           -0.009710           NaN                0.185845   
+post_num_comments             0.137127           NaN                0.111753   
+contains_player_keyword       0.068462           NaN                0.273120   
+comment_hour                 -0.058535           NaN                0.034745   
+
+                         days_from_event_start  post_title_word_count  ...  \
+contains_hero_keyword                -0.041589               0.039083  ...   
+comment_score_per_day                 0.083042              -0.010320  ...   
+char_count                            0.118876               0.043066  ...   
+post_title_length                     0.154445               0.974666  ...   
+upvote_ratio                         -0.210114               0.143128  ...   
+comment_score                         0.079050              -0.034242  ...   
+author_karma                               NaN                    NaN  ...   
+contains_event_keyword                0.171516               0.022331  ...   
+days_from_event_start                 1.000000               0.109458  ...   
+post_title_word_count                 0.109458               1.000000  ...   
+pos_sentiment                         0.082616               0.050507  ...   
+post_score                            0.117145              -0.031709  ...   
+contains_team_name                    0.149844              -0.090318  ...   
+contains_question                     0.015114               0.019422  ...   
+word_count                            0.116854               0.046085  ...   
+is_self                               0.199573              -0.235143  ...   
+neg_sentiment                         0.050128               0.018671  ...   
+neu_sentiment                        -0.108967              -0.051728  ...   
+compound_sentiment                    0.094148               0.030650  ...   
+post_num_comments                     0.311044              -0.177954  ...   
+contains_player_keyword               0.252677              -0.075958  ...   
+comment_hour                          0.040940              -0.025355  ...   
+
+                         contains_team_name  contains_question  word_count  \
+contains_hero_keyword              0.012954           0.000072    0.230113   
+comment_score_per_day              0.017387           0.001606   -0.004902   
+char_count                         0.222590           0.053504    0.962204   
+post_title_length                 -0.083491           0.019439    0.048185   
+upvote_ratio                      -0.052779          -0.004046   -0.048437   
+comment_score                      0.010578          -0.012768   -0.001374   
+author_karma                            NaN                NaN         NaN   
+contains_event_keyword             0.284855           0.026592    0.370897   
+days_from_event_start              0.149844           0.015114    0.116854   
+post_title_word_count             -0.090318           0.019422    0.046085   
+pos_sentiment                      0.061626          -0.032030    0.058174   
+post_score                        -0.085884          -0.023362    0.028730   
+contains_team_name                 1.000000           0.037488    0.244857   
+contains_question                  0.037488           1.000000    0.036269   
+word_count                         0.244857           0.036269    1.000000   
+is_self                            0.296574           0.033476    0.101903   
+neg_sentiment                      0.026180          -0.013281    0.037088   
+neu_sentiment                     -0.068764           0.041661   -0.071548   
+compound_sentiment                 0.110689           0.008843    0.259055   
+post_num_comments                  0.123486           0.010605    0.005737   
+contains_player_keyword            0.691058           0.021622    0.255308   
+comment_hour                       0.027908           0.013093   -0.028515   
+
+                          is_self  neg_sentiment  neu_sentiment  \
+contains_hero_keyword   -0.082077       0.026861       0.030099   
+comment_score_per_day    0.079011       0.034441      -0.026375   
+char_count               0.091746       0.037080      -0.057576   
+post_title_length       -0.253281       0.016153      -0.052862   
+upvote_ratio            -0.188137      -0.043770       0.022766   
+comment_score            0.045195       0.022174       0.011281   
+author_karma                  NaN            NaN            NaN   
+contains_event_keyword   0.244731       0.014080      -0.096192   
+days_from_event_start    0.199573       0.050128      -0.108967   
+post_title_word_count   -0.235143       0.018671      -0.051728   
+pos_sentiment            0.041982      -0.231923      -0.726508   
+post_score              -0.050605       0.032344      -0.024958   
+contains_team_name       0.296574       0.026180      -0.068764   
+contains_question        0.033476      -0.013281       0.041661   
+word_count               0.101903       0.037088      -0.071548   
+is_self                  1.000000       0.056560      -0.067791   
+neg_sentiment            0.056560       1.000000      -0.469176   
+neu_sentiment           -0.067791      -0.469176       1.000000   
+compound_sentiment       0.051820      -0.596636      -0.195281   
+post_num_comments        0.406938       0.024508      -0.038724   
+contains_player_keyword  0.345407       0.013913      -0.045632   
+comment_hour             0.117492      -0.020864       0.026244   
+
+                         compound_sentiment  post_num_comments  \
+contains_hero_keyword              0.012939          -0.050758   
+comment_score_per_day             -0.005845           0.079878   
+char_count                         0.245549           0.014498   
+post_title_length                  0.032492          -0.162065   
+upvote_ratio                       0.008439           0.097037   
+comment_score                     -0.009710           0.137127   
+author_karma                            NaN                NaN   
+contains_event_keyword             0.185845           0.111753   
+days_from_event_start              0.094148           0.311044   
+post_title_word_count              0.030650          -0.177954   
+pos_sentiment                      0.678247           0.028589   
+post_score                         0.003141           0.138416   
+contains_team_name                 0.110689           0.123486   
+contains_question                  0.008843           0.010605   
+word_count                         0.259055           0.005737   
+is_self                            0.051820           0.406938   
+neg_sentiment                     -0.596636           0.024508   
+neu_sentiment                     -0.195281          -0.038724   
+compound_sentiment                 1.000000           0.022121   
+post_num_comments                  0.022121           1.000000   
+contains_player_keyword            0.107901           0.264598   
+comment_hour                       0.002795           0.064975   
+
+                         contains_player_keyword  comment_hour  
+contains_hero_keyword                  -0.019394     -0.040743  
+comment_score_per_day                   0.074161     -0.048109  
+char_count                              0.236574     -0.013371  
+post_title_length                      -0.060561     -0.003633  
+upvote_ratio                           -0.037006     -0.085481  
+comment_score                           0.068462     -0.058535  
+author_karma                                 NaN           NaN  
+contains_event_keyword                  0.273120      0.034745  
+days_from_event_start                   0.252677      0.040940  
+post_title_word_count                  -0.075958     -0.025355  
+pos_sentiment                           0.038130     -0.007811  
+post_score                             -0.001368     -0.134009  
+contains_team_name                      0.691058      0.027908  
+contains_question                       0.021622      0.013093  
+word_count                              0.255308     -0.028515  
+is_self                                 0.345407      0.117492  
+neg_sentiment                           0.013913     -0.020864  
+neu_sentiment                          -0.045632      0.026244  
+compound_sentiment                      0.107901      0.002795  
+post_num_comments                       0.264598      0.064975  
+contains_player_keyword                 1.000000      0.041089  
+comment_hour                            0.041089      1.000000  
+
+[22 rows x 22 columns]
+2025-08-14 16:18:46,786 - INFO - eda.stats - Table data saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\pearson_correlation\RQ5_pearson_correlation_matrix_data.txt
+2025-08-14 16:18:48,054 - INFO - eda.stats - Plot saved to: c:\Users\Destiny\OneDrive - HWR Berlin\Desktop\Schule\HWR\1 Abschlussarbeit\Code\BA\reports\figures\pearson_correlation\RQ5_pearson_correlation_matrix.png
+2025-08-14 16:18:48,055 - INFO - eda.stats - 
+--- Generating Additional Specific Plots ---
+2025-08-14 16:18:48,055 - INFO - eda.stats - 
+--- All EDA Plots generated. ---

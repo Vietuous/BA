@@ -1,0 +1,20 @@
+Average Compound Sentiment by Time Period and Event (incl. Range)
+=================================================================
+
+   time_period  event_name      mean      std  median  count  lower_bound  upper_bound
+  Before Event         TI8       NaN      NaN     NaN    NaN          NaN          NaN
+  Before Event        TI11       NaN      NaN     NaN    NaN          NaN          NaN
+  Before Event     OG_RM24       NaN      NaN     NaN    NaN          NaN          NaN
+  Before Event Topson_RM24       NaN      NaN     NaN    NaN          NaN          NaN
+  During Event         TI8  0.234081 0.511454 0.29600  613.0    -0.277373     0.745535
+  During Event        TI11  0.195697 0.490638 0.07720  586.0    -0.294942     0.686335
+  During Event     OG_RM24  0.158950 0.440616 0.00000  705.0    -0.281666     0.599566
+  During Event Topson_RM24  0.158748 0.441369 0.00000  703.0    -0.282621     0.600116
+   After Event         TI8  0.109520 0.463562 0.32910   10.0    -0.354042     0.573082
+   After Event        TI11 -0.010355 0.489048 0.04590   11.0    -0.499402     0.478693
+   After Event     OG_RM24       NaN      NaN     NaN    NaN          NaN          NaN
+   After Event Topson_RM24       NaN      NaN     NaN    NaN          NaN          NaN
+Outside Window         TI8  0.342325 0.303073 0.43095    8.0     0.039252     0.645398
+Outside Window        TI11       NaN      NaN     NaN    NaN          NaN          NaN
+Outside Window     OG_RM24       NaN      NaN     NaN    NaN          NaN          NaN
+Outside Window Topson_RM24       NaN      NaN     NaN    NaN          NaN          NaN

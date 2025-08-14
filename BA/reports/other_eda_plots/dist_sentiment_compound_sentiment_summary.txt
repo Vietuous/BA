@@ -1,0 +1,5 @@
+compound_sentiment Distribution Summary
+=======================================
+
+    Mean  Median     Std  Count  Lower Bound (Mean - Std)  Upper Bound (Mean + Std)
+0.184199  0.0918 0.47017   2636                 -0.285971                   0.65437

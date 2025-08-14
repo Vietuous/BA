@@ -19,38 +19,49 @@ if project_root_for_import not in sys.path:
 import config
 
 # Logger configuration
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("eda.stats")
 sns.set_style("whitegrid")
 
-# Ensure output directories exist
+# Ensure output directories exist (base directories)
 os.makedirs(config.FIGURES_DIR, exist_ok=True)
 os.makedirs(config.REPORTS_DIR, exist_ok=True)
 
+# Import custom modules from src/
+from BA.src.utils.logging_utils import setup_logger
 
-def save_plot(fig: plt.Figure, filename: str) -> None:
+
+def save_plot(fig: plt.Figure, filename: str, subfolder: str = "") -> None:
     """
-    Helper function to save plots with consistent settings.
+    Helper function to save plots with consistent settings to a specified subfolder.
 
     Args:
         fig (plt.Figure): The matplotlib figure object to save.
         filename (str): The name of the file to save the plot as.
+        subfolder (str, optional): The subfolder within FIGURES_DIR to save the plot. Defaults to "".
     """
-    filepath = os.path.join(config.FIGURES_DIR, filename)
+    target_dir = os.path.join(config.FIGURES_DIR, subfolder)
+    os.makedirs(target_dir, exist_ok=True)  # Ensure subfolder exists
+    filepath = os.path.join(target_dir, filename)
     fig.savefig(filepath, dpi=300, bbox_inches="tight")
     plt.close(fig)  # Close the figure to free memory
     logger.info(f"Plot saved to: {filepath}")
 
 
-def _save_dataframe_as_text(df: pd.DataFrame, filename: str, title: str = "") -> None:
+def _save_dataframe_as_text(
+    df: pd.DataFrame, filename: str, title: str = "", subfolder: str = ""
+) -> None:
     """
-    Helper function to save a DataFrame to a text file.
+    Helper function to save a DataFrame to a text file in a specified subfolder.
 
     Args:
         df (pd.DataFrame): The DataFrame to save.
         filename (str): The name of the text file.
         title (str, optional): An optional title for the text file. Defaults to "".
+        subfolder (str, optional): The subfolder within REPORTS_DIR to save the text file. Defaults to "".
     """
-    filepath = os.path.join(config.REPORTS_DIR, filename)
+    target_dir = os.path.join(config.REPORTS_DIR, subfolder)
+    os.makedirs(target_dir, exist_ok=True)  # Ensure subfolder exists
+    filepath = os.path.join(target_dir, filename)
     with open(filepath, "w", encoding="utf-8") as f:
         if title:
             f.write(f"{title}\n")
@@ -63,7 +74,13 @@ def _save_dataframe_as_text(df: pd.DataFrame, filename: str, title: str = "") ->
 
 
 def plot_average_metric_by_time_and_event(
-    df: pd.DataFrame, metric: str, filename_prefix: str, title: str, y_label: str
+    df: pd.DataFrame,
+    metric: str,
+    filename_prefix: str,
+    title: str,
+    y_label: str,
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Plots the average of a given metric by time period and event, and saves extended statistics.
@@ -75,6 +92,8 @@ def plot_average_metric_by_time_and_event(
         filename_prefix (str): Prefix for the saved filename and text file (e.g., "avg_comment_score").
         title (str): The title of the plot.
         y_label (str): The label for the y-axis.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     required_cols = [metric, "event_name", "time_period"]
     if not all(col in df.columns for col in required_cols):
@@ -111,8 +130,9 @@ def plot_average_metric_by_time_and_event(
 
     _save_dataframe_as_text(
         grouped,
-        f"{filename_prefix}_by_time_period_and_event.txt",
+        f"{output_filename_prefix}{filename_prefix}_by_time_period_and_event.txt",
         f"Average {metric.replace('_', ' ').title()} by Time Period and Event (incl. Range)",
+        subfolder=output_subfolder,
     )
 
     fig = plt.figure(figsize=(10, 6))
@@ -123,7 +143,7 @@ def plot_average_metric_by_time_and_event(
         hue="event_name",
         errorbar="sd",
         palette="viridis",
-    )  # errorbar="sd" re-added
+    )
     plt.title(title)
     plt.ylabel(y_label)
     plt.xticks(rotation=15)
@@ -144,7 +164,11 @@ def plot_average_metric_by_time_and_event(
                     va="bottom",
                     fontsize=8,
                 )
-    save_plot(fig, f"{filename_prefix}_by_time_period_and_event_extended.png")
+    save_plot(
+        fig,
+        f"{output_filename_prefix}{filename_prefix}_by_time_period_and_event_extended.png",
+        subfolder=output_subfolder,
+    )
 
 
 def plot_metric_by_event_and_type(
@@ -153,6 +177,8 @@ def plot_metric_by_event_and_type(
     title: str,
     filename: str,
     selected_types: list = None,
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Plots the average of a given metric by post type and event, and saves extended statistics.
@@ -164,6 +190,8 @@ def plot_metric_by_event_and_type(
         title (str): The title of the plot.
         filename (str): The name of the file to save the plot.
         selected_types (list, optional): A list of post types to include. If None, all types are included.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     required_cols = [metric, "event_name", "post_type"]
     if not all(col in df.columns for col in required_cols):
@@ -201,8 +229,9 @@ def plot_metric_by_event_and_type(
 
     _save_dataframe_as_text(
         grouped,
-        f"{metric}_by_post_type_and_event.txt",
+        f"{output_filename_prefix}{metric}_by_post_type_and_event.txt",
         f"{metric.replace('_', ' ').title()} by Post Type and Event",
+        subfolder=output_subfolder,
     )
 
     fig = plt.figure(figsize=(12, 7))
@@ -213,7 +242,7 @@ def plot_metric_by_event_and_type(
         hue="event_name",
         errorbar="sd",
         palette="viridis",
-    )  # errorbar="sd" re-added
+    )
     plt.title(title)
     plt.ylabel(f"Mean {metric.replace('_', ' ').title()}")
     plt.xticks(rotation=20)
@@ -234,7 +263,7 @@ def plot_metric_by_event_and_type(
                     va="bottom",
                     fontsize=8,
                 )
-    save_plot(fig, filename)
+    save_plot(fig, f"{output_filename_prefix}{filename}", subfolder=output_subfolder)
 
 
 def plot_feature_distribution(
@@ -244,6 +273,8 @@ def plot_feature_distribution(
     x_label: str,
     bin_count: int = 30,
     filename_prefix: str = "dist_",
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Generates a histogram with KDE for a given feature, and saves summary statistics and KDE data.
@@ -257,6 +288,8 @@ def plot_feature_distribution(
         x_label (str): The label for the x-axis.
         bin_count (int): The number of bins for the histogram.
         filename_prefix (str): Prefix for the saved filename.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     if feature not in df.columns:
         logger.error(
@@ -278,31 +311,31 @@ def plot_feature_distribution(
         values.count(),
     )
 
-    summary = pd.DataFrame.from_dict(
-        {
-            "Mean": [mean],
-            "Median": [median],
-            "Std": [std],
-            "Count": [count],
-            "Lower Bound (Mean - Std)": [mean - std],
-            "Upper Bound (Mean + Std)": [mean + std],
-        }
-    )
     _save_dataframe_as_text(
-        summary,
-        f"{filename_prefix}{feature}_summary.txt",
+        pd.DataFrame.from_dict(
+            {
+                "Mean": [mean],
+                "Median": [median],
+                "Std": [std],
+                "Count": [count],
+                "Lower Bound (Mean - Std)": [mean - std],
+                "Upper Bound (Mean + Std)": [mean + std],
+            }
+        ),
+        f"{output_filename_prefix}{filename_prefix}{feature}_summary.txt",
         f"{feature} Distribution Summary",
+        subfolder=output_subfolder,
     )
 
     if len(values) > 1:  # gaussian_kde requires at least 2 data points
         kde = gaussian_kde(values)
         x_vals = np.linspace(values.min(), values.max(), 200)
         kde_vals = kde(x_vals)
-        kde_df = pd.DataFrame({"x": x_vals, "kde_density": kde_vals})
         _save_dataframe_as_text(
-            kde_df,
-            f"{filename_prefix}{feature}_kde_curve.txt",
+            pd.DataFrame({"x": x_vals, "kde_density": kde_vals}),
+            f"{output_filename_prefix}{filename_prefix}{feature}_kde_curve.txt",
             f"{feature} KDE Curve Data",
+            subfolder=output_subfolder,
         )
     else:
         logger.warning(f"Not enough data points to generate KDE curve for '{feature}'.")
@@ -331,7 +364,11 @@ def plot_feature_distribution(
     plt.xlabel(x_label)
     plt.ylabel("Count")
     plt.tight_layout()
-    save_plot(fig, f"{filename_prefix}{feature}_histogram_extended.png")
+    save_plot(
+        fig,
+        f"{output_filename_prefix}{filename_prefix}{feature}_histogram_extended.png",
+        subfolder=output_subfolder,
+    )
 
 
 def plot_distribution_comparison(
@@ -341,6 +378,8 @@ def plot_distribution_comparison(
     y_label: str,
     filename_prefix: str = "dist_comp_",
     plot_type: str = "violin",
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Generates a box plot or violin plot to compare the distribution of a feature
@@ -354,6 +393,8 @@ def plot_distribution_comparison(
         y_label (str): The label for the y-axis.
         filename_prefix (str): Prefix for the saved filename.
         plot_type (str): Type of plot to generate ('box' or 'violin').
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     required_cols = [feature, "event_name"]
     if not all(col in df.columns for col in required_cols):
@@ -379,8 +420,9 @@ def plot_distribution_comparison(
 
     _save_dataframe_as_text(
         grouped,
-        f"{filename_prefix}{feature}_{plot_type}_stats.txt",
+        f"{output_filename_prefix}{filename_prefix}{feature}_{plot_type}_stats.txt",
         f"{feature} Distribution by Event ({plot_type.title()} Plot Basis)",
+        subfolder=output_subfolder,
     )
 
     fig = plt.figure(figsize=(10, 6))
@@ -393,7 +435,7 @@ def plot_distribution_comparison(
             palette="viridis",
             hue="event_name",
             legend=False,
-        )  # Corrected
+        )
     elif plot_type == "box":
         sns.boxplot(
             data=data,
@@ -402,7 +444,7 @@ def plot_distribution_comparison(
             palette="viridis",
             hue="event_name",
             legend=False,
-        )  # Corrected
+        )
     else:
         logger.error(
             f"Invalid plot_type '{plot_type}'. Must be 'box' or 'violin'. Skipping plot."
@@ -414,14 +456,24 @@ def plot_distribution_comparison(
     plt.xlabel("Event Name")
     plt.ylabel(y_label)
     plt.tight_layout()
-    save_plot(fig, f"{filename_prefix}{feature}_{plot_type}_extended.png")
+    save_plot(
+        fig,
+        f"{output_filename_prefix}{filename_prefix}{feature}_{plot_type}_extended.png",
+        subfolder=output_subfolder,
+    )
 
 
 # --- Specific Plotting Functions (from original and new additions) ---
 
 
 def plot_posting_behavior_hist(
-    df: pd.DataFrame, x_label: str, hue_label: str, title: str, filename: str
+    df: pd.DataFrame,
+    x_label: str,
+    hue_label: str,
+    title: str,
+    filename: str,
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Generates a histogram for posting behavior (e.g., comments per hour or day of week).
@@ -432,6 +484,8 @@ def plot_posting_behavior_hist(
         hue_label (str): The column name to use for hue (grouping).
         title (str): The title of the plot.
         filename (str): The name of the file to save the plot.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     if df.empty:
         logger.warning(f"DataFrame is empty, skipping histogram plot for {title}.")
@@ -455,10 +509,16 @@ def plot_posting_behavior_hist(
     plt.xlabel(x_label)
     plt.ylabel("Count")
     plt.tight_layout()
-    save_plot(fig, filename)
+    save_plot(fig, f"{output_filename_prefix}{filename}", subfolder=output_subfolder)
 
 
-def plot_posting_behavior_heatmap(df: pd.DataFrame, title: str, filename: str) -> None:
+def plot_posting_behavior_heatmap(
+    df: pd.DataFrame,
+    title: str,
+    filename: str,
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
+) -> None:
     """
     Generates a heatmap for posting behavior.
     The input DataFrame 'df' should be pre-aggregated (e.g., a pivot table of counts).
@@ -467,6 +527,8 @@ def plot_posting_behavior_heatmap(df: pd.DataFrame, title: str, filename: str) -
         df (pd.DataFrame): The input DataFrame, pre-aggregated for the heatmap.
         title (str): The title of the plot.
         filename (str): The name of the file to save the plot.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     if df.empty:
         logger.warning(f"DataFrame is empty, skipping heatmap plot for {title}.")
@@ -476,7 +538,7 @@ def plot_posting_behavior_heatmap(df: pd.DataFrame, title: str, filename: str) -
     sns.heatmap(df, annot=True, fmt=".0f", cmap="viridis")
     plt.title(title)
     plt.tight_layout()
-    save_plot(fig, filename)
+    save_plot(fig, f"{output_filename_prefix}{filename}", subfolder=output_subfolder)
 
 
 def plot_score_development(
@@ -486,6 +548,8 @@ def plot_score_development(
     hue_label: str,
     title: str,
     filename: str,
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Generates a line plot for the development of scores over time.
@@ -497,6 +561,8 @@ def plot_score_development(
         hue_label (str): The column name to use for hue (grouping).
         title (str): The title of the plot.
         filename (str): The name of the file to save the plot.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     if df.empty:
         logger.warning(
@@ -517,11 +583,14 @@ def plot_score_development(
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     plt.tight_layout()
-    save_plot(fig, filename)
+    save_plot(fig, f"{output_filename_prefix}{filename}", subfolder=output_subfolder)
 
 
 def plot_pearson_correlation(
-    df: pd.DataFrame, filename: str = "pearson_correlation_matrix.png"
+    df: pd.DataFrame,
+    filename: str = "pearson_correlation_matrix.png",
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Calculates and visualizes the Pearson correlation matrix for numerical features.
@@ -529,6 +598,8 @@ def plot_pearson_correlation(
     Args:
         df (pd.DataFrame): The input DataFrame.
         filename (str): The name of the file to save the plot.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     if df.empty:
         logger.warning("DataFrame is empty, skipping Pearson correlation analysis.")
@@ -568,17 +639,31 @@ def plot_pearson_correlation(
     correlation_matrix = df[available_numerical_cols].corr(method="pearson")
     logger.info("Correlation Matrix:\n%s", correlation_matrix)
 
+    # Save correlation matrix to text file
+    _save_dataframe_as_text(
+        correlation_matrix,
+        f"{output_filename_prefix}pearson_correlation_matrix_data.txt",
+        "Pearson Correlation Matrix Data",
+        subfolder=output_subfolder,
+    )
+
     fig = plt.figure(figsize=(12, 10))
     sns.heatmap(
         correlation_matrix, annot=True, cmap="coolwarm", fmt=".2f", linewidths=0.5
     )
     plt.title("Pearson Correlation Matrix of Numerical Features")
     plt.tight_layout()
-    save_plot(fig, filename)
+    save_plot(fig, f"{output_filename_prefix}{filename}", subfolder=output_subfolder)
 
 
 def plot_eventwise_heatmap(
-    df: pd.DataFrame, index_col: str, value_col: str, title: str, filename: str
+    df: pd.DataFrame,
+    index_col: str,
+    value_col: str,
+    title: str,
+    filename: str,
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Generates a heatmap showing the mean of a value column across events, indexed by another column.
@@ -589,6 +674,8 @@ def plot_eventwise_heatmap(
         value_col (str): The column whose mean value will be displayed.
         title (str): The title of the plot.
         filename (str): The name of the file to save the plot.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     required_cols = [index_col, "event_name", value_col]
     if not all(col in df.columns for col in required_cols):
@@ -608,15 +695,29 @@ def plot_eventwise_heatmap(
         index=index_col, columns="event_name", values=value_col, aggfunc="mean"
     )
 
+    _save_dataframe_as_text(
+        pivot,
+        f"{output_filename_prefix}eventwise_heatmap_data.txt",
+        f"Event-wise Heatmap Data ({value_col} by {index_col})",
+        subfolder=output_subfolder,
+    )
+
     fig = plt.figure(figsize=(10, 6))
     sns.heatmap(pivot, annot=True, fmt=".2f", cmap="YlGnBu")
     plt.title(title)
     plt.tight_layout()
-    save_plot(fig, filename)
+    save_plot(fig, f"{output_filename_prefix}{filename}", subfolder=output_subfolder)
 
 
 def plot_boxplot_with_stats(
-    df: pd.DataFrame, x: str, y: str, hue: str, title: str, filename: str
+    df: pd.DataFrame,
+    x: str,
+    y: str,
+    hue: str,
+    title: str,
+    filename: str,
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Generates a box plot with statistical grouping.
@@ -628,6 +729,8 @@ def plot_boxplot_with_stats(
         hue (str): The column for hue grouping.
         title (str): The title of the plot.
         filename (str): The name of the file to save the plot.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     required_cols = [x, y, hue]
     if not all(col in df.columns for col in required_cols):
@@ -643,16 +746,34 @@ def plot_boxplot_with_stats(
         )
         return
 
+    # Save grouped statistics for boxplot
+    grouped_stats = (
+        df_filtered.groupby([x, hue])[y]
+        .agg(["mean", "median", "std", "count"])
+        .reset_index()
+    )
+    _save_dataframe_as_text(
+        grouped_stats,
+        f"{output_filename_prefix}boxplot_stats_{y}_by_{x}_{hue}.txt",
+        f"Boxplot Statistics: {y} by {x} and {hue}",
+        subfolder=output_subfolder,
+    )
+
     fig = plt.figure(figsize=(12, 6))
     sns.boxplot(data=df_filtered, x=x, y=y, hue=hue, palette="Set2")
     plt.title(title)
     plt.xticks(rotation=15)
     plt.tight_layout()
-    save_plot(fig, filename)
+    save_plot(fig, f"{output_filename_prefix}{filename}", subfolder=output_subfolder)
 
 
 def plot_event_keyword_distribution(
-    df: pd.DataFrame, keyword_col: str, title: str, filename: str
+    df: pd.DataFrame,
+    keyword_col: str,
+    title: str,
+    filename: str,
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Generates a heatmap showing the percentage distribution of keywords per event.
@@ -662,6 +783,8 @@ def plot_event_keyword_distribution(
         keyword_col (str): The column containing keywords.
         title (str): The title of the plot.
         filename (str): The name of the file to save the plot.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     required_cols = ["event_name", keyword_col]
     if not all(col in df.columns for col in required_cols):
@@ -687,16 +810,29 @@ def plot_event_keyword_distribution(
     ).fillna(0)
     pivot_percent = pivot.div(pivot.sum(axis=0), axis=1) * 100  # Calculate percentages
 
+    _save_dataframe_as_text(
+        pivot_percent,
+        f"{output_filename_prefix}keyword_distribution_percentages.txt",
+        "Keyword Distribution Percentages by Event",
+        subfolder=output_subfolder,
+    )
+
     fig = plt.figure(figsize=(12, 8))
     sns.heatmap(pivot_percent, annot=True, fmt=".1f", cmap="Purples")
     plt.title(title)
     plt.ylabel("Keyword")
     plt.tight_layout()
-    save_plot(fig, filename)
+    save_plot(fig, f"{output_filename_prefix}{filename}", subfolder=output_subfolder)
 
 
 def plot_dual_distribution(
-    df: pd.DataFrame, feature1: str, feature2: str, title: str, filename: str
+    df: pd.DataFrame,
+    feature1: str,
+    feature2: str,
+    title: str,
+    filename: str,
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Plots the distribution of two features on the same histogram.
@@ -707,6 +843,8 @@ def plot_dual_distribution(
         feature2 (str): The name of the second feature column.
         title (str): The title of the plot.
         filename (str): The name of the file to save the plot.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     required_cols = [feature1, feature2]
     if not all(col in df.columns for col in required_cols):
@@ -732,11 +870,17 @@ def plot_dual_distribution(
     plt.legend()
     plt.title(title)
     plt.tight_layout()
-    save_plot(fig, filename)
+    save_plot(fig, f"{output_filename_prefix}{filename}", subfolder=output_subfolder)
 
 
 def plot_keyword_score_heatmap(
-    df: pd.DataFrame, keyword_col: str, score_col: str, filename: str, title: str
+    df: pd.DataFrame,
+    keyword_col: str,
+    score_col: str,
+    filename: str,
+    title: str,
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Generates a heatmap showing the average score for keywords across events.
@@ -747,6 +891,8 @@ def plot_keyword_score_heatmap(
         score_col (str): The column containing the score.
         filename (str): The name of the file to save the plot.
         title (str): The title of the plot.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     required_cols = [keyword_col, "event_name", score_col]
     if not all(col in df.columns for col in required_cols):
@@ -766,15 +912,27 @@ def plot_keyword_score_heatmap(
         index=keyword_col, columns="event_name", values=score_col, aggfunc="mean"
     ).fillna(0)
 
+    _save_dataframe_as_text(
+        pivot,
+        f"{output_filename_prefix}keyword_score_heatmap_data.txt",
+        f"Average {score_col.replace('_', ' ').title()} by Keyword and Event",
+        subfolder=output_subfolder,
+    )
+
     fig = plt.figure(figsize=(12, 8))
     sns.heatmap(pivot, annot=True, fmt=".1f", cmap="coolwarm")
     plt.title(title)
     plt.tight_layout()
-    save_plot(fig, filename)
+    save_plot(fig, f"{output_filename_prefix}{filename}", subfolder=output_subfolder)
 
 
 def plot_engagement_per_day(
-    df: pd.DataFrame, time_col: str, engagement_col: str, filename: str
+    df: pd.DataFrame,
+    time_col: str,
+    engagement_col: str,
+    filename: str,
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Plots the average engagement metric by day of the week and event.
@@ -784,6 +942,8 @@ def plot_engagement_per_day(
         time_col (str): The column containing datetime information.
         engagement_col (str): The column containing the engagement metric.
         filename (str): The name of the file to save the plot.
+        output_subfolder (str, optional): Subfolder for saving plots/text files. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filename. Defaults to "".
     """
     required_cols = [time_col, engagement_col, "event_name"]
     if not all(col in df.columns for col in required_cols):
@@ -817,6 +977,13 @@ def plot_engagement_per_day(
         "Sunday",
     ]
 
+    _save_dataframe_as_text(
+        grouped,
+        f"{output_filename_prefix}engagement_per_day_data.txt",
+        f"Average {engagement_col.replace('_', ' ').title()} by Day of Week and Event",
+        subfolder=output_subfolder,
+    )
+
     fig = plt.figure(figsize=(12, 6))
     sns.barplot(
         data=grouped,
@@ -831,12 +998,13 @@ def plot_engagement_per_day(
     )
     plt.xticks(rotation=20)
     plt.tight_layout()
-    save_plot(fig, filename)
+    save_plot(fig, f"{output_filename_prefix}{filename}", subfolder=output_subfolder)
 
 
 def generate_all_eda_plots(df: pd.DataFrame) -> None:
     """
-    Generates a comprehensive set of EDA plots for the given DataFrame.
+    Generates a comprehensive set of EDA plots for the given DataFrame,
+    organizing them into specified subfolders based on their relevance to the BA.
 
     Args:
         df (pd.DataFrame): The input DataFrame containing the data for EDA.
@@ -847,16 +1015,14 @@ def generate_all_eda_plots(df: pd.DataFrame) -> None:
         logger.warning("Input DataFrame is empty. Skipping all EDA plot generation.")
         return
 
+    # Define subfolders
+    FINAL_PLOTS_FOLDER = "final_plots"
+    OTHER_EDA_PLOTS_FOLDER = "other_eda_plots"
+    PEARSON_CORRELATION_FOLDER = "pearson_correlation"
+
     # --- Distribution of Key Features (Histograms with KDE and Stats) ---
     logger.info("\n--- Generating Feature Distribution Plots ---")
-    plot_feature_distribution(
-        df,
-        "compound_sentiment",
-        "Distribution of Compound Sentiment Score",
-        "Compound Sentiment Score (-1 to 1)",
-        bin_count=30,
-        filename_prefix="dist_sentiment_",
-    )
+    # dist_comment_score_histogram_extended.png -> final_plots (RQ5)
     plot_feature_distribution(
         df,
         "comment_score",
@@ -864,6 +1030,17 @@ def generate_all_eda_plots(df: pd.DataFrame) -> None:
         "Comment Score",
         bin_count=50,
         filename_prefix="dist_comment_score_",
+        output_subfolder=FINAL_PLOTS_FOLDER,
+        output_filename_prefix="RQ5_",
+    )
+    plot_feature_distribution(
+        df,
+        "compound_sentiment",
+        "Distribution of Compound Sentiment Score",
+        "Compound Sentiment Score (-1 to 1)",
+        bin_count=30,
+        filename_prefix="dist_sentiment_",
+        output_subfolder=OTHER_EDA_PLOTS_FOLDER,
     )
     plot_feature_distribution(
         df,
@@ -872,10 +1049,22 @@ def generate_all_eda_plots(df: pd.DataFrame) -> None:
         "Word Count",
         bin_count=50,
         filename_prefix="dist_word_count_",
+        output_subfolder=OTHER_EDA_PLOTS_FOLDER,
     )
 
     # --- Distribution Comparison (Violin/Box Plots) ---
     logger.info("\n--- Generating Distribution Comparison Plots (Violin/Box) ---")
+    # dist_comp_word_count_word_count_violin_extended.png -> final_plots (RQ4)
+    plot_distribution_comparison(
+        df,
+        "word_count",
+        "Distribution of Comment Word Count Across Events",
+        "Word Count",
+        plot_type="violin",
+        filename_prefix="dist_comp_word_count_",
+        output_subfolder=FINAL_PLOTS_FOLDER,
+        output_filename_prefix="RQ4_",
+    )
     plot_distribution_comparison(
         df,
         "compound_sentiment",
@@ -883,6 +1072,7 @@ def generate_all_eda_plots(df: pd.DataFrame) -> None:
         "Compound Sentiment Score (-1 to 1)",
         plot_type="violin",
         filename_prefix="dist_comp_sentiment_",
+        output_subfolder=OTHER_EDA_PLOTS_FOLDER,
     )
     plot_distribution_comparison(
         df,
@@ -891,22 +1081,13 @@ def generate_all_eda_plots(df: pd.DataFrame) -> None:
         "Comment Score",
         plot_type="violin",
         filename_prefix="dist_comp_comment_score_",
+        output_subfolder=OTHER_EDA_PLOTS_FOLDER,
     )
-    plot_distribution_comparison(
-        df,
-        "word_count",
-        "Distribution of Comment Word Count Across Events",
-        "Word Count",
-        plot_type="violin",
-        filename_prefix="dist_comp_word_count_",
-    )
-    # You can also generate box plots if preferred:
-    # plot_distribution_comparison(df, "compound_sentiment", "Distribution of Compound Sentiment Score Across Events (Box Plot)", "Compound Sentiment Score (-1 to 1)", plot_type="box", filename_prefix="dist_comp_sentiment_")
 
     # --- Comparative Analysis of Time Periods ---
     logger.info("\n--- Generating Time Period Analysis Plots ---")
     if "time_period" in df.columns and "event_name" in df.columns:
-        # Comment Distribution Across Time Periods by Event (Count Plot)
+        # comment_distribution_time_periods.png -> final_plots (RQ3)
         df_filtered_time_period = df.dropna(subset=["time_period", "event_name"]).copy()
         if not df_filtered_time_period.empty:
             fig = plt.figure(figsize=(12, 7))
@@ -952,10 +1133,15 @@ def generate_all_eda_plots(df: pd.DataFrame) -> None:
 
             _save_dataframe_as_text(
                 combined_table,
-                "comment_distribution_time_periods_table.txt",
+                "RQ3_comment_distribution_time_periods_table.txt",
                 "Comment Distribution Across Time Periods by Event (Counts and Percentages)",
+                subfolder=FINAL_PLOTS_FOLDER,  # Save text file to final_plots folder
             )
-            save_plot(fig, "comment_distribution_time_periods.png")
+            save_plot(
+                fig,
+                "RQ3_comment_distribution_time_periods.png",
+                subfolder=FINAL_PLOTS_FOLDER,
+            )
         else:
             logger.warning(
                 "No valid data for 'Comment Distribution Across Time Periods by Event' plot after filtering."
@@ -965,44 +1151,54 @@ def generate_all_eda_plots(df: pd.DataFrame) -> None:
             "Missing 'time_period' or 'event_name' column for 'Comment Distribution Across Time Periods by Event' plot. Skipping."
         )
 
-    # Average Sentiment and Score by Time Period (using generalized function)
-    plot_average_metric_by_time_and_event(
-        df,
-        "compound_sentiment",
-        "avg_sentiment",
-        "Average Compound Sentiment by Time Period and Event",
-        "Average Compound Sentiment Score",
-    )
+    # avg_comment_score_by_time_period_and_event_extended.png -> final_plots (RQ3)
     plot_average_metric_by_time_and_event(
         df,
         "comment_score",
         "avg_comment_score",
         "Average Comment Score by Time Period and Event",
         "Average Comment Score",
+        output_subfolder=FINAL_PLOTS_FOLDER,
+        output_filename_prefix="RQ3_",
+    )
+    plot_average_metric_by_time_and_event(
+        df,
+        "compound_sentiment",
+        "avg_sentiment",
+        "Average Compound Sentiment by Time Period and Event",
+        "Average Compound Sentiment Score",
+        output_subfolder=OTHER_EDA_PLOTS_FOLDER,
     )
 
     # --- Engagement by Post Type ---
     logger.info("\n--- Generating Engagement by Post Type Plots ---")
     if "post_type" in df.columns and "event_name" in df.columns:
+        # avg_comment_score_by_post_type.png -> final_plots (RQ1)
         plot_metric_by_event_and_type(
             df,
             "comment_score",
             "Average Comment Score by Post Type and Event",
             "avg_comment_score_by_post_type.png",
+            output_subfolder=FINAL_PLOTS_FOLDER,
+            output_filename_prefix="RQ1_",
         )
+        # avg_sentiment_by_post_type.png -> final_plots (RQ1)
         plot_metric_by_event_and_type(
             df,
             "compound_sentiment",
             "Average Compound Sentiment by Post Type and Event",
             "avg_sentiment_by_post_type.png",
+            output_subfolder=FINAL_PLOTS_FOLDER,
+            output_filename_prefix="RQ1_",
         )
         plot_metric_by_event_and_type(
             df,
             "word_count",
             "Average Word Count by Post Type and Event",
             "avg_word_count_by_post_type.png",
+            output_subfolder=OTHER_EDA_PLOTS_FOLDER,  # Save text file to other_eda_plots folder
         )
-        # Specific word count plot for selected types
+        # filtered_avg_word_count_by_post_type_and_event.png -> final_plots (RQ2)
         plot_metric_by_event_and_type(
             df,
             "word_count",
@@ -1014,6 +1210,8 @@ def generate_all_eda_plots(df: pd.DataFrame) -> None:
                 "Tournament Result",
                 "Ranking Update",
             ],
+            output_subfolder=FINAL_PLOTS_FOLDER,
+            output_filename_prefix="RQ2_",
         )
     else:
         logger.warning(
@@ -1022,56 +1220,31 @@ def generate_all_eda_plots(df: pd.DataFrame) -> None:
 
     # --- Pearson Correlation Matrix ---
     logger.info("\n--- Generating Pearson Correlation Matrix ---")
-    plot_pearson_correlation(df)
+    # pearson_correlation_matrix.png -> pearson_correlation (RQ5)
+    plot_pearson_correlation(
+        df,
+        filename="pearson_correlation_matrix.png",
+        output_subfolder=PEARSON_CORRELATION_FOLDER,  # Save text file to pearson_correlation folder
+        output_filename_prefix="RQ5_",
+    )
 
     # --- Additional Plots (if data available) ---
     logger.info("\n--- Generating Additional Specific Plots ---")
     # Check for 'created_utc' and 'event_name' for time-based plots
     if "created_utc" in df.columns and "event_name" in df.columns:
         plot_engagement_per_day(
-            df, "created_utc", "comment_score", "avg_comment_score_by_day_of_week.png"
+            df,
+            "created_utc",
+            "comment_score",
+            "avg_comment_score_by_day_of_week.png",
+            output_subfolder=OTHER_EDA_PLOTS_FOLDER,
         )
         plot_engagement_per_day(
-            df, "created_utc", "compound_sentiment", "avg_sentiment_by_day_of_week.png"
+            df,
+            "created_utc",
+            "compound_sentiment",
+            "avg_sentiment_by_day_of_week.png",
+            output_subfolder=OTHER_EDA_PLOTS_FOLDER,
         )
-    else:
-        logger.warning(
-            "Missing 'created_utc' or 'event_name' for engagement per day plots. Skipping."
-        )
 
-    # Example of plot_eventwise_heatmap (requires appropriate data)
-    # if "some_category_col" in df.columns and "some_value_col" in df.columns:
-    #     plot_eventwise_heatmap(
-    #         df, "some_category_col", "some_value_col",
-    #         "Average Value by Category and Event", "eventwise_heatmap_example.png"
-    #     )
-
-    # Example of plot_boxplot_with_stats (requires appropriate data)
-    # if "category_x" in df.columns and "value_y" in df.columns and "hue_z" in df.columns:
-    #     plot_boxplot_with_stats(
-    #         df, "category_x", "value_y", "hue_z",
-    #         "Boxplot of Value by Category and Hue", "boxplot_example.png"
-    #     )
-
-    # Example of plot_event_keyword_distribution (requires keyword data)
-    # if "extracted_keyword" in df.columns:
-    #     plot_event_keyword_distribution(
-    #         df, "extracted_keyword", "Keyword Distribution Across Events",
-    #         "keyword_distribution_heatmap.png"
-    #     )
-
-    # Example of plot_dual_distribution (requires two numerical features)
-    # if "feature_A" in df.columns and "feature_B" in df.columns:
-    #     plot_dual_distribution(
-    #         df, "feature_A", "feature_B",
-    #         "Distribution Comparison of Feature A and Feature B", "dual_distribution_example.png"
-    #     )
-
-    # Example of plot_keyword_score_heatmap (requires keyword and score data)
-    # if "extracted_keyword" in df.columns and "comment_score" in df.columns:
-    #     plot_keyword_score_heatmap(
-    #         df, "extracted_keyword", "comment_score",
-    #         "Average Comment Score by Keyword and Event", "keyword_score_heatmap.png"
-    #     )
-
-    logger.info("\n--- All EDA Plots Generated ---")
+    logger.info("\n--- All EDA Plots generated. ---")

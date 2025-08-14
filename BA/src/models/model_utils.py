@@ -1,4 +1,3 @@
-# BA/src/models/model_utils.py
 import logging
 import os
 import re
@@ -34,11 +33,12 @@ project_root_for_import = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "..", "..")
 )
 if project_root_for_import not in sys.path:
-    sys.sys.path.insert(0, project_root_for_import)
+    sys.path.insert(0, project_root_for_import)
 import config
 
 # Get a logger instance for this module
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("ml.pipeline")
+
 
 # Access config parameters safely with getattr, providing defaults
 BOOLEAN_FEATURES = getattr(config, "BOOLEAN_FEATURES", [])
@@ -58,11 +58,6 @@ TFIDF_MIN_DF = getattr(config, "TFIDF_MIN_DF", 5)
 TFIDF_NGRAM_RANGE = getattr(config, "TFIDF_NGRAM_RANGE", (1, 1))
 XGB_TUNING_CV_FOLDS = getattr(config, "XGB_TUNING_CV_FOLDS", 3)
 XGB_TUNING_N_ITER = getattr(config, "XGB_TUNING_N_ITER", 50)
-
-
-# BA/src/models/model_utils.py
-
-# ... (bestehender Code) ...
 
 
 def preprocess_features(
@@ -93,26 +88,6 @@ def preprocess_features(
         raise ValueError(f"Missing required column: {TEXT_FEATURE}")
     df_comments[TEXT_FEATURE] = df_comments[TEXT_FEATURE].astype(str).fillna("")
 
-    # Debugging: Print a sample of the text feature
-    logger.info(
-        f"  Sample of '{TEXT_FEATURE}' column (first 5 entries):\n{df_comments[TEXT_FEATURE].head().to_string()}"
-    )
-
-    # Check number of non-empty text documents
-    non_empty_text_docs = (
-        df_comments[TEXT_FEATURE]
-        .loc[df_comments[TEXT_FEATURE].str.strip() != ""]
-        .shape[0]
-    )
-    if non_empty_text_docs == 0:
-        logger.error(
-            "No non-empty text documents found after preprocessing. TF-IDF cannot be applied."
-        )
-        raise ValueError("No non-empty text documents for TF-IDF.")
-    logger.info(
-        f"  Number of non-empty text documents for TF-IDF: {non_empty_text_docs}"
-    )
-
     # Check number of non-empty text documents
     non_empty_text_docs = (
         df_comments[TEXT_FEATURE]
@@ -136,8 +111,8 @@ def preprocess_features(
                 "tfidf",
                 TfidfVectorizer(
                     max_features=TFIDF_MAX_FEATURES,
-                    min_df=1,  # Temporarily set to 1 to be very permissive
-                    max_df=1,  # Temporarily set to 1 to be very permissive
+                    min_df=TFIDF_MIN_DF,
+                    max_df=TFIDF_MAX_DF,
                     ngram_range=TFIDF_NGRAM_RANGE,
                     stop_words="english",  # Add English stop words
                 ),
@@ -153,20 +128,13 @@ def preprocess_features(
     # 3. Scaling for numerical features
     numerical_transformer = Pipeline(steps=[("scaler", StandardScaler())])
 
-    # Create a ColumnTransformer to apply different transformations to different columns
     # Filter columns to ensure they exist in the DataFrame
-    # BA/src/models/model_utils.py
-
-    # ... (bestehender Code) ...
-
-    # Filter columns to ensure they exist in the DataFrame
-    # ÄNDERUNG HIER: cols_for_text wird ein String oder None, nicht eine Liste
     cols_for_text = TEXT_FEATURE if TEXT_FEATURE in df_comments.columns else None
     cols_for_cat = [col for col in CATEGORICAL_FEATURES if col in df_comments.columns]
     cols_for_num = [col for col in NUMERICAL_FEATURES if col in df_comments.columns]
     cols_for_bool = [col for col in BOOLEAN_FEATURES if col in df_comments.columns]
 
-    if cols_for_text is None:  # Angepasste Warnmeldung
+    if cols_for_text is None:
         logger.warning(
             f"Text feature '{TEXT_FEATURE}' not found. Text pipeline will be skipped."
         )
@@ -184,7 +152,7 @@ def preprocess_features(
         )
 
     transformers_list = []
-    if cols_for_text:  # Hier wird der String TEXT_FEATURE übergeben
+    if cols_for_text:
         transformers_list.append(("text_pipeline", text_transformer, cols_for_text))
     if cols_for_cat:
         transformers_list.append(
@@ -469,7 +437,11 @@ def train_and_tune_xgboost(
 
 
 def interpret_model_shap(
-    model_pipeline: Pipeline, X_test_raw: pd.DataFrame, all_feature_names: List[str]
+    model_pipeline: Pipeline,
+    X_test_raw: pd.DataFrame,
+    all_feature_names: List[str],
+    output_subfolder: str = "",
+    output_filename_prefix: str = "",
 ) -> None:
     """
     Führt Modellinterpretierbarkeit mit SHAP durch und generiert Plots.
@@ -478,13 +450,15 @@ def interpret_model_shap(
         model_pipeline (sklearn.pipeline.Pipeline): Die trainierte Scikit-learn Pipeline (mit XGBoost Regressor).
         X_test_raw (pd.DataFrame): Der Testdatensatz (Rohdaten).
         all_feature_names (List[str]): Liste aller Feature-Namen nach Preprocessing.
+        output_subfolder (str, optional): Subfolder within FIGURES_DIR to save the plots. Defaults to "".
+        output_filename_prefix (str, optional): Prefix for the saved plot filenames. Defaults to "".
     """
     logger.info("\n--- Starting Model Interpretability with SHAP ---")
 
     if X_test_raw.empty:
         logger.warning("X_test_raw is empty. Skipping SHAP interpretation.")
         return
-    if not all_feature_names:
+    if all_feature_names.size == 0:
         logger.warning("Feature names list is empty. Skipping SHAP interpretation.")
         return
     if "regressor" not in model_pipeline.named_steps:
@@ -492,6 +466,10 @@ def interpret_model_shap(
             "Model pipeline does not contain a 'regressor' step. Cannot perform SHAP interpretation."
         )
         return
+
+    # Create target directory for plots
+    target_figures_dir = os.path.join(FIGURES_DIR, output_subfolder)
+    os.makedirs(target_figures_dir, exist_ok=True)
 
     # Extract the fitted XGBoost model from the pipeline
     xgboost_model = model_pipeline.named_steps["regressor"]
@@ -502,10 +480,6 @@ def interpret_model_shap(
         X_test_raw
     )
 
-    # Create a SHAP Explainer for the tuned XGBoost model
-    explainer = shap.TreeExplainer(xgboost_model)
-
-    # Calculate SHAP values for the transformed test set
     # Convert to dense array if it's sparse, as SHAP sometimes prefers dense for plotting
     X_test_transformed_dense = (
         X_test_transformed.toarray()
@@ -513,59 +487,151 @@ def interpret_model_shap(
         else X_test_transformed
     )
 
-    # Ensure the number of features matches
-    if X_test_transformed_dense.shape[1] != len(all_feature_names):
+    # Ensure data is float32 for SHAP compatibility and handle potential issues
+    X_test_transformed_dense = X_test_transformed_dense.astype(np.float32)
+
+    # Robustly handle NaN and Inf values before passing to SHAP
+    if np.isnan(X_test_transformed_dense).any():
+        logger.warning("NaN values found in transformed test data. Replacing with 0.")
+        X_test_transformed_dense = np.nan_to_num(X_test_transformed_dense, nan=0.0)
+
+    if np.isinf(X_test_transformed_dense).any():
+        logger.warning(
+            "Inf values found in transformed test data. Replacing with large finite numbers."
+        )
+        X_test_transformed_dense = np.nan_to_num(
+            X_test_transformed_dense, posinf=1e10, neginf=-1e10
+        )
+
+    if X_test_transformed_dense.size == 0:
         logger.error(
-            f"Mismatch between transformed feature count ({X_test_transformed_dense.shape[1]}) and provided feature names count ({len(all_feature_names)}). SHAP plots might be incorrect. Skipping."
+            "Transformed test data is empty after cleaning. Skipping SHAP interpretation."
         )
         return
 
-    try:
-        shap_values = explainer.shap_values(X_test_transformed_dense)
-    except Exception as e:
-        logger.error(
-            f"Error calculating SHAP values: {e}. This might be due to a mismatch in feature names or data format."
-        )
-        return
+    # Explicitly convert to a plain NumPy array to remove any potential lingering object types or attributes
+    # This is a defensive step to ensure SHAP receives a clean, standard NumPy array.
+    X_test_transformed_dense = np.array(X_test_transformed_dense)
 
     # Create a DataFrame for the feature names for SHAP plots
+    # Ensure X_test_df is a DataFrame, even if X_test_transformed_dense is a numpy array
     X_test_df = pd.DataFrame(X_test_transformed_dense, columns=all_feature_names)
+
+    # --- XGBoost Feature Importance Plot (Standard) ---
+    logger.info("  Generating standard XGBoost Feature Importance Plot...")
+    try:
+        if hasattr(xgboost_model, "feature_importances_"):
+            importance_df = pd.DataFrame(
+                {
+                    "Feature": all_feature_names,
+                    "Importance": xgboost_model.feature_importances_,
+                }
+            ).sort_values(by="Importance", ascending=False)
+
+            plt.figure(figsize=(12, 8))
+            sns.barplot(
+                x="Importance",
+                y="Feature",
+                hue="Importance",
+                data=importance_df.head(SHAP_TOP_FEATURES_TO_PLOT),
+                palette="viridis",
+                legend=False,
+            )
+            plt.title("XGBoost Feature Importance")
+            plt.tight_layout()
+            plt.savefig(
+                os.path.join(
+                    target_figures_dir,
+                    f"{output_filename_prefix}xgboost_feature_importance_full.png",
+                )
+            )
+            plt.close()
+            logger.info(
+                f"  XGBoost Feature Importance Plot saved to: {os.path.join(target_figures_dir, f'{output_filename_prefix}xgboost_feature_importance_full.png')}"
+            )
+        else:
+            logger.warning(
+                "XGBoost model does not have 'feature_importances_'. Skipping standard feature importance plot."
+            )
+    except Exception as e:
+        logger.error(f"Error generating standard XGBoost Feature Importance Plot: {e}")
+
+    # --- SHAP Plots ---
+    try:
+        explainer = shap.TreeExplainer(xgboost_model)
+        shap_values = explainer.shap_values(X_test_df)
+
+        # Handle the case where shap_values is a list (e.g., for multi-output models)
+        # For single-output regression, it should be a single array.
+        if isinstance(shap_values, list):
+            # If it's a list of arrays, and all arrays have the same shape,
+            # it might be from a multi-output model. For single-output regression,
+            # we expect a list with one array.
+            if len(shap_values) == 1:
+                shap_values = shap_values[0]
+            else:
+                logger.warning(
+                    f"SHAP values is a list with {len(shap_values)} elements. Assuming single-output regression and taking the first element. If this is a multi-output model, consider plotting each output separately."
+                )
+                shap_values = shap_values[0]
+
+        # Ensure shap_values is a numpy array for plotting functions
+        if not isinstance(shap_values, np.ndarray):
+            shap_values = np.array(shap_values)
+
+    except Exception as e:
+        logger.error(
+            f"Error calculating SHAP values: {e}. This might be due to a mismatch in feature names or data format. Skipping SHAP plots."
+        )
+        return
 
     # SHAP Summary Plot (Global Interpretability)
     logger.info("  Generating SHAP Summary Plot...")
-    os.makedirs(FIGURES_DIR, exist_ok=True)
     try:
-        plt.figure(figsize=(10, 8))
-        shap.summary_plot(shap_values, X_test_df, plot_type="dot", show=False)
+        # plt.figure(figsize=(10, 8))
+        logger.info("Attempting to call shap.summary_plot...")
+        logger.info(f"shap_values shape: {shap_values.shape}")
+
+        shap.summary_plot(
+            shap_values,
+            X_test_transformed_dense,
+            feature_names=all_feature_names,
+            plot_type="dot",
+            show=False,
+        )
+        logger.info("shap.summary_plot call completed successfully.")
         plt.title("SHAP Summary Plot: Feature Importance and Impact")
         plt.tight_layout()
-        plt.savefig(os.path.join(FIGURES_DIR, "shap_summary_plot.png"))
+        plt.savefig(
+            os.path.join(
+                target_figures_dir,
+                f"{output_filename_prefix}shap_summary_plot_full.png",
+            )
+        )
         plt.close()  # Close plot to free memory
         logger.info(
-            f"  SHAP Summary Plot saved to: {os.path.join(FIGURES_DIR, 'shap_summary_plot.png')}"
+            f"  SHAP Summary Plot saved to: {os.path.join(target_figures_dir, f'{output_filename_prefix}shap_summary_plot_full.png')}"
         )
     except Exception as e:
         logger.error(f"Error generating SHAP Summary Plot: {e}")
 
     # SHAP Dependence Plots (Local Interpretability for specific features)
     logger.info("  Generating SHAP Dependence Plots for key features...")
-    # Use the model's feature importances to get top features
+
+    # Use the model's feature importances to get top features for dependence plots
+    top_features = []
     if hasattr(xgboost_model, "feature_importances_"):
-        importances = xgboost_model.feature_importances_
-        feature_importance_df = pd.DataFrame(
-            {"Feature": all_feature_names, "Importance": importances}
-        )
-        feature_importance_df = feature_importance_df.sort_values(
-            by="Importance", ascending=False
-        )
-        top_features = (
-            feature_importance_df["Feature"].head(SHAP_TOP_FEATURES_TO_PLOT).tolist()
-        )
+        importance_df = pd.DataFrame(
+            {
+                "Feature": all_feature_names,
+                "Importance": xgboost_model.feature_importances_,
+            }
+        ).sort_values(by="Importance", ascending=False)
+        top_features = importance_df["Feature"].head(SHAP_TOP_FEATURES_TO_PLOT).tolist()
     else:
         logger.warning(
             "XGBoost model does not have 'feature_importances_'. Cannot determine top features for dependence plots."
         )
-        top_features = []  # No top features to plot
 
     # Function to sanitize filenames
     def sanitize_filename(filename: str) -> str:
@@ -576,8 +642,19 @@ def interpret_model_shap(
         if feature in X_test_df.columns:
             try:
                 plt.figure(figsize=(8, 6))
+                logger.info(
+                    f"Attempting to call shap.dependence_plot for feature: {feature}..."
+                )
                 shap.dependence_plot(
-                    feature, shap_values, X_test_df, interaction_index=None, show=False
+                    feature,
+                    shap_values,
+                    X_test_transformed_dense,
+                    feature_names=all_feature_names,
+                    interaction_index=None,
+                    show=False,
+                )
+                logger.info(
+                    f"shap.dependence_plot for {feature} completed successfully."
                 )
                 plt.title(f"SHAP Dependence Plot for: {feature}")
                 plt.tight_layout()
@@ -585,7 +662,7 @@ def interpret_model_shap(
                 sanitized_feature_name = sanitize_filename(feature)
                 plt.savefig(
                     os.path.join(
-                        FIGURES_DIR,
+                        target_figures_dir,
                         f"shap_dependence_plot_{sanitized_feature_name}.png",
                     )
                 )

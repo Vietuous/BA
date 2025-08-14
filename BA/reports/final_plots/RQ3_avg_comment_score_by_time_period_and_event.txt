@@ -1,0 +1,20 @@
+Average Comment Score by Time Period and Event (incl. Range)
+============================================================
+
+   time_period  event_name       mean        std  median  count  lower_bound  upper_bound
+  Before Event         TI8        NaN        NaN     NaN    NaN          NaN          NaN
+  Before Event        TI11        NaN        NaN     NaN    NaN          NaN          NaN
+  Before Event     OG_RM24        NaN        NaN     NaN    NaN          NaN          NaN
+  Before Event Topson_RM24        NaN        NaN     NaN    NaN          NaN          NaN
+  During Event         TI8 109.833605 298.366268    24.0  613.0  -188.532663   408.199873
+  During Event        TI11  36.776451  72.449661    17.5  586.0   -35.673210   109.226111
+  During Event     OG_RM24  77.714894 181.314321    25.0  705.0  -103.599428   259.029215
+  During Event Topson_RM24  77.928876 181.482446    25.0  703.0  -103.553570   259.411322
+   After Event         TI8  50.200000  15.404184    43.5   10.0    34.795816    65.604184
+   After Event        TI11   3.090909   2.256304     2.0   11.0     0.834605     5.347213
+   After Event     OG_RM24        NaN        NaN     NaN    NaN          NaN          NaN
+   After Event Topson_RM24        NaN        NaN     NaN    NaN          NaN          NaN
+Outside Window         TI8  67.625000  51.933852    48.5    8.0    15.691148   119.558852
+Outside Window        TI11        NaN        NaN     NaN    NaN          NaN          NaN
+Outside Window     OG_RM24        NaN        NaN     NaN    NaN          NaN          NaN
+Outside Window Topson_RM24        NaN        NaN     NaN    NaN          NaN          NaN

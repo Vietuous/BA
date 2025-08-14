@@ -1,0 +1,5 @@
+word_count Distribution Summary
+===============================
+
+    Mean  Median       Std  Count  Lower Bound (Mean - Std)  Upper Bound (Mean + Std)
+25.56563    14.5 38.862281   2636                -13.296652                 64.427911

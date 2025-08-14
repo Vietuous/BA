@@ -27,7 +27,7 @@ TOURNAMENT_CONFIGS = enrich_tournament_configs(
 )
 
 # Get a logger instance for this module
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("data.pipeline")
 
 
 # Import custom modules from src/
@@ -45,12 +45,10 @@ try:
     )
     from BA.src.data.reddit_scraper import get_posts_and_comments, get_reddit_instance
     from BA.src.features.feature_engineering import (
-        categorize_post_type,  # <-- Hinzugefügt
-    )
-    from BA.src.features.feature_engineering import (
         add_event_name,
         calculate_comment_score_per_day,
         calculate_post_title_features,
+        categorize_post_type,
         extract_time_features,
     )
     from BA.src.features.text_features import (
@@ -61,6 +59,7 @@ try:
         preprocess_text,
     )
     from BA.src.utils.config_loader import get_dota2_teams, get_keywords
+    from BA.src.utils.logging_utils import setup_logger
 except ImportError as e:
     logger.error(
         f"Failed to import custom modules. Please check your PYTHONPATH and module paths: {e}"
@@ -305,7 +304,7 @@ def prepare_data() -> pd.DataFrame:
                 df["contains_hero_keyword"] = False
                 df["contains_event_keyword"] = False
 
-            # NEW: Categorize post type
+            # Categorize post type
             df = categorize_post_type(
                 df.copy()
             )  # Pass a copy to avoid SettingWithCopyWarning
@@ -349,30 +348,7 @@ def prepare_data() -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    log_file_path = getattr(config, "LOG_FILE", "logs/prepare_data.log")
-    log_level = getattr(config, "LOG_LEVEL", logging.INFO)
-
-    os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
-
-    # Create a FileHandler for logging to a file
-    file_handler = logging.FileHandler(log_file_path, encoding="utf-8")
-
-    # Create a StreamHandler for logging to console, explicitly setting encoding to utf-8
-    stream_handler = logging.StreamHandler(sys.stdout)
-    stream_handler.setFormatter(
-        logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-    )
-    stream_handler.setLevel(log_level)  # Set level for stream handler
-
-    # Clear existing handlers to prevent duplicate output or conflicting encodings
-    for handler in logging.root.handlers[:]:
-        logging.root.removeHandler(handler)
-
-    logging.basicConfig(
-        level=log_level,
-        format="%(asctime)s - %(levelname)s - %(message)s",
-        handlers=[file_handler, stream_handler],  # Use the configured handlers
-    )
+    setup_logger("data.pipeline", config.LOG_FILES["data.pipeline"], config.LOG_LEVEL)
     logger.info("Running prepare_data.py as a standalone script...")
     prepared_data = prepare_data()
     if not prepared_data.empty:

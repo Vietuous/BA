@@ -66,6 +66,7 @@ def get_reddit_instance() -> praw.Reddit:
         client_id=REDDIT_CLIENT_ID,
         client_secret=REDDIT_CLIENT_SECRET,
         user_agent=REDDIT_USER_AGENT,
+        requestor_kwargs={"timeout": 20},
         # username=os.getenv('REDDIT_USERNAME'), # Uncomment if user auth is needed
         # password=os.getenv('REDDIT_PASSWORD')  # Uncomment if user auth is needed
     )
@@ -82,7 +83,7 @@ def get_reddit_instance() -> praw.Reddit:
     before_sleep=before_sleep_log(logger, logging.INFO),
     reraise=True,  # Re-raise the last exception after retries are exhausted
 )
-def _get_subreddit_search_results(
+def get_subreddit_search_results(
     subreddit_obj: Subreddit, query: str, limit: int, time_filter: str
 ) -> List[Submission]:
     """
@@ -154,7 +155,7 @@ def _get_submission_comments(submission: Submission) -> List[Comment]:
     """
     logger.debug(f"Attempting to fetch comments for submission ID: {submission.id}")
     # Fetch comments up to 3 levels deep. Higher limits increase API calls and time.
-    submission.comments.replace_more(limit=3)
+    submission.comments.replace_more(limit=1)
     return list(submission.comments.list())
 
 
@@ -215,7 +216,7 @@ def get_posts_and_comments(
     try:
         # Attempt to get posts from various sources
         logger.info(f"Fetching posts via search for query: '{query}'...")
-        search_results = _get_subreddit_search_results(
+        search_results = get_subreddit_search_results(
             subreddit_obj, query, post_limit, "all"
         )
         logger.info(f"  - Found {len(search_results)} posts via search for '{query}'.")

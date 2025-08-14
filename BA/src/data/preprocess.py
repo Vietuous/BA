@@ -134,22 +134,14 @@ def filter_deleted_and_empty_processed_comments(
     return df_filtered
 
 
-import datetime
-import logging
-
-import pandas as pd  # Assuming pandas is used for pd.to_datetime if needed
-
-logger = logging.getLogger(__name__)  # Ensure logger is initialized if not already
-
-
 def categorize_time_period(
     comment_timestamp: Union[
         int, float, str, datetime.datetime
     ],  # Allow various timestamp types
     event_start_date: datetime.datetime,
     event_end_date: datetime.datetime,
-    pre_event_start_date: datetime.datetime,  # New argument: calculated start of pre-event window
-    post_event_end_date: datetime.datetime,  # New argument: calculated end of post-event window
+    pre_event_start_date: datetime.datetime,  # Calculated start of pre-event window
+    post_event_end_date: datetime.datetime,  # Calculated end of post-event window
 ) -> str:
     """
     Categorizes comments into 'Before Event', 'During Event', 'After Event',

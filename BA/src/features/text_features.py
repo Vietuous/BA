@@ -172,7 +172,6 @@ def contains_any_keyword(text: Union[str, Any], keyword_list: List[str]) -> bool
         text = str(text)
 
     # Create a regex pattern for whole word matching, escaping special characters in keywords
-    # Example: r"\b(?:keyword1|keyword2)\b"
     pattern = r"\b(?:" + "|".join(re.escape(kw) for kw in keyword_list) + r")\b"
     return bool(re.search(pattern, text.lower()))
 

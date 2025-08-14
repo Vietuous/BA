@@ -1,0 +1,8 @@
+Comment Distribution Across Time Periods by Event (Counts and Percentages)
+==========================================================================
+
+ After Event  During Event  Outside Window  After Event (%)  During Event (%)  Outside Window (%)
+           0           705               0         0.000000        100.000000            0.000000
+          11           586               0         1.842546         98.157454            0.000000
+          10           613               8         1.584786         97.147385            1.267829
+           0           703               0         0.000000        100.000000            0.000000

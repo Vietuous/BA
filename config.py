@@ -135,5 +135,11 @@ TARGET_VARIABLE = "comment_score"
 
 # --- Logging Configuration ---
 LOGS_DIR = os.path.join(PROJECT_ROOT, "BA", "logs")
-LOG_FILE = os.path.join(LOGS_DIR, "model_pipeline.log")
+LOG_FILES = {
+    "data.pipeline": os.path.join(LOGS_DIR, "data_pipeline.log"),
+    "eda.stats": os.path.join(
+        LOGS_DIR, "eda_stats.log"
+    ),  # Includes EDA and statistical tests
+    "ml.pipeline": os.path.join(LOGS_DIR, "ml_training.log"),
+}
 LOG_LEVEL = logging.INFO

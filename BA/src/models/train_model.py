@@ -1,7 +1,7 @@
-# BA/src/models/train_model.py
 import datetime
 import logging
 import os
+import shutil  # Added for file copying
 import sys
 from typing import Any, Dict, Tuple
 
@@ -20,7 +20,6 @@ import config
 # Access config parameters safely with getattr, providing defaults
 REPORTS_DIR = getattr(config, "REPORTS_DIR", "reports")
 FIGURES_DIR = getattr(config, "FIGURES_DIR", "figures")
-LOG_FILE = getattr(config, "LOG_FILE", "logs/ml_pipeline.log")
 LOG_LEVEL = getattr(config, "LOG_LEVEL", logging.INFO)
 MODELS_DIR = getattr(config, "MODELS_DIR", "models")
 RANDOM_STATE = getattr(config, "RANDOM_STATE", 42)
@@ -28,13 +27,10 @@ TARGET_VARIABLE = getattr(config, "TARGET_VARIABLE", "comment_score")
 TEST_SIZE = getattr(config, "TEST_SIZE", 0.2)
 
 # Setup logging (must be done before importing model_utils if model_utils also sets up logging)
-os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
-logging.basicConfig(
-    level=LOG_LEVEL,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler(LOG_FILE), logging.StreamHandler()],
-)
-logger = logging.getLogger(__name__)  # Get a logger instance for this module
+os.makedirs(config.LOGS_DIR, exist_ok=True)
+
+# Get a logger instance for this module
+logger = logging.getLogger("ml.pipeline")  # Get a logger instance for this module
 
 
 from sklearn.compose import ColumnTransformer
@@ -51,6 +47,7 @@ try:
         train_and_evaluate_linear_regression,
         train_and_tune_xgboost,
     )
+    from BA.src.utils.logging_utils import setup_logger
 except ImportError as e:
     logger.error(
         f"Failed to import custom modules. Please check your PYTHONPATH and module paths: {e}"
@@ -64,9 +61,12 @@ def save_ml_results_summary(
     r2_xgboost_tuned_test: float,
     r2_xgboost_tuned_cv: float,
     best_xgboost_params: Dict[str, Any],
+    subfolder: str = "",
+    filename_prefix: str = "",
 ) -> None:
     """
-    Saves a summary of the ML model results to a text file in the REPORTS_DIR.
+    Saves a summary of the ML model results to a text file in the REPORTS_DIR,
+    within a specified subfolder and with an optional filename prefix.
 
     Args:
         r2_linear_test (float): R-squared value for Linear Regression on the test set.
@@ -74,12 +74,15 @@ def save_ml_results_summary(
         r2_xgboost_tuned_test (float): R-squared value for Tuned XGBoost on the test set.
         r2_xgboost_tuned_cv (float): Mean cross-validation R-squared for Tuned XGBoost.
         best_xgboost_params (Dict[str, Any]): Dictionary of best hyperparameters for XGBoost.
+        subfolder (str, optional): The subfolder within REPORTS_DIR to save the summary. Defaults to "".
+        filename_prefix (str, optional): Prefix for the saved summary filename. Defaults to "".
     """
-    summary_filename = (
-        f"ml_results_summary_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
-    )
-    summary_filepath = os.path.join(REPORTS_DIR, summary_filename)
-    os.makedirs(REPORTS_DIR, exist_ok=True)
+    # Create the full path for the subfolder
+    target_dir = os.path.join(REPORTS_DIR, subfolder)
+    os.makedirs(target_dir, exist_ok=True)
+
+    summary_filename = f"{filename_prefix}ml_results_summary_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+    summary_filepath = os.path.join(target_dir, summary_filename)
 
     try:
         with open(summary_filepath, "w") as f:
@@ -121,6 +124,10 @@ def run_model_pipeline() -> None:
     7. Speichert eine Zusammenfassung der Ergebnisse.
     """
     logger.info("--- Starting Model Pipeline ---")
+
+    # Define subfolders for ML plots and reports
+    ML_PLOTS_FOLDER = "ml_plots"
+    FINAL_PLOTS_FOLDER = "final_plots"  # Define final_plots folder here too
 
     # 1. Daten laden
     logger.info("\n--- Loading Data ---")
@@ -223,15 +230,41 @@ def run_model_pipeline() -> None:
         )
     else:
         try:
+            # Generate SHAP plots in the ml_plots folder with RQ7_ prefix
             interpret_model_shap(
-                xgboost_model_tuned_pipeline, X_test_raw, all_feature_names
+                xgboost_model_tuned_pipeline,
+                X_test_raw,
+                all_feature_names,
+                output_subfolder=ML_PLOTS_FOLDER,
+                output_filename_prefix="RQ7_",
             )
+
+            # Copy specific SHAP plots to final_plots folder
+            source_dir = os.path.join(FIGURES_DIR, ML_PLOTS_FOLDER)
+            target_dir_final_plots = os.path.join(FIGURES_DIR, FINAL_PLOTS_FOLDER)
+            os.makedirs(
+                target_dir_final_plots, exist_ok=True
+            )  # Ensure final_plots folder exists
+
+            files_to_copy = [
+                "RQ7_xgboost_feature_importance_full.png",
+                "RQ7_shap_summary_plot_full.png",
+            ]
+
+            for filename in files_to_copy:
+                source_path = os.path.join(source_dir, filename)
+                target_path = os.path.join(target_dir_final_plots, filename)
+                if os.path.exists(source_path):
+                    shutil.copy2(source_path, target_path)
+                    logger.info(f"Copied {filename} to {target_dir_final_plots}")
+                else:
+                    logger.warning(f"Source file not found for copying: {source_path}")
+
         except Exception as e:
-            logger.error(f"Error during SHAP interpretation: {e}")
+            logger.error(f"Error during SHAP interpretation or copying: {e}")
 
     # 7. Artefakte speichern
     logger.info("\n--- Saving Model Artifacts ---")
-    # save_artifacts now takes preprocessor directly, not tfidf_vectorizer separately
     try:
         save_artifacts(
             linear_model_pipeline,
@@ -249,12 +282,24 @@ def run_model_pipeline() -> None:
         r2_xgboost_tuned_test,
         r2_xgboost_tuned_cv,
         best_xgboost_params,
+        subfolder=ML_PLOTS_FOLDER,
+        filename_prefix="",
     )
 
-    logger.info("\n--- Model Pipeline Completed Successfully ---")
+    logger.info("\n--- Model Pipeline completed Successfully ---")
 
 
 if __name__ == "__main__":
-    # Ensure output directories exist
     os.makedirs(MODELS_DIR, exist_ok=True)
-    run_model_pipeline()
+    os.makedirs(os.path.join(FIGURES_DIR, "ml_plots"), exist_ok=True)
+    os.makedirs(os.path.join(REPORTS_DIR, "ml_plots"), exist_ok=True)
+    os.makedirs(os.path.join(FIGURES_DIR, "final_plots"), exist_ok=True)
+
+    setup_logger("ml.pipeline", config.LOG_FILES["ml.pipeline"], config.LOG_LEVEL)
+
+    logger.info("Running train_model.py...")
+    try:
+        run_model_pipeline()
+        logger.info("Training pipeline completed.")
+    except Exception:
+        logging.exception("Error while running ML pipeline")
